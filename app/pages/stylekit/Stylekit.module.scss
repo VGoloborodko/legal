@@ -77,7 +77,7 @@
     width: max-content;
     height: fit-content;
     padding: 12px 114px;
-    background: var();
+    // background: var();
     border-radius: 32px;
     transition: all 0.5s;
 
@@ -89,10 +89,10 @@
     }
 
     &:hover {
-      background: var();
+      // background: var();
 
       p {
-        color: var();
+        // color: var();
       }
     }
   }
