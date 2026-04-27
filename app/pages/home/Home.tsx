@@ -1,7 +1,7 @@
 export default function Home() {
   return (
     <div>
-      <h1>Юридические услуги в Рязани</h1>
+      <h1>Тестовое изменение в ветке dev</h1>
     </div>
   )
 }
