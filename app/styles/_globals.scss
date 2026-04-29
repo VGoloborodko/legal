@@ -1,17 +1,17 @@
-@use "./grid/init" as *;
+@use './grid/init' as *;
 
 //________________Шрифты
 
 // Big title
 .font-bt {
   // width: 100%;
-  font-family: "Raleway", sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-optical-sizing: auto;
   font-size: 184px;
   font-style: normal;
   font-weight: 700;
   line-height: 184px;
-  color: var(--default-color);
+  color: var(--color-text-tetriary);
 
   @include bp(md) {
     font-size: 93px;
@@ -29,13 +29,13 @@
 // Title H1
 .font-h1 {
   // width: 100%;
-  font-family: "Raleway", sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-optical-sizing: auto;
   font-size: 80px;
   font-style: normal;
   font-weight: 700;
   line-height: 80px;
-  color: var(--default-color);
+  color: var(--color-text-tetriary);
 
   @include bp(md) {
     font-size: 60px;
@@ -53,13 +53,13 @@
 // Title H2
 .font-h2 {
   // width: 100%;
-  font-family: "Raleway", sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-optical-sizing: auto;
   font-size: 64px;
   font-style: normal;
   font-weight: 700;
   line-height: 82px;
-  color: var(--default-color);
+  color: var(--color-text-tetriary);
 
   @include bp(md) {
     font-size: 50px;
@@ -75,13 +75,13 @@
 // Subtitle large
 .font-s-l {
   // width: 100%;
-  font-family: "Raleway", sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-optical-sizing: auto;
   font-size: 28px;
   font-style: normal;
   font-weight: 400;
   line-height: 32px;
-  color: var(--default-color);
+  color: var(--color-text-tetriary);
 
   @include bp(sm) {
     font-size: 22px;
@@ -92,13 +92,13 @@
 // Subtitle medium
 .font-s-m {
   // width: 100%;
-  font-family: "Raleway", sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-optical-sizing: auto;
   font-size: 24px;
   font-style: normal;
   font-weight: 400;
   line-height: 28px;
-  color: var(--default-color);
+  color: var(--color-text-tetriary);
 
   @include bp(sm) {
     font-size: 20px;
@@ -109,13 +109,13 @@
 // Subtitle small
 .font-s-s {
   // width: 100%;
-  font-family: "Raleway", sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-optical-sizing: auto;
   font-size: 22px;
   font-style: normal;
   font-weight: 400;
   line-height: 26px;
-  color: var(--default-color);
+  color: var(--color-text-tetriary);
 
   @include bp(md) {
     font-size: 21px;
@@ -131,13 +131,13 @@
 // Text large
 .font-t-l {
   // width: 100%;
-  font-family: "Raleway", sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-optical-sizing: auto;
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
   line-height: 25px;
-  color: var(--default-color);
+  color: var(--color-text-tetriary);
 
   @include bp(sm) {
     font-size: 16px;
@@ -148,13 +148,13 @@
 // Text medium
 .font-t-m {
   // width: 100%;
-  font-family: "Raleway", sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-optical-sizing: auto;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
   line-height: 24px;
-  color: var(--default-color);
+  color: var(--color-text-tetriary);
 
   @include bp(sm) {
     font-size: 14px;
@@ -165,13 +165,13 @@
 // Text small
 .font-t-s {
   // width: 100%;
-  font-family: "Raleway", sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-optical-sizing: auto;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: 20px;
-  color: var(--default-color);
+  color: var(--color-text-tetriary);
 
   @include bp(sm) {
     font-size: 12px;
@@ -181,20 +181,103 @@
 
 //________________Цвета
 
-html {
-  --default-color: #303030;
-  --default-bg: #f4f4f4;
+html[data-theme='dark'] {
+  // color
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #a1a1a1;
+  --color-text-tetriary: #3b3b3c;
+  --color-text-brand: #008002;
+  --color-text-error: #af3434;
+  --color-text-white: #ffffff;
+
+  // bg
+  --color-bg-base: #060606;
+  --color-bg-main: #0a0a0b;
+  --color-bg-brand: #008002;
+  --color-bg-surface: #161617;
+  --color-bg-inverse: #e1e1e1;
+
+  // stroke
+  --color-stroke-primary: #2e2e2e;
+  --color-stroke-secondary: #161617;
+  --color-stroke-error: #af3434;
+  --color-stroke-tetriary: #626262;
+}
+
+html[data-theme='light'] {
+  // color
+  --color-text-primary: #181818;
+  --color-text-secondary: #878787;
+  --color-text-tetriary: #3b3b3c;
+  --color-text-brand: #008002;
+  --color-text-error: #af3434;
+  --color-text-white: #ffffff;
+
+  // bg
+  --color-bg-base: #f2f2f2;
+  --color-bg-main: #e4e4e4;
+  --color-bg-brand: #008002;
+  --color-bg-surface: #ffffff;
+  --color-bg-inverse: #202020;
+
+  // stroke
+  --color-stroke-primary: #dddddd;
+  --color-stroke-secondary: #dadae5;
+  --color-stroke-error: #af3434;
+  --color-stroke-tetriary: #626262;
 }
 
 .color {
-  &--default {
-    color: var(--default-color);
+  &--primary {
+    color: var(--color-text-primary);
+  }
+  &--secondary {
+    color: var(--color-text-secondary);
+  }
+  &--tetriary {
+    color: var(--color-text-tetriary);
+  }
+  &--brand {
+    color: var(--color-text-brand);
+  }
+  &--error {
+    color: var(--color-text-error);
+  }
+  &--white {
+    color: var(--color-text-white);
   }
 }
 
-.color-block {
-  &--default {
-    background: var(--default-bg);
+.bg {
+  &--base {
+    background: var(--color-bg-base);
+  }
+  &--main {
+    background: var(--color-bg-main);
+  }
+  &--brand {
+    background: var(--color-bg-brand);
+  }
+  &--surface {
+    background: var(--color-bg-surface);
+  }
+  &--inverse {
+    background: var(--color-bg-inverse);
+  }
+}
+
+.stroke {
+  &--primary {
+    border-color: var(--color-stroke-primary);
+  }
+  &--secondary {
+    border-color: var(--color-stroke-secondary);
+  }
+  &--error {
+    border-color: var(--color-stroke-error);
+  }
+  &--tetriary {
+    border-color: var(--color-stroke-tetriary);
   }
 }
 

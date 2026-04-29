@@ -3,5 +3,5 @@ export default function Home() {
     <div>
       <h1>Тестовое изменение в ветке dev</h1>
     </div>
-  )
+  );
 }

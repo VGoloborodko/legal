@@ -1,8 +1,8 @@
-@use "../../styles/grid/init" as *;
+@use '../../styles/grid/init' as *;
 
 //________________Шрифты
 
-.all-fonts {
+.fonts {
   &__wrapper {
     display: flex;
     flex-direction: column;
@@ -19,38 +19,58 @@
   }
 }
 
-.all-colors {
-  &__wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 80px;
-    padding: 20px;
-    border-radius: 8px;
-    // background: rgb(185 185 185);
-  }
-
-  &__block {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-
+.colors {
   &__item {
     display: flex;
-    align-items: center;
-    gap: 20px;
+    gap: 16px;
   }
-
   &__box {
-    width: 54px;
-    height: 54px;
-    border: 1px solid rgb(141, 141, 141);
-    border-radius: 8px;
-  }
+    width: 80px;
+    height: 80px;
+    border: 1px solid var(--color-text-secondary);
+    border-radius: 12px; // !внимание
 
-  &__name {
-    height: fit-content;
+    @include bp(md) {
+      width: 64px;
+      height: 64px;
+    }
+
+    @include bp(sm) {
+      width: 40px;
+      height: 40px;
+    }
   }
+  // &__wrapper {
+  //   display: flex;
+  //   flex-wrap: wrap;
+  //   gap: 80px;
+  //   padding: 20px;
+  //   border-radius: 8px;
+  //   // background: rgb(185 185 185);
+  // }
+
+  // &__block {
+  //   display: flex;
+  //   flex-direction: column;
+  //   gap: 20px;
+  // }
+
+  // &__item {
+  //   display: flex;
+  //   align-items: center;
+  //   gap: 20px;
+  // }
+
+  // &__box {
+  //   width: 54px;
+  //   height: 54px;
+  //   border: 1px solid rgb(141, 141, 141);
+  //   border-radius: 8px;
+  // }
+
+  // &__name {
+  //   height: fit-content;
+  // }
 }
 
 //________________Кнопки
@@ -88,13 +108,13 @@
       max-width: 767px;
     }
 
-    &:hover {
-      // background: var();
+    // &:hover {
+    // background: var();
 
-      p {
-        // color: var();
-      }
-    }
+    // p {
+    //   color: var();
+    // }
+    // }
   }
 }
 
@@ -113,7 +133,7 @@
     column-gap: 20px;
     padding: 8px;
     border-radius: 4px;
-    background: #f4f4f4;
+    // background: #f4f4f4;
 
     @include bp(md) {
       justify-content: space-between;
@@ -153,13 +173,13 @@
     }
   }
 
-  &__class {
-    width: fit-content;
-    padding: 4px 12px;
-    border-radius: 8px;
-    background: rgb(222, 222, 222);
-    cursor: pointer;
-  }
+  // &__class {
+  //   width: fit-content;
+  //   padding: 4px 12px;
+  //   border-radius: 8px;
+  //   background: rgb(222, 222, 222);
+  //   cursor: pointer;
+  // }
 
   &__box-grey {
     width: 155px;
@@ -370,4 +390,15 @@
       height: 80px;
     }
   }
+}
+
+// Остальное
+.copy-class {
+  width: fit-content;
+  height: fit-content;
+  padding: 4px 12px;
+  border-radius: 8px;
+  color: var(--color-text-secondary);
+  background: var(--color-bg-surface);
+  cursor: pointer;
 }
