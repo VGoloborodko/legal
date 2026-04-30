@@ -27,8 +27,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Meta />
         <Links />
       </head>
-      <body>
-        <div className="bg--base sp-t-yellow">
+      <body className="bg--base">
+        <div className="sp-t-yellow">
           <div className="container">
             <div className="col">
               <nav>

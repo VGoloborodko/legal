@@ -38,7 +38,7 @@ function Stylekit() {
     </div> */}
 
       {/* Шрифты */}
-      <div className={`${styles['fonts']} bg--base sp-t-pink`}>
+      <div className={`${styles['fonts']} sp-t-pink`}>
         <div className="container">
           <div className="col">
             <h2 className="font-h2 color--primary sp-b-purple">Fonts</h2>
@@ -104,32 +104,55 @@ function Stylekit() {
       </div>
 
       {/* Цвета */}
-      <div className={`${styles['colors']} bg--base sp-t-pink`}>
+      <div className={`${styles['colors']} sp-t-pink`}>
         <div className="container">
           <div className="col">
             <h2 className="font-h2 color--primary sp-b-purple">Colors</h2>
             <div className="row">
-              <div className="col-4 md-col-3 sm-col-3">
+              <div className="col-4 col-md-3 col-sm-3">
                 <div className={`${styles['colors__item']}`}>
                   <div className={`${styles['colors__box']}`} style={{ background: 'var(--color-text-primary)' }}></div>
-                  <p className={`font-t-l ${styles['copy-class']} ${copiedClass === 'color--primary' ? styles.copied : ''}`} onClick={() => copyToClipboard('color--primary')}>
+                  <p className={`${styles['copy-class']} font-t-l ${copiedClass === 'color--primary' ? styles.copied : ''}`} onClick={() => copyToClipboard('color--primary')}>
                     {getButtonText('color--primary')}
                   </p>
                 </div>
-              </div>
-              <div className="col-4 md-col-3 sm-col-3">
-                <div className={`${styles['colors__item']}`}>
-                  <div className={`${styles['colors__box']}`} style={{ background: 'var(--color-bg-base)' }}></div>
-                  <p className={`font-t-l ${styles['copy-class']} ${copiedClass === 'bg--base' ? styles.copied : ''}`} onClick={() => copyToClipboard('bg--base')}>
-                    {getButtonText('bg--base')}
+
+                <div className={`${styles['colors__item']} sp-t-yellow`}>
+                  <div className={`${styles['colors__box']}`} style={{ background: 'var(--color-text-secondary)' }}></div>
+                  <p className={`${styles['copy-class']} font-t-l ${copiedClass === 'color--secondary' ? styles.copied : ''}`} onClick={() => copyToClipboard('color--secondary')}>
+                    {getButtonText('color--secondary')}
                   </p>
                 </div>
               </div>
-              <div className="col-4 md-col-3 sm-col-3">
+
+              <div className="col-4 col-md-3 col-sm-3">
+                <div className={`${styles['colors__item']}`}>
+                  <div className={`${styles['colors__box']}`} style={{ background: 'var(--color-bg-base)' }}></div>
+                  <p className={`${styles['copy-class']} font-t-l ${copiedClass === 'bg--base' ? styles.copied : ''}`} onClick={() => copyToClipboard('bg--base')}>
+                    {getButtonText('bg--base')}
+                  </p>
+                </div>
+
+                <div className={`${styles['colors__item']} sp-t-yellow`}>
+                  <div className={`${styles['colors__box']}`} style={{ background: 'var(--color-bg-main)' }}></div>
+                  <p className={`${styles['copy-class']} font-t-l ${copiedClass === 'bg--main' ? styles.copied : ''}`} onClick={() => copyToClipboard('bg--main')}>
+                    {getButtonText('bg--main')}
+                  </p>
+                </div>
+              </div>
+
+              <div className="col-4 col-md-3 col-sm-3">
                 <div className={`${styles['colors__item']}`}>
                   <div className={`${styles['colors__box']}`} style={{ background: 'var(--color-stroke-primary)' }}></div>
-                  <p className={`font-t-l ${styles['copy-class']} ${copiedClass === 'stroke--primary' ? styles.copied : ''}`} onClick={() => copyToClipboard('stroke--primary')}>
+                  <p className={`${styles['copy-class']} font-t-l ${copiedClass === 'stroke--primary' ? styles.copied : ''}`} onClick={() => copyToClipboard('stroke--primary')}>
                     {getButtonText('stroke--primary')}
+                  </p>
+                </div>
+
+                <div className={`${styles['colors__item']} sp-t-yellow`}>
+                  <div className={`${styles['colors__box']}`} style={{ background: 'var(--color-stroke-secondary)' }}></div>
+                  <p className={`${styles['copy-class']} font-t-l ${copiedClass === 'stroke--secondary' ? styles.copied : ''}`} onClick={() => copyToClipboard('stroke--secondary')}>
+                    {getButtonText('stroke--secondary')}
                   </p>
                 </div>
               </div>
@@ -139,7 +162,7 @@ function Stylekit() {
       </div>
 
       {/* Отступы */}
-      <div className={`${styles['indentation-system']} bg--base sp-v-pink`}>
+      <div className={`${styles['indentation-system']} sp-v-pink`}>
         <div className="container">
           <div className="col">
             <h2 className="font-h2 color--primary sp-b-purple">Indentation system</h2>
