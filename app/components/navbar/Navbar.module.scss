@@ -1,0 +1,25 @@
+@use "../../styles/grid/init" as *;
+
+.navbar {
+
+    &__inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 80px;
+    }
+
+    &__list {
+        display: flex;
+        column-gap: 16px;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__actions {
+        display: flex;
+        column-gap: 24px;
+        align-items: center;
+        justify-content: space-between;
+    }
+}

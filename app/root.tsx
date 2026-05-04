@@ -1,22 +1,6 @@
-import { useState } from 'react';
-import { Links, Meta, Outlet, Scripts, ScrollRestoration, Link } from 'react-router';
+import { Links, Meta, Outlet, Scripts, ScrollRestoration } from 'react-router';
 import './styles/style.scss';
-
-function ThemeToggle() {
-  const [theme, setTheme] = useState<'light' | 'dark'>('dark');
-
-  const toggle = () => {
-    const next = theme === 'dark' ? 'light' : 'dark';
-    setTheme(next);
-    document.documentElement.setAttribute('data-theme', next);
-  };
-
-  return (
-    <button onClick={toggle} style={{ background: 'none', border: 'none', cursor: 'pointer' }}>
-      {theme === 'dark' ? '☀️' : '🌙'}
-    </button>
-  );
-}
+import Navbar from './components/navbar/Navbar';
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -28,29 +12,15 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body className="bg--base">
-        <div className="sp-t-yellow">
-          <div className="container">
-            <div className="col">
-              <nav>
-                <Link style={{ paddingRight: '20px' }} to="/">
-                  Home
-                </Link>
-                <Link style={{ paddingRight: '20px' }} to="/stylekit">
-                  Stylekit
-                </Link>
-                <ThemeToggle />
-              </nav>
-            </div>
-          </div>
-        </div>
+        <Navbar />
         {children}
         <ScrollRestoration />
         <Scripts />
       </body>
     </html>
-  );
+  )
 }
 
 export default function Root() {
-  return <Outlet />;
+  return <Outlet />
 }
