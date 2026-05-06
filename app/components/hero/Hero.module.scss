@@ -3,11 +3,19 @@
 .hero {
   display: flex;
   min-height: 100vh;
-  //   max-height: 1080px;
+  max-height: 900px;
   padding-top: calc(80px + 32px);
+
+  @include bp(md) {
+    max-height: none;
+  }
 
   @include bp(sm) {
     padding-top: calc(80px + 28px);
+  }
+
+  :global(.container) {
+    height: 100%;
   }
 
   &__wrapper {
@@ -20,5 +28,16 @@
   &__inner {
     display: flex;
     justify-content: space-between;
+    height: 100%;
+  }
+
+  &__media {
+    display: flex;
+    align-items: flex-end;
+    height: 100%;
+  }
+
+  &__image img {
+    max-height: 600px;
   }
 }

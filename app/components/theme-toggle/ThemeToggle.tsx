@@ -1,33 +1,29 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from './ThemeToggle.module.scss';
 
 export default function ThemeToggle() {
-  const [theme, setTheme] = useState<'light' | 'dark'>(() => {
-    if (typeof window !== 'undefined') {
-      return (localStorage.getItem('theme') as 'light' | 'dark') || 'dark';
-    }
+  const [theme, setTheme] = useState<'light' | 'dark'>('dark');
 
-    return 'dark';
-  });
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('theme') as 'light' | 'dark' | null;
+    const currentTheme = savedTheme || (document.documentElement.getAttribute('data-theme') as 'light' | 'dark') || 'dark';
+
+    setTheme(currentTheme);
+    document.documentElement.setAttribute('data-theme', currentTheme);
+    localStorage.setItem('theme', currentTheme);
+  }, []);
 
   const toggleTheme = () => {
-    const next = theme === 'dark' ? 'light' : 'dark';
+    const nextTheme = theme === 'dark' ? 'light' : 'dark';
 
-    setTheme(next);
-    document.documentElement.setAttribute('data-theme', next);
-    localStorage.setItem('theme', next);
+    setTheme(nextTheme);
+    document.documentElement.setAttribute('data-theme', nextTheme);
+    localStorage.setItem('theme', nextTheme);
   };
 
   return (
-    <button
-      type="button"
-      onClick={toggleTheme}
-      className={styles['theme-toggle']}
-      aria-label="Переключить тему"
-    >
-      <span className={styles['theme-toggle__icon']}>
-        {theme === 'dark' ? '🌞' : '🌙'}
-      </span>
+    <button type="button" onClick={toggleTheme} className={styles['theme-toggle']} aria-label="Переключить тему">
+      <span className={styles['theme-toggle__icon']}>{theme === 'dark' ? '🌞' : '🌙'}</span>
     </button>
   );
 }
