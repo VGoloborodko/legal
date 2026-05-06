@@ -1,7 +1,8 @@
 @use "sass:math";
 
 // Максимальная ширина контейнера
-$container-max-width: 100% !default;
+// $container-max-width: 100% !default;
+$container-max-width: 1920px !default;
 
 // Колличество колонок
 // $grid-columns: 12 !default;

@@ -1,1 +1,24 @@
-.hero {}
+@use '../../styles/grid/init' as *;
+
+.hero {
+  display: flex;
+  min-height: 100vh;
+  //   max-height: 1080px;
+  padding-top: calc(80px + 32px);
+
+  @include bp(sm) {
+    padding-top: calc(80px + 28px);
+  }
+
+  &__wrapper {
+    flex: 1;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+  }
+}
