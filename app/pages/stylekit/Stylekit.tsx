@@ -1,6 +1,5 @@
 import Hero from '../../components/hero/Hero';
-import heroBg from '../../assets/images/hero/main_cover_050526.jpg';
-import heroPerson from '../../assets/images/hero/main_cover_mini.jpg';
+import heroBg from '../../assets/images/hero/stylekit_cover_070526.jpg';
 import { useState, useCallback } from 'react';
 import '../../styles/style.scss';
 import styles from './Stylekit.module.scss';
@@ -41,7 +40,8 @@ function Stylekit() {
     </div> */}
     <Hero
       backgroundImage={heroBg}
-      heroImage={heroPerson}
+      heroTitle="Stylekit"
+      heroSubTitle="Описание страницы"
     />
 
       {/* Шрифты */}

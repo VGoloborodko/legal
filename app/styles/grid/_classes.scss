@@ -1,6 +1,11 @@
 @use 'variables' as *;
 @use 'mixins' as *;
 
+// Дополнительные уши
+.ears {
+  @include ears;
+}
+
 // Контейнер
 .container {
   @include container;

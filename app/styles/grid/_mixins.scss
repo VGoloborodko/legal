@@ -1,6 +1,23 @@
-@use "sass:map";
-@use "sass:math";
+@use 'sass:map';
+@use 'sass:math';
 @use 'variables' as *;
+
+// Дополнительные уши
+@mixin ears {
+  width: 100%;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  @include bp(md) {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  @include bp(sm) {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
 
 // Контейнер
 @mixin container {
@@ -15,8 +32,8 @@
   // }
 
   @include bp(md) {
-    padding-left: 40px;
-    padding-right: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 
   @include bp(sm) {

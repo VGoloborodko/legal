@@ -1,0 +1,7 @@
+@use '../../styles/grid/init' as *;
+
+.advantages {
+  &__inner {
+    display: flex;
+  }
+}
