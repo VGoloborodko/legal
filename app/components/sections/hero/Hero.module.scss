@@ -1,11 +1,12 @@
-@use '../../styles/grid/init' as *;
+@use '../../../styles/grid/init' as *;
 
 .hero {
   display: flex;
   min-height: calc(100vh - 112px);
 
-  @include bp(sm) {
-    min-height: calc(100vh - 108px);
+  @include bp(md) {
+    // min-height: calc(100vh - 108px);
+    min-height: unset;
   }
 
   &__wrapper {

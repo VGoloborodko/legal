@@ -1,0 +1,98 @@
+/* Button.module.scss */
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  padding-inline: 24px;
+  min-height: 48px;
+
+  border: none;
+  border-radius: 999px;
+
+  font: inherit;
+  font-weight: 500;
+  cursor: pointer;
+
+  color: var(--clr-text-on-accent, #fff);
+  background-color: var(--clr-accent, #00a651);
+
+  transition:
+    background-color 180ms ease-out,
+    transform 120ms ease-out,
+    box-shadow 180ms ease-out;
+
+  &:hover {
+    background-color: var(--clr-accent-hover, #009045);
+  }
+
+  &:active {
+    transform: translateY(1px);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: default;
+  }
+}
+
+/* Размеры */
+.button--sm {
+  padding-inline: 16px;
+  min-height: 40px;
+  font-size: 14px;
+}
+
+.button--md {
+  padding-inline: 24px;
+  min-height: 48px;
+  font-size: 15px;
+}
+
+.button--lg {
+  padding-inline: 28px;
+  min-height: 56px;
+  font-size: 16px;
+}
+
+/* Форма */
+.button--default {
+  border-radius: 999px;
+}
+
+.button--round {
+  padding-inline: 0;
+  width: 48px;
+  min-width: 48px;
+  height: 48px;
+  border-radius: 50%;
+}
+
+/* Внутренние элементы */
+.button__text {
+  display: inline-block;
+}
+
+.button__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  /* чтобы иконка не «плясала» */
+  width: 20px;
+  height: 20px;
+
+  /* иконка берёт currentColor из .button */
+  color: inherit;
+}
+
+/* Кнопка только с иконкой (на всякий случай) */
+.button--icon-only {
+  padding-inline: 0;
+  width: 40px;
+  min-width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}

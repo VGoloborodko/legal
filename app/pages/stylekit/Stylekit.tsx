@@ -1,4 +1,4 @@
-import Hero from '../../components/hero/Hero';
+import Hero from '../../components/sections/hero/Hero';
 import heroBg from '../../assets/images/hero/stylekit_cover_070526.jpg';
 import { useState, useCallback } from 'react';
 import '../../styles/style.scss';

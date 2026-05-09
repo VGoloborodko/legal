@@ -1,5 +1,5 @@
 import styles from './Navbar.module.scss';
-import ThemeToggle from '../theme-toggle/ThemeToggle';
+import ThemeToggle from '../../ui/theme-toggle/ThemeToggle';
 
 export default function Navbar() {
   return (
