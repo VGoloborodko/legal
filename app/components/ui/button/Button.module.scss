@@ -1,98 +1,93 @@
-/* Button.module.scss */
+@use "../../../styles/grid/init" as *;
 
 .button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
+  gap: 10px;
 
-  padding-inline: 24px;
-  min-height: 48px;
-
-  border: none;
-  border-radius: 999px;
-
-  font: inherit;
-  font-weight: 500;
+  border: 1px solid transparent;
+  border-radius: var(--radius-xl);
   cursor: pointer;
 
-  color: var(--clr-text-on-accent, #fff);
-  background-color: var(--clr-accent, #00a651);
+  &--brand {
+    color: var(--color-text-white);
+    background-color: var(--color-bg-brand);
+
+    &:hover {
+      background-color: var(--color-bg-brand_heavy);
+    }
+  }
+
+  &--dark {
+    color: var(--color-text-primary);
+    background-color: var(--color-bg-surface);
+    border-color: var(--color-stroke-primary);
+
+    &:hover {
+      background-color: var(--color-bg-surface_hover);
+      border-color: var(--color-stroke-tetriary);
+    }
+  }
 
   transition:
     background-color 180ms ease-out,
     transform 120ms ease-out,
     box-shadow 180ms ease-out;
 
-  &:hover {
-    background-color: var(--clr-accent-hover, #009045);
+  &__text {
+    display: inline-block;
   }
 
-  &:active {
-    transform: translateY(1px);
+  &__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+  }
+
+  &--md {
+    height: 40px;
+    padding-inline: 20px;
+  }
+
+  &--lg {
+    height: 56px;
+    padding-inline: 32px;
+  }
+
+  &--round {
+    border-radius: 50%;
+  }
+
+  &--round.button--md {
+    width: 40px;
+    min-width: 40px;
+    height: 40px;
+    padding-inline: 0;
+  }
+
+  &--round.button--lg {
+    width: 56px;
+    min-width: 56px;
+    height: 56px;
+    padding-inline: 0;
+  }
+
+  &--full {
+    width: 100%;
+  }
+
+  &--full-mobile {
+    @include bp(sm) {
+      width: 100%;
+    }
   }
 
   &:disabled {
     opacity: 0.6;
     cursor: default;
   }
-}
-
-/* Размеры */
-.button--sm {
-  padding-inline: 16px;
-  min-height: 40px;
-  font-size: 14px;
-}
-
-.button--md {
-  padding-inline: 24px;
-  min-height: 48px;
-  font-size: 15px;
-}
-
-.button--lg {
-  padding-inline: 28px;
-  min-height: 56px;
-  font-size: 16px;
-}
-
-/* Форма */
-.button--default {
-  border-radius: 999px;
-}
-
-.button--round {
-  padding-inline: 0;
-  width: 48px;
-  min-width: 48px;
-  height: 48px;
-  border-radius: 50%;
-}
-
-/* Внутренние элементы */
-.button__text {
-  display: inline-block;
-}
-
-.button__icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  /* чтобы иконка не «плясала» */
-  width: 20px;
-  height: 20px;
-
-  /* иконка берёт currentColor из .button */
-  color: inherit;
-}
-
-/* Кнопка только с иконкой (на всякий случай) */
-.button--icon-only {
-  padding-inline: 0;
-  width: 40px;
-  min-width: 40px;
-  height: 40px;
-  border-radius: 50%;
 }

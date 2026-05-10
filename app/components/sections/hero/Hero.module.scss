@@ -15,4 +15,13 @@
     background-repeat: no-repeat;
     background-size: cover;
   }
+
+  &__actions {
+    display: flex;
+    gap: 16px;
+
+    @include bp(sm) {
+      flex-direction: column;
+    }
+  }
 }

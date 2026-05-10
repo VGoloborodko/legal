@@ -4,7 +4,7 @@ type IconProps = {
   height?: number;
 };
 
-export default function ArrowRightIcon({ className, width = 20, height = 20 }: IconProps) {
+export default function ArrowRightIcon({ className, width = 24, height = 24 }: IconProps) {
   return (
     <svg className={className} width={width} height={height} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path

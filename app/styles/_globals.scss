@@ -1,4 +1,4 @@
-@use "./grid/init" as *;
+@use './grid/init' as *;
 
 // ================================
 //________________Шрифты
@@ -7,7 +7,7 @@
 // Big title
 .font-bt {
   // width: 100%;
-  font-family: "Raleway", sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-optical-sizing: auto;
   font-size: 184px;
   font-style: normal;
@@ -31,7 +31,7 @@
 // Title H1
 .font-h1 {
   // width: 100%;
-  font-family: "Raleway", sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-optical-sizing: auto;
   font-size: 80px;
   font-style: normal;
@@ -55,7 +55,7 @@
 // Title H2
 .font-h2 {
   // width: 100%;
-  font-family: "Raleway", sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-optical-sizing: auto;
   font-size: 48px;
   font-style: normal;
@@ -77,7 +77,7 @@
 // Subtitle large
 .font-s-l {
   // width: 100%;
-  font-family: "Raleway", sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-optical-sizing: auto;
   font-size: 28px;
   font-style: normal;
@@ -94,7 +94,7 @@
 // Subtitle medium
 .font-s-m {
   // width: 100%;
-  font-family: "Raleway", sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-optical-sizing: auto;
   font-size: 24px;
   font-style: normal;
@@ -111,7 +111,7 @@
 // Subtitle small
 .font-s-s {
   // width: 100%;
-  font-family: "Raleway", sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-optical-sizing: auto;
   font-size: 22px;
   font-style: normal;
@@ -133,7 +133,7 @@
 // Text large
 .font-t-l {
   // width: 100%;
-  font-family: "Raleway", sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-optical-sizing: auto;
   font-size: 18px;
   font-style: normal;
@@ -150,7 +150,7 @@
 // Text medium
 .font-t-m {
   // width: 100%;
-  font-family: "Raleway", sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-optical-sizing: auto;
   font-size: 16px;
   font-style: normal;
@@ -167,7 +167,7 @@
 // Text small
 .font-t-s {
   // width: 100%;
-  font-family: "Raleway", sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-optical-sizing: auto;
   font-size: 14px;
   font-style: normal;
@@ -185,7 +185,7 @@
 //________________Цвета
 // ================================
 
-html[data-theme="dark"] {
+html[data-theme='dark'] {
   // color
   --color-text-primary: #ffffff;
   --color-text-secondary: #a1a1a1;
@@ -200,15 +200,19 @@ html[data-theme="dark"] {
   --color-bg-brand: #008002;
   --color-bg-surface: #161617;
   --color-bg-inverse: #e1e1e1;
+  --color-bg-glass: #ffffff80;
+  --color-bg-brand_heavy: #006102;
+  --color-bg-surface_hover: #313134;
 
   // stroke
   --color-stroke-primary: #2e2e2e;
   --color-stroke-secondary: #161617;
   --color-stroke-error: #af3434;
   --color-stroke-tetriary: #626262;
+  --color-stroke-success: #008002;
 }
 
-html[data-theme="light"] {
+html[data-theme='light'] {
   // color
   --color-text-primary: #181818;
   --color-text-secondary: #878787;
@@ -223,12 +227,16 @@ html[data-theme="light"] {
   --color-bg-brand: #008002;
   --color-bg-surface: #ffffff;
   --color-bg-inverse: #202020;
+  --color-bg-glass: #ffffff80;
+  --color-bg-brand_heavy: #006102;
+  --color-bg-surface_hover: #e5e5e5;
 
   // stroke
   --color-stroke-primary: #dddddd;
   --color-stroke-secondary: #dadae5;
   --color-stroke-error: #af3434;
   --color-stroke-tetriary: #626262;
+  --color-stroke-success: #008002;
 }
 
 .color {
@@ -268,6 +276,15 @@ html[data-theme="light"] {
   &--inverse {
     background: var(--color-bg-inverse);
   }
+  &--glass {
+    background: var(--color-bg-glass);
+  }
+  &--brand_heavy {
+    background: var(--color-bg-brand_heavy);
+  }
+  &--surface_hover {
+    background: var(--color-bg-surface_hover);
+  }
 }
 
 .stroke {
@@ -283,6 +300,9 @@ html[data-theme="light"] {
   &--tetriary {
     outline: 1px solid var(--color-stroke-tetriary);
   }
+  &--success {
+    outline: 1px solid var(--color-stroke-success);
+  }
 }
 
 // ================================
@@ -295,6 +315,17 @@ html[data-theme="light"] {
   --radius-l: 24px;
   --radius-xl: 32px;
   --radius-xxl: 48px;
+}
+
+@include bp(sm) {
+  :root {
+    --radius-xs: 4px;
+    --radius-s: 8px;
+    --radius-m: 16px;
+    --radius-l: 20px;
+    --radius-xl: 24px;
+    --radius-xxl: 32px;
+  }
 }
 
 // Утилитарные классы

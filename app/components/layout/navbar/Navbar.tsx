@@ -1,4 +1,5 @@
 import styles from './Navbar.module.scss';
+import Button from '../../ui/button/Button';
 import ThemeToggle from '../../ui/theme-toggle/ThemeToggle';
 
 export default function Navbar() {
@@ -24,17 +25,19 @@ export default function Navbar() {
                         </a>
                       </li>
 
-                      <li className={styles['navbar__item']}>
+                      {/* <li className={styles['navbar__item']}>
                         <a href="#" className={`${styles['navbar__link']} font-t-s f-w-bold color--secondary`}>
                           Услуги
                         </a>
-                      </li>
+                      </li> */}
                     </ul>
                   </nav>
 
                   <div className={styles['navbar__actions']}>
                     <ThemeToggle />
-                    <div className="font-t-s f-w-bold color--secondary">Кнопка</div>
+                    <Button size="lg" icon>
+                      Консультация
+                    </Button>
                   </div>
                 </div>
               </div>

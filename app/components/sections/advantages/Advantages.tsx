@@ -1,4 +1,5 @@
-import styles from './Advantages.module.scss';
+import styles from "./Advantages.module.scss";
+import Button from "../../ui/button/Button";
 
 export default function Advantages() {
   return (
@@ -14,7 +15,9 @@ export default function Advantages() {
                     Результаты, <br className="d-none-md" />
                     <span className="color--secondary">а не пустые обещания</span>
                   </h2>
-                  <p className="font-s-s color--secondary sp-t-purple">Кнопка</p>
+                  <div className="sp-t-purple">
+                    <Button icon size="lg" fullWidthMobile variant="dark">Смотреть кейсы</Button>
+                  </div>
                 </div>
                 <div className="col-6 col-md-6 col-sm-3">
                   <div className={styles.advantages__stats}>

@@ -1,3 +1,4 @@
+// import Button from '../../components/ui/button/Button';
 import Hero from '../../components/sections/hero/Hero';
 import heroBg from '../../assets/images/hero/stylekit_cover_070526.jpg';
 import { useState, useCallback } from 'react';
@@ -28,21 +29,10 @@ function Stylekit() {
 
   return (
     <>
-      {/* <div className={`${styles['all-buttons']} sp-t-pink`}>
-      <div className='container'>
-        <div className='col'>
-          <h2 className='font-h2 color--primary sp-b-purple'>Buttons</h2>
-          <div className={styles['all-buttons__block']}>
-            <Button href='#' text='Кнопка' src={iconAdd} />
-          </div>
-        </div>
-      </div>
-    </div> */}
-    <Hero
-      backgroundImage={heroBg}
-      heroTitle="Stylekit"
-      heroSubTitle="Описание страницы"
-    />
+      <Hero
+        backgroundImage={heroBg}
+        heroTitle="Stylekit"
+      />
 
       {/* Шрифты */}
       <div className={`${styles['fonts']} sp-t-pink`}>
@@ -197,6 +187,27 @@ function Stylekit() {
                     {getButtonText('bg--inverse')}
                   </p>
                 </div>
+
+                <div className={`${styles['colors__item']} sp-t-yellow`}>
+                  <div className={`${styles['colors__box']}`} style={{ background: 'var(--color-bg-glass)' }}></div>
+                  <p className={`${styles['copy-class']} font-t-l ${copiedClass === 'bg--glass' ? styles.copied : ''}`} onClick={() => copyToClipboard('bg--glass')}>
+                    {getButtonText('bg--glass')}
+                  </p>
+                </div>
+
+                <div className={`${styles['colors__item']} sp-t-yellow`}>
+                  <div className={`${styles['colors__box']}`} style={{ background: 'var(--color-bg-brand_heavy)' }}></div>
+                  <p className={`${styles['copy-class']} font-t-l ${copiedClass === 'bg--brand_heavy' ? styles.copied : ''}`} onClick={() => copyToClipboard('bg--brand_heavy')}>
+                    {getButtonText('bg--brand_heavy')}
+                  </p>
+                </div>
+
+                <div className={`${styles['colors__item']} sp-t-yellow`}>
+                  <div className={`${styles['colors__box']}`} style={{ background: 'var(--color-bg-surface_hover)' }}></div>
+                  <p className={`${styles['copy-class']} font-t-l ${copiedClass === 'bg--surface_hover' ? styles.copied : ''}`} onClick={() => copyToClipboard('bg--surface_hover')}>
+                    {getButtonText('bg--surface_hover')}
+                  </p>
+                </div>
               </div>
 
               <div className="col-4 col-md-3 col-sm-3">
@@ -226,6 +237,13 @@ function Stylekit() {
                   <div className={`${styles['colors__box']}`} style={{ background: 'var(--color-stroke-tetriary)' }}></div>
                   <p className={`${styles['copy-class']} font-t-l ${copiedClass === 'stroke--tetriary' ? styles.copied : ''}`} onClick={() => copyToClipboard('stroke--tetriary')}>
                     {getButtonText('stroke--tetriary')}
+                  </p>
+                </div>
+
+                <div className={`${styles['colors__item']} sp-t-yellow`}>
+                  <div className={`${styles['colors__box']}`} style={{ background: 'var(--color-stroke-success)' }}></div>
+                  <p className={`${styles['copy-class']} font-t-l ${copiedClass === 'stroke--success' ? styles.copied : ''}`} onClick={() => copyToClipboard('stroke--success')}>
+                    {getButtonText('stroke--success')}
                   </p>
                 </div>
               </div>
