@@ -1,4 +1,21 @@
-@use "../../styles/grid/init" as *;
+@use '../../styles/grid/init' as *;
+
+//________________Кнопки
+
+.buttons {
+  &__inner {
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+}
 
 //________________Шрифты
 

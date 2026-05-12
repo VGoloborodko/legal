@@ -1,4 +1,4 @@
-@use "../../../styles/grid/init" as *;
+@use '../../../styles/grid/init' as *;
 
 .button {
   display: inline-flex;
@@ -26,8 +26,17 @@
 
     &:hover {
       background-color: var(--color-bg-surface_hover);
-      border-color: var(--color-stroke-tetriary);
+      border-color: var(--color-stroke-tertiary);
     }
+  }
+
+  // &:not(:disabled):not([aria-disabled='true']):hover
+
+  &:disabled,
+  &[aria-disabled='true'] {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
   }
 
   transition:

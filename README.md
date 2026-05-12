@@ -1,73 +1,148 @@
-# React + TypeScript + Vite
+# Project legal
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Frontend-проект на React, TypeScript и Vite.
 
-Currently, two official plugins are available:
+Проект используется как основа для разработки интерфейса, UI-компонентов и stylekit-документации. Внутри уже есть общий компонент `Button`, набор визуальных состояний и отдельная документация по использованию UI-элементов.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## О проекте
 
-## React Compiler
+В проекте собраны:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- UI-компоненты для интерфейса;
+- stylekit для проверки состояний компонентов;
+- SCSS-модули для стилизации;
+- документация в папке `docs`.
 
-## Expanding the ESLint configuration
+Если это внутренний проект команды, здесь удобно держать не только код, но и краткие правила по использованию компонентов.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Стек
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- React
+- TypeScript
+- Vite
+- SCSS Modules
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Запуск проекта
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Установка зависимостей:
+
+```bash
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Запуск в режиме разработки:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run dev
 ```
+
+Сборка проекта:
+
+```bash
+npm run build
+```
+
+Предпросмотр production-сборки:
+
+```bash
+npm run preview
+```
+
+Проверка линтером:
+
+```bash
+npm run lint
+```
+
+## Структура
+
+Примерная структура проекта:
+
+```text
+src/
+docs/
+public/
+```
+
+Рекомендуемая логика:
+
+- `src/` — исходный код приложения;
+- `docs/` — проектная документация;
+- `public/` — статические файлы.
+
+## Документация
+
+Подробные инструкции по компонентам и стилям лежат в папке `docs`.
+
+Сейчас доступно:
+
+- [Button documentation](./docs/button.md)
+
+Позже сюда можно добавить:
+
+- `docs/forms.md`
+- `docs/stylekit.md`
+- `docs/typography.md`
+
+## Button
+
+В проекте используется универсальный компонент `Button` для действий и навигации.
+
+Компонент поддерживает:
+
+- режим кнопки через `<button>`;
+- режим ссылки через `<a>` при передаче `href`;
+- варианты `brand` и `dark`;
+- размеры `md` и `lg`;
+- формы `default` и `round`;
+- иконки слева и справа;
+- disabled-состояние для кнопок и ссылок.
+
+### Быстрые примеры
+
+Кнопка:
+
+```tsx
+<Button onClick={() => console.log('click')}>
+  Оставить заявку
+</Button>
+```
+
+Ссылка:
+
+```tsx
+<Button href="/services">
+  Наши услуги
+</Button>
+```
+
+Внешняя ссылка:
+
+```tsx
+<Button href="https://example.com" target="_blank">
+  Открыть сайт
+</Button>
+```
+
+Круглая кнопка:
+
+```tsx
+<Button
+  shape="round"
+  icon
+  ariaLabel="Перейти к следующему блоку"
+/>
+```
+
+Подробнее: [docs/button.md](./docs/button.md)
+
+## Правила использования
+
+- Если передан `href`, компонент работает как ссылка. [web:909]
+- Если `href` не передан, компонент работает как кнопка.
+- Для `shape="round"` обязательно указывайте `ariaLabel`, потому что у такой кнопки нет видимого текстового названия. [web:1045]
+- Для disabled-ссылки используются отдельная логика и стили через `aria-disabled`, так как у `<a>` нет нативного `disabled`. [web:1051]
+
+## Планы по документации
+
+По мере развития проекта в README стоит оставлять только обзорную информацию, а подробные инструкции выносить в `docs/`. Это делает корневой файл короче и понятнее, а детальную документацию — проще поддерживать отдельно. [web:1067][web:1073]

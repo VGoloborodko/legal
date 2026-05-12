@@ -13,7 +13,7 @@
   font-style: normal;
   font-weight: 700;
   line-height: 184px;
-  color: var(--color-text-tetriary);
+  color: var(--color-text-tertiary);
 
   @include bp(md) {
     font-size: 93px;
@@ -37,7 +37,7 @@
   font-style: normal;
   font-weight: 700;
   line-height: 80px;
-  color: var(--color-text-tetriary);
+  color: var(--color-text-tertiary);
 
   @include bp(md) {
     font-size: 60px;
@@ -61,7 +61,7 @@
   font-style: normal;
   font-weight: 700;
   line-height: 64px;
-  color: var(--color-text-tetriary);
+  color: var(--color-text-tertiary);
 
   @include bp(md) {
     font-size: 40px;
@@ -83,7 +83,7 @@
   font-style: normal;
   font-weight: 400;
   line-height: 32px;
-  color: var(--color-text-tetriary);
+  color: var(--color-text-tertiary);
 
   @include bp(sm) {
     font-size: 22px;
@@ -100,7 +100,7 @@
   font-style: normal;
   font-weight: 400;
   line-height: 28px;
-  color: var(--color-text-tetriary);
+  color: var(--color-text-tertiary);
 
   @include bp(sm) {
     font-size: 20px;
@@ -117,7 +117,7 @@
   font-style: normal;
   font-weight: 400;
   line-height: 26px;
-  color: var(--color-text-tetriary);
+  color: var(--color-text-tertiary);
 
   @include bp(md) {
     font-size: 21px;
@@ -139,7 +139,7 @@
   font-style: normal;
   font-weight: 400;
   line-height: 25px;
-  color: var(--color-text-tetriary);
+  color: var(--color-text-tertiary);
 
   @include bp(sm) {
     font-size: 16px;
@@ -156,7 +156,7 @@
   font-style: normal;
   font-weight: 400;
   line-height: 24px;
-  color: var(--color-text-tetriary);
+  color: var(--color-text-tertiary);
 
   @include bp(sm) {
     font-size: 14px;
@@ -173,7 +173,7 @@
   font-style: normal;
   font-weight: 400;
   line-height: 20px;
-  color: var(--color-text-tetriary);
+  color: var(--color-text-tertiary);
 
   @include bp(sm) {
     font-size: 12px;
@@ -189,7 +189,7 @@ html[data-theme='dark'] {
   // color
   --color-text-primary: #ffffff;
   --color-text-secondary: #a1a1a1;
-  --color-text-tetriary: #3b3b3c;
+  --color-text-tertiary: #3b3b3c;
   --color-text-brand: #008002;
   --color-text-error: #af3434;
   --color-text-white: #ffffff;
@@ -208,7 +208,7 @@ html[data-theme='dark'] {
   --color-stroke-primary: #2e2e2e;
   --color-stroke-secondary: #161617;
   --color-stroke-error: #af3434;
-  --color-stroke-tetriary: #626262;
+  --color-stroke-tertiary: #626262;
   --color-stroke-success: #008002;
 }
 
@@ -216,7 +216,7 @@ html[data-theme='light'] {
   // color
   --color-text-primary: #181818;
   --color-text-secondary: #878787;
-  --color-text-tetriary: #3b3b3c;
+  --color-text-tertiary: #3b3b3c;
   --color-text-brand: #008002;
   --color-text-error: #af3434;
   --color-text-white: #ffffff;
@@ -235,7 +235,7 @@ html[data-theme='light'] {
   --color-stroke-primary: #dddddd;
   --color-stroke-secondary: #dadae5;
   --color-stroke-error: #af3434;
-  --color-stroke-tetriary: #626262;
+  --color-stroke-tertiary: #626262;
   --color-stroke-success: #008002;
 }
 
@@ -246,8 +246,8 @@ html[data-theme='light'] {
   &--secondary {
     color: var(--color-text-secondary);
   }
-  &--tetriary {
-    color: var(--color-text-tetriary);
+  &--tertiary {
+    color: var(--color-text-tertiary);
   }
   &--brand {
     color: var(--color-text-brand);
@@ -297,8 +297,8 @@ html[data-theme='light'] {
   &--error {
     outline: 1px solid var(--color-stroke-error);
   }
-  &--tetriary {
-    outline: 1px solid var(--color-stroke-tetriary);
+  &--tertiary {
+    outline: 1px solid var(--color-stroke-tertiary);
   }
   &--success {
     outline: 1px solid var(--color-stroke-success);

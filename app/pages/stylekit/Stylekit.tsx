@@ -1,4 +1,4 @@
-// import Button from '../../components/ui/button/Button';
+import Button from '../../components/ui/button/Button';
 import Hero from '../../components/sections/hero/Hero';
 import heroBg from '../../assets/images/hero/stylekit_cover_070526.jpg';
 import { useState, useCallback } from 'react';
@@ -29,10 +29,132 @@ function Stylekit() {
 
   return (
     <>
-      <Hero
-        backgroundImage={heroBg}
-        heroTitle="Stylekit"
-      />
+      <Hero backgroundImage={heroBg} heroTitle="Stylekit" />
+
+      {/* Кнопки */}
+      <div className={`${styles['buttons']} sp-t-pink`}>
+        <div className="ears">
+          <div className={styles['buttons__wrapper']}>
+            <div className="container">
+              <div className="col">
+                <h2 className="font-h2 color--primary sp-b-purple">Кнопки</h2>
+
+                <div className={styles['buttons__inner']}>
+                  <div className="row">
+                    <div className={`${styles['buttons__item']} col`}>
+                      <Button variant="brand" size="md" shape="default" onClick={() => console.log('click')}>
+                        Оставить заявку
+                      </Button>
+
+                      <Button variant="brand" size="md" shape="default" icon iconPosition="left" onClick={() => console.log('click')}>
+                        Оставить заявку
+                      </Button>
+
+                      <Button variant="brand" size="md" shape="default" icon iconPosition="right" onClick={() => console.log('click')}>
+                        Оставить заявку
+                      </Button>
+
+                      <Button variant="brand" size="lg" shape="default" onClick={() => console.log('click')}>
+                        Оставить заявку
+                      </Button>
+
+                      <Button variant="brand" size="lg" shape="default" icon iconPosition="left" onClick={() => console.log('click')}>
+                        Оставить заявку
+                      </Button>
+
+                      <Button variant="brand" size="lg" shape="default" icon iconPosition="right" onClick={() => console.log('click')}>
+                        Оставить заявку
+                      </Button>
+                    </div>
+                  </div>
+
+                  <div className="row">
+                    <div className={`${styles['buttons__item']} col`}>
+                      <Button variant="dark" size="md" shape="default" onClick={() => console.log('click')}>
+                        Оставить заявку
+                      </Button>
+
+                      <Button variant="dark" size="md" shape="default" icon iconPosition="left" onClick={() => console.log('click')}>
+                        Оставить заявку
+                      </Button>
+
+                      <Button variant="dark" size="md" shape="default" icon iconPosition="right" onClick={() => console.log('click')}>
+                        Оставить заявку
+                      </Button>
+
+                      <Button variant="dark" size="lg" shape="default" onClick={() => console.log('click')}>
+                        Оставить заявку
+                      </Button>
+
+                      <Button variant="dark" size="lg" shape="default" icon iconPosition="left" onClick={() => console.log('click')}>
+                        Оставить заявку
+                      </Button>
+
+                      <Button variant="dark" size="lg" shape="default" icon iconPosition="right" onClick={() => console.log('click')}>
+                        Оставить заявку
+                      </Button>
+                    </div>
+                  </div>
+
+                  <div className="row">
+                    <div className={`${styles['buttons__item']} col`}>
+                      <Button variant="brand" size="md" shape="round" icon ariaLabel="Перейти к следующему блоку" />
+
+                      <Button variant="brand" size="lg" shape="round" icon ariaLabel="Перейти к следующему блоку" />
+                    </div>
+                  </div>
+
+                  <div className="row">
+                    <div className={`${styles['buttons__item']} col`}>
+                      <Button variant="dark" size="md" shape="round" icon ariaLabel="Перейти к следующему блоку" />
+
+                      <Button variant="dark" size="lg" shape="round" icon ariaLabel="Перейти к следующему блоку" />
+                    </div>
+                  </div>
+
+                  <div className="row">
+                    <div className={`${styles['buttons__item']} col`}>
+                      <h3 className="font-s-l color--primary sp-t-purple">Ссылки</h3>
+                    </div>
+                  </div>
+
+                  <div className="row">
+                    <div className={`${styles['buttons__item']} col`}>
+                      <Button variant="brand" size="md" shape="default" href="https://example.com" target="_blank">
+                        Внешняя ссылка
+                      </Button>
+
+                      <Button variant="brand" size="md" shape="default" href="#contacts">
+                        Якорная ссылка
+                      </Button>
+
+                      <Button variant="brand" size="md" shape="default" href="/test" disabled>
+                        Disabled ссылка
+                      </Button>
+                    </div>
+                  </div>
+
+                  <div className="row" id="contacts">
+                    <div className={`${styles['buttons__item']} col`}>
+                      <Button variant="dark" size="lg" shape="default" href="https://example.com" target="_blank" icon iconPosition="left">
+                        Внешняя ссылка
+                      </Button>
+
+                      <Button variant="dark" size="lg" shape="default" href="#contacts" icon iconPosition="right">
+                        Якорная ссылка
+                      </Button>
+
+                      <Button variant="dark" size="lg" shape="default" href="/test" disabled icon iconPosition="right">
+                        Disabled ссылка
+                      </Button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
       {/* Шрифты */}
       <div className={`${styles['fonts']} sp-t-pink`}>
@@ -123,9 +245,9 @@ function Stylekit() {
                 </div>
 
                 <div className={`${styles['colors__item']} sp-t-yellow`}>
-                  <div className={`${styles['colors__box']}`} style={{ background: 'var(--color-text-tetriary)' }}></div>
-                  <p className={`${styles['copy-class']} font-t-l ${copiedClass === 'color--tetriary' ? styles.copied : ''}`} onClick={() => copyToClipboard('color--tetriary')}>
-                    {getButtonText('color--tetriary')}
+                  <div className={`${styles['colors__box']}`} style={{ background: 'var(--color-text-tertiary)' }}></div>
+                  <p className={`${styles['copy-class']} font-t-l ${copiedClass === 'color--tertiary' ? styles.copied : ''}`} onClick={() => copyToClipboard('color--tertiary')}>
+                    {getButtonText('color--tertiary')}
                   </p>
                 </div>
 
@@ -234,9 +356,9 @@ function Stylekit() {
                 </div>
 
                 <div className={`${styles['colors__item']} sp-t-yellow`}>
-                  <div className={`${styles['colors__box']}`} style={{ background: 'var(--color-stroke-tetriary)' }}></div>
-                  <p className={`${styles['copy-class']} font-t-l ${copiedClass === 'stroke--tetriary' ? styles.copied : ''}`} onClick={() => copyToClipboard('stroke--tetriary')}>
-                    {getButtonText('stroke--tetriary')}
+                  <div className={`${styles['colors__box']}`} style={{ background: 'var(--color-stroke-tertiary)' }}></div>
+                  <p className={`${styles['copy-class']} font-t-l ${copiedClass === 'stroke--tertiary' ? styles.copied : ''}`} onClick={() => copyToClipboard('stroke--tertiary')}>
+                    {getButtonText('stroke--tertiary')}
                   </p>
                 </div>
 

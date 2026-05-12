@@ -16,10 +16,8 @@ export default function Hero({ backgroundImage, heroTitle, heroSubTitle, actions
           <div className="container">
             <div className="col-6 col-lg-10 col-md-6 col-sm-3">
               <h1 className="font-h1 color--white">{heroTitle}</h1>
-              {actions && <p className="font-t-l color--secondary sp-t-burgundy">{heroSubTitle}</p>}
-              <div>
-                {actions && <div className={`${styles.hero__actions} sp-t-burgundy`}>{actions}</div>}
-              </div>
+              {heroSubTitle && <p className="font-t-l color--secondary sp-t-burgundy">{heroSubTitle}</p>}
+              {actions && <div className={`${styles.hero__actions} sp-t-burgundy`}>{actions}</div>}
             </div>
           </div>
         </div>

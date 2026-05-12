@@ -1,9 +1,6 @@
 @use '../../../styles/grid/init' as *;
 
 .advantages {
-  &__inner {
-    display: flex;
-  }
   &__stats {
     display: grid;
     grid-template-columns: repeat(2, 1fr);

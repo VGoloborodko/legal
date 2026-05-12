@@ -1,8 +1,4 @@
-type IconProps = {
-  className?: string;
-  width?: number;
-  height?: number;
-};
+import type { IconProps } from './icon.types';
 
 export default function ArrowRightIcon({ className, width = 24, height = 24 }: IconProps) {
   return (
