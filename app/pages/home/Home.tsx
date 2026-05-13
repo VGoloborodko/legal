@@ -1,8 +1,7 @@
 import Hero from '../../components/sections/hero/Hero';
 import Button from '../../components/ui/button/Button';
+import heroBg from '../../assets/images/hero/main_cover_050526.jpg';
 import Advantages from '../../components/sections/advantages/Advantages';
-
-import heroBg from '../../assets/images/hero/main_cover_100526.jpg';
 
 export default function Home() {
   return (
@@ -10,15 +9,19 @@ export default function Home() {
       <main>
         <Hero
           backgroundImage={heroBg}
-          heroTitle={'Банкротство физических лиц в\u00A0Рязани'}
-          heroSubTitle={'Поможем пройти процедуру банкротства и\u00A0законно списать долги с\u00A0сопровождением юриста'}
+          heroTitle={
+          <>
+            Юридические <span className="color--secondary">услуги</span> в&nbsp;Рязани
+          </>
+        }
+          heroSubTitle={'Помогаем решать споры с\u00A0банками, оформлять недвижимость, защищать права потребителей и\u00A0сопровождать дела в\u00A0суде'}
           actions={
             <>
               <Button size="lg" icon fullWidthMobile>
                 Получить консультацию
               </Button>
               <Button size="lg" fullWidthMobile variant="dark">
-                Заказать звонок
+                Изучить практику
               </Button>
             </>
           }

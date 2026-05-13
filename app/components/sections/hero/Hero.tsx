@@ -1,11 +1,12 @@
+import type { ReactNode } from 'react';
 import styles from './Hero.module.scss';
 // import Button from '../../ui/button/Button';
 
 type HeroProps = {
   backgroundImage: string;
-  heroTitle: string;
-  heroSubTitle?: string;
-  actions?: React.ReactNode;
+  heroTitle: ReactNode;
+  heroSubTitle?: ReactNode;
+  actions?: ReactNode;
 };
 
 export default function Hero({ backgroundImage, heroTitle, heroSubTitle, actions }: HeroProps) {

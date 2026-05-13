@@ -25,11 +25,11 @@ export default function Navbar() {
                         </a>
                       </li>
 
-                      {/* <li className={styles['navbar__item']}>
-                        <a href="#" className={`${styles['navbar__link']} font-t-s f-w-bold color--secondary`}>
-                          Услуги
+                      <li className={styles['navbar__item']}>
+                        <a href="/bankrotstvo-fizicheskih-lic-ryazan" className={`${styles['navbar__link']} font-t-s f-w-bold color--secondary`}>
+                          Банкротство
                         </a>
-                      </li> */}
+                      </li>
                     </ul>
                   </nav>
 

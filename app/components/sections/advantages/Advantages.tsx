@@ -5,7 +5,7 @@ export default function Advantages() {
   return (
     <section className={`${styles.advantages} sp-t-wine`}>
       <div className="ears">
-        <div className={`${styles.advantages__wrapper} sp-v-green bg--surface stroke--secondary radius--xxl`}>
+        <div className={`${styles.advantages__wrapper} sp-v-green bg--surface radius--xxl`}>
           <div className="container">
             <div className="col">
               <div className="row">
