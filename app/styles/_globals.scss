@@ -200,7 +200,7 @@ html[data-theme='dark'] {
   --color-bg-brand: #008002;
   --color-bg-surface: #161617;
   --color-bg-inverse: #e1e1e1;
-  --color-bg-glass: #ffffff80;
+  --color-bg-glass: #ffffff0d;
   --color-bg-brand_heavy: #006102;
   --color-bg-surface_hover: #313134;
 
@@ -227,7 +227,7 @@ html[data-theme='light'] {
   --color-bg-brand: #008002;
   --color-bg-surface: #ffffff;
   --color-bg-inverse: #202020;
-  --color-bg-glass: #ffffff80;
+  --color-bg-glass: #ffffff0d;
   --color-bg-brand_heavy: #006102;
   --color-bg-surface_hover: #e5e5e5;
 
@@ -289,19 +289,19 @@ html[data-theme='light'] {
 
 .stroke {
   &--primary {
-    outline: 1px solid var(--color-stroke-primary);
+    border: 1px solid var(--color-stroke-primary);
   }
   &--secondary {
-    outline: 1px solid var(--color-stroke-secondary);
+    border: 1px solid var(--color-stroke-secondary);
   }
   &--error {
-    outline: 1px solid var(--color-stroke-error);
+    border: 1px solid var(--color-stroke-error);
   }
   &--tertiary {
-    outline: 1px solid var(--color-stroke-tertiary);
+    border: 1px solid var(--color-stroke-tertiary);
   }
   &--success {
-    outline: 1px solid var(--color-stroke-success);
+    border: 1px solid var(--color-stroke-success);
   }
 }
 

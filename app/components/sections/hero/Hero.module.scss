@@ -10,10 +10,28 @@
   }
 
   &__wrapper {
+    display: flex;
+    align-items: center;
     min-height: 100%;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+  }
+
+  :global(.container) {
+    width: 100%;
+  }
+
+  &__tag {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: fit-content;
+    padding: 10px 16px;
+
+    @include bp(sm) {
+      padding: 6px 8px;
+    }
   }
 
   &__actions {

@@ -1,5 +1,5 @@
-import styles from "./Advantages.module.scss";
-import Button from "../../ui/button/Button";
+import styles from './Advantages.module.scss';
+import Button from '../../ui/button/Button';
 
 export default function Advantages() {
   return (
@@ -16,7 +16,9 @@ export default function Advantages() {
                     <span className="color--secondary">а не пустые обещания</span>
                   </h2>
                   <div className="sp-t-purple">
-                    <Button icon size="lg" fullWidthMobile variant="dark">Смотреть кейсы</Button>
+                    <Button icon={{ name: 'arrowUpRight' }} size="lg" fullWidthMobile variant="dark">
+                      Смотреть кейсы
+                    </Button>
                   </div>
                 </div>
                 <div className="col-6 col-md-6 col-sm-3">

@@ -9,15 +9,26 @@ export default function Home() {
       <main>
         <Hero
           backgroundImage={heroBg}
+          heroTag={<>Никаких скрытых платежей и&nbsp;подводных камней</>}
+          icon={{
+            name: 'sheet',
+            stroke: 'var(--color-text-brand)',
+          }}
           heroTitle={
-          <>
-            Юридические <span className="color--secondary">услуги</span> в&nbsp;Рязани
-          </>
-        }
-          heroSubTitle={'Помогаем решать споры с\u00A0банками, оформлять недвижимость, защищать права потребителей и\u00A0сопровождать дела в\u00A0суде'}
+            <>
+              Юридические <span className="color--secondary">услуги</span> в&nbsp;Рязани
+            </>
+          }
+          heroSubTitle={<>Помогаем решать споры с&nbsp;банками, оформлять недвижимость, защищать права потребителей и&nbsp;сопровождать дела в&nbsp;суде</>}
           actions={
             <>
-              <Button size="lg" icon fullWidthMobile>
+              <Button
+                size="lg"
+                icon={{
+                  name: 'arrowUpRight',
+                }}
+                fullWidthMobile
+              >
                 Получить консультацию
               </Button>
               <Button size="lg" fullWidthMobile variant="dark">
