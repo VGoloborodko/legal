@@ -18,9 +18,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Scripts />
       </body>
     </html>
-  )
+  );
 }
 
 export default function Root() {
-  return <Outlet />
+  return <Outlet />;
 }

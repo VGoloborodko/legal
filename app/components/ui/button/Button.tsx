@@ -1,5 +1,5 @@
 import type { MouseEventHandler, ReactNode } from 'react';
-import type { IconProps } from '../icon/icon.types';
+import type { BaseSvgIconProps } from '../icon/icon.types';
 import styles from './Button.module.scss';
 import { icons, type IconName } from '../icon/icons';
 
@@ -10,7 +10,7 @@ type ButtonShape = 'default' | 'round';
 type CommonProps = {
   variant?: ButtonVariant;
   children?: ReactNode;
-  icon?: IconProps & { name: IconName };
+  icon?: BaseSvgIconProps & { name: IconName };
   iconPosition?: 'left' | 'right';
   size?: ButtonSize;
   shape?: ButtonShape;
@@ -62,7 +62,7 @@ export default function Button(props: ButtonProps) {
   const defaultIconSize = 24;
   const iconSize = icon?.size ?? defaultIconSize;
 
-  const iconProps: IconProps = icon
+  const iconProps: BaseSvgIconProps = icon
     ? (({ name: _iconName, ...rest }) => rest)(icon)
     : {};
 

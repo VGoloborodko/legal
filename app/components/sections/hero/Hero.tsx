@@ -1,12 +1,12 @@
 import type { ReactNode } from 'react';
 import styles from './Hero.module.scss';
-import Icon, { type AppIconProps } from '../../ui/icon/Icon';
+import Icon, { type IconProps } from '../../ui/icon/Icon';
 
 type HeroProps = {
   backgroundImage?: string;
   backgroundColor?: string;
   heroTag?: ReactNode;
-  icon?: AppIconProps;
+  icon?: IconProps;
   heroTitle: ReactNode;
   heroSubTitle?: ReactNode;
   actions?: ReactNode;

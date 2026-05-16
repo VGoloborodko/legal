@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /stylekit
+
+Sitemap: https://verum-law.ru/sitemap.xml
