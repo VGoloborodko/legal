@@ -32,7 +32,7 @@ export default function BankrotstvoFizicheskihLicRyazanPage() {
   return (
     <main>
       <Hero
-        backgroundImage={heroBg}
+        // backgroundImage={heroBg}
         heroTag={<>Надежная защита от&nbsp;кредитов</>}
         icon={{
           name: 'shield',

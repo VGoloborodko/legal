@@ -1,6 +1,6 @@
 import Hero from '../../components/sections/hero/Hero';
 import Button from '../../components/ui/button/Button';
-import heroBg from '../../assets/images/hero/main_cover_050526.jpg';
+import heroBg from '../../assets/images/hero/main_cover_050526.avif';
 import Advantages from '../../components/sections/advantages/Advantages';
 
 export function meta() {
@@ -43,7 +43,7 @@ export default function Home() {
 
       <main>
         <Hero
-          backgroundImage={heroBg}
+          // backgroundImage={heroBg}
           heroTag={<>Никаких скрытых платежей и&nbsp;подводных камней</>}
           icon={{
             name: 'sheet',
