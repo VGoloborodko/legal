@@ -1,0 +1,14 @@
+@use '../../../styles/grid/init' as *;
+
+.bottomNote {
+    display: flex;
+    gap: 16px;
+    &__icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        max-width: 44px;
+        height: 44px;
+    }
+}
