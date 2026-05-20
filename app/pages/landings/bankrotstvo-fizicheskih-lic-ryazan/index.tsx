@@ -4,7 +4,8 @@ import PromoSection from '../../../components/sections/promoSection/PromoSection
 import Button from '../../../components/ui/button/Button';
 import Icon from '../../../components/ui/icon/Icon';
 import heroBg from '../../../assets/images/hero/main_cover_100526.avif';
-// import promoImage from '../../../assets/images/bankrotstvo-fizicheskih-lic-ryazan/promo_sections_200526.avif';
+import promoImage from '../../../assets/images/bankrotstvo-fizicheskih-lic-ryazan/promo_sections_200526.avif';
+import promoImagePrice from '../../../assets/images/bankrotstvo-fizicheskih-lic-ryazan/promo_sections_200526_2.avif';
 
 export function meta() {
   return [
@@ -70,10 +71,10 @@ export default function BankrotstvoFizicheskihLicRyazanPage() {
         sectionClassName="sp-t-pink"
         // wrapperClassName="sp-v-green"
         background="var(--color-bg-primary)"
-        // image={{
-        //   src: promoImage,
-        //   alt: 'Юридическая консультация по банкротству физических лиц',
-        // }}
+        image={{
+          src: promoImage,
+          alt: 'Юридическая консультация по банкротству физических лиц',
+        }}
         bottom={
           <>
             <div className="row sp-t-purple">
@@ -108,7 +109,9 @@ export default function BankrotstvoFizicheskihLicRyazanPage() {
 
               <div className="col-6 col-md-6 col-sm-3">
                 <div className={styles.bottomNote}>
-                  <div className={`${styles.bottomNote__icon} bg--surface radius--m`}>{/* <Icon name="sheet" size={24} stroke="var(--color-text-error)" /> */}</div>
+                  <div className={`${styles.bottomNote__icon} bg--surface radius--m`}>
+                    <Icon name="phoneOff" size={24} stroke="var(--color-text-error)" fill="var(--color-text-error)" />
+                  </div>
                   <div className={styles.bottomNote__content}>
                     <p className="font-t-l color--primary f-w-bold">Есть просрочки и давление со стороны банков или коллекторов</p>
                     <p className="font-t-l color--secondary sp-t-grey">Постоянные звонки, требования и угрозы</p>
@@ -118,7 +121,9 @@ export default function BankrotstvoFizicheskihLicRyazanPage() {
 
               <div className="col-6 col-md-6 col-sm-3">
                 <div className={styles.bottomNote}>
-                  <div className={`${styles.bottomNote__icon} bg--surface radius--m`}>{/* <Icon name="sheet" size={24} stroke="var(--color-text-error)" /> */}</div>
+                  <div className={`${styles.bottomNote__icon} bg--surface radius--m`}>
+                    <Icon name="wallet" size={24} stroke="var(--color-text-error)" />
+                  </div>
                   <div className={styles.bottomNote__content}>
                     <p className="font-t-l color--primary f-w-bold">Дохода не хватает на обязательные платежи</p>
                     <p className="font-t-l color--secondary sp-t-grey">Нет возможности погашать задолженность даже частично</p>
@@ -147,17 +152,22 @@ export default function BankrotstvoFizicheskihLicRyazanPage() {
         wrapperClassName="sp-v-green"
         background="var(--color-bg-surface)"
         imagePosition="right"
-        // image={{
-        //   src: promoImage,
-        //   alt: 'Юридическая консультация по банкротству физических лиц',
-        // }}
+        image={{
+          src: promoImagePrice,
+          alt: 'Стоимость банкротства физических лиц',
+        }}
       >
         <h2 className="font-h2 color--secondary">Сколько стоит банкротство физических лиц в Рязани</h2>
-        <p className='font-h2 color--brand'>от 80 000 ₽</p>
+        <p className="font-h2 color--brand">от 80 000 ₽</p>
 
         <p className="font-t-m color--secondary sp-t-mint">
           Наши юристы по банкротству в Рязани сопровождают клиентов на всех этапах процедуры – от консультации до полного списания долгов. Мы берём на себя все юридические вопросы и помогаем пройти процесс без лишних рисков
         </p>
+
+        <ul className="rt-ordered-list sp-t-mint">
+          <li className="font-t-m color--secondary">Возможна рассрочка</li>
+          <li className="font-t-m color--secondary sp-t-darkpurple">Без скрытых платежей</li>
+        </ul>
 
         <div className="sp-t-mint">
           <Button size="lg" icon={{ name: 'arrowUpRight' }} fullWidthMobile variant="dark">

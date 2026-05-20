@@ -4,6 +4,8 @@ import ShieldIcon from './icons/ShieldIcon';
 import Sheet from './icons/Sheet';
 import Chart from './icons/Chart';
 import Info from './icons/Info';
+import PhoneOff from './icons/PhoneOff';
+import Wallet from './icons/Wallet';
 
 export const icons = {
   arrowRight: ArrowRightIcon,
@@ -12,6 +14,8 @@ export const icons = {
   sheet: Sheet,
   chart: Chart,
   info: Info,
+  phoneOff: PhoneOff,
+  wallet: Wallet,
 };
 
 export type IconName = keyof typeof icons;
