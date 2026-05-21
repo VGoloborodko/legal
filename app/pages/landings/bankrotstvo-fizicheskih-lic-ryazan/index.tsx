@@ -155,9 +155,11 @@ export default function BankrotstvoFizicheskihLicRyazanPage() {
             <div className="container">
               <div className="col">
                 <div className="row">
-                  <h2 className="font-h2 color--primary sp-b-purple">
-                    Как проходит процедура банкротства <span className="color--secondary f-w-regular">физических лиц</span>
-                  </h2>
+                  <div className="col">
+                    <h2 className="font-h2 color--primary sp-b-purple">
+                      Как проходит процедура банкротства <span className="color--secondary f-w-regular">физических лиц</span>
+                    </h2>
+                  </div>
                 </div>
                 <div className={`row ${styles.steps__grid}`}>
                   <div className="col-4 col-md-6 col-sm-3">
