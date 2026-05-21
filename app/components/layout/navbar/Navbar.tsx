@@ -12,7 +12,7 @@ export default function Navbar() {
               <div className="col">
                 <div className={styles['navbar__inner']}>
                   <div className={styles['navbar__brand']}>
-                    <a href="/" className={`${styles['navbar__logo']} font-s-s color--secondary`}>
+                    <a href="/" className={`${styles['navbar__logo']} font-s color--secondary`}>
                       VERUM LAW
                     </a>
                   </div>

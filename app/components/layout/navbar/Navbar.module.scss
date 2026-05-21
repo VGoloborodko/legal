@@ -24,6 +24,10 @@
     column-gap: 16px;
     align-items: center;
     justify-content: space-between;
+    
+    @include bp(sm) {
+      flex-wrap: wrap;
+    }
   }
 
   &__actions {

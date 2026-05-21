@@ -20,6 +20,7 @@ export function meta() {
       content: 'Помогаем решать споры с банками, оформлять недвижимость, защищать права потребителей и сопровождать дела в суде.',
     },
     { property: 'og:url', content: 'https://verum-law.ru/' },
+    // Нужна картинка для соцсетей
   ];
 }
 
@@ -43,7 +44,7 @@ export default function Home() {
 
       <main>
         <Hero
-          // backgroundImage={heroBg}
+          backgroundImage={heroBg}
           heroTag={<>Никаких скрытых платежей и&nbsp;подводных камней</>}
           icon={{
             name: 'sheet',

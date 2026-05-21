@@ -1,14 +1,29 @@
 @use '../../../styles/grid/init' as *;
 
 .bottomNote {
-    display: flex;
-    gap: 16px;
-    &__icon {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        max-width: 44px;
-        height: 44px;
+  display: flex;
+  gap: 16px;
+}
+
+.steps {
+  &__item {
+    height: 100%;
+    padding: 20px;
+
+    @include bp(md) {
+      padding: 16px 20px;
     }
+
+    @include bp(sm) {
+      padding: 12px;
+    }
+  }
+
+  &__grid > div:first-child .steps__item {
+    border-left: 3px solid var(--color-stroke-error);
+  }
+
+  &__grid > div:last-child .steps__item {
+    border-left: 3px solid var(--color-stroke-success);
+  }
 }

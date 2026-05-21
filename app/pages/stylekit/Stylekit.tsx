@@ -230,7 +230,7 @@ function Stylekit() {
 
                   <div className="row">
                     <div className={`${styles['buttons__item']} col`}>
-                      <h3 className="font-s-l color--primary sp-t-purple">Ссылки</h3>
+                      <h3 className="font-h3 color--primary sp-t-purple">Ссылки</h3>
                     </div>
                   </div>
 
@@ -325,23 +325,23 @@ function Stylekit() {
               </div>
 
               <div className={styles['fonts__font']}>
-                <p className="font-s-l color--primary">Subtitle large</p>
-                <div className={`font-t-l ${styles['copy-class']} ${copiedClass === 'font-s-l' ? styles.copied : ''}`} onClick={() => copyToClipboard('font-s-l')}>
-                  {getButtonText('font-s-l')}
+                <h3 className="font-h3 color--primary">Title Н3</h3>
+                <div className={`font-t-l ${styles['copy-class']} ${copiedClass === 'font-h3' ? styles.copied : ''}`} onClick={() => copyToClipboard('font-h3')}>
+                  {getButtonText('font-h3')}
                 </div>
               </div>
 
               <div className={styles['fonts__font']}>
-                <p className="font-s-m color--primary">Subtitle medium</p>
-                <div className={`font-t-l ${styles['copy-class']} ${copiedClass === 'font-s-m' ? styles.copied : ''}`} onClick={() => copyToClipboard('font-s-m')}>
-                  {getButtonText('font-s-m')}
+                <h4 className="font-h4 color--primary">Title Н4</h4>
+                <div className={`font-t-l ${styles['copy-class']} ${copiedClass === 'font-h4' ? styles.copied : ''}`} onClick={() => copyToClipboard('font-h4')}>
+                  {getButtonText('font-h4')}
                 </div>
               </div>
 
               <div className={styles['fonts__font']}>
-                <p className="font-s-s color--primary">Subtitle small</p>
-                <div className={`font-t-l ${styles['copy-class']} ${copiedClass === 'font-s-s' ? styles.copied : ''}`} onClick={() => copyToClipboard('font-s-s')}>
-                  {getButtonText('font-s-s')}
+                <p className="font-s color--primary">Subtitle</p>
+                <div className={`font-t-l ${styles['copy-class']} ${copiedClass === 'font-s' ? styles.copied : ''}`} onClick={() => copyToClipboard('font-s')}>
+                  {getButtonText('font-s')}
                 </div>
               </div>
 
@@ -377,7 +377,7 @@ function Stylekit() {
             <h2 className="font-h2 color--primary sp-b-purple">Цвета</h2>
             <div className="row">
               <div className="col-4 col-md-3 col-sm-3">
-                <h3 className="font-s-l color--primary sp-b-mint">Color</h3>
+                <h3 className="font-h3 color--primary sp-b-mint">Color</h3>
                 <div className={`${styles['colors__item']}`}>
                   <div className={`${styles['colors__box']}`} style={{ background: 'var(--color-text-primary)' }}></div>
                   <p className={`${styles['copy-class']} font-t-l ${copiedClass === 'color--primary' ? styles.copied : ''}`} onClick={() => copyToClipboard('color--primary')}>
@@ -422,7 +422,7 @@ function Stylekit() {
               </div>
 
               <div className="col-4 col-md-3 col-sm-3">
-                <h3 className="font-s-l color--primary sp-b-mint">BG</h3>
+                <h3 className="font-h3 color--primary sp-b-mint">BG</h3>
                 <div className={`${styles['colors__item']}`}>
                   <div className={`${styles['colors__box']}`} style={{ background: 'var(--color-bg-base)' }}></div>
                   <p className={`${styles['copy-class']} font-t-l ${copiedClass === 'bg--base' ? styles.copied : ''}`} onClick={() => copyToClipboard('bg--base')}>
@@ -481,7 +481,7 @@ function Stylekit() {
               </div>
 
               <div className="col-4 col-md-3 col-sm-3">
-                <h3 className="font-s-l color--primary sp-b-mint">Stroke</h3>
+                <h3 className="font-h3 color--primary sp-b-mint">Stroke</h3>
                 <div className={`${styles['colors__item']}`}>
                   <div className={`${styles['colors__box']}`} style={{ background: 'var(--color-stroke-primary)' }}></div>
                   <p className={`${styles['copy-class']} font-t-l ${copiedClass === 'stroke--primary' ? styles.copied : ''}`} onClick={() => copyToClipboard('stroke--primary')}>

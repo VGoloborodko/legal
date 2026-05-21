@@ -6,6 +6,8 @@ import Chart from './icons/Chart';
 import Info from './icons/Info';
 import PhoneOff from './icons/PhoneOff';
 import Wallet from './icons/Wallet';
+import Move from './icons/Move';
+import Check from './icons/Check';
 
 export const icons = {
   arrowRight: ArrowRightIcon,
@@ -16,6 +18,8 @@ export const icons = {
   info: Info,
   phoneOff: PhoneOff,
   wallet: Wallet,
+  move: Move,
+  check: Check,
 };
 
 export type IconName = keyof typeof icons;

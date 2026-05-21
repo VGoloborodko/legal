@@ -5,6 +5,14 @@
     overflow: hidden;
   }
 
+  &__content {
+    padding-left: 20px;
+
+    @include bp(md) {
+      padding-left: 0;
+    }
+  }
+
   &__imagePlaceholder {
     background: var(--color-bg-surface);
   }

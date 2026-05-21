@@ -13,7 +13,7 @@
   font-style: normal;
   font-weight: 700;
   line-height: 184px;
-  color: var(--color-text-tertiary);
+  color: var(--color-text-secondary);
 
   @include bp(md) {
     font-size: 93px;
@@ -37,7 +37,7 @@
   font-style: normal;
   font-weight: 700;
   line-height: 80px;
-  color: var(--color-text-tertiary);
+  color: var(--color-text-secondary);
 
   @include bp(md) {
     font-size: 60px;
@@ -61,7 +61,7 @@
   font-style: normal;
   font-weight: 700;
   line-height: 64px;
-  color: var(--color-text-tertiary);
+  color: var(--color-text-secondary);
 
   @include bp(md) {
     font-size: 40px;
@@ -74,8 +74,8 @@
   }
 }
 
-// Subtitle large
-.font-s-l {
+// Title H3
+.font-h3 {
   // width: 100%;
   font-family: 'Raleway', sans-serif;
   font-optical-sizing: auto;
@@ -83,7 +83,7 @@
   font-style: normal;
   font-weight: 400;
   line-height: 32px;
-  color: var(--color-text-tertiary);
+  color: var(--color-text-secondary);
 
   @include bp(sm) {
     font-size: 22px;
@@ -91,8 +91,8 @@
   }
 }
 
-// Subtitle medium
-.font-s-m {
+// Title H4
+.font-h4 {
   // width: 100%;
   font-family: 'Raleway', sans-serif;
   font-optical-sizing: auto;
@@ -100,7 +100,7 @@
   font-style: normal;
   font-weight: 400;
   line-height: 28px;
-  color: var(--color-text-tertiary);
+  color: var(--color-text-secondary);
 
   @include bp(sm) {
     font-size: 20px;
@@ -108,8 +108,8 @@
   }
 }
 
-// Subtitle small
-.font-s-s {
+// Subtitle
+.font-s {
   // width: 100%;
   font-family: 'Raleway', sans-serif;
   font-optical-sizing: auto;
@@ -117,7 +117,7 @@
   font-style: normal;
   font-weight: 400;
   line-height: 26px;
-  color: var(--color-text-tertiary);
+  color: var(--color-text-secondary);
 
   @include bp(md) {
     font-size: 21px;
@@ -139,7 +139,7 @@
   font-style: normal;
   font-weight: 400;
   line-height: 25px;
-  color: var(--color-text-tertiary);
+  color: var(--color-text-secondary);
 
   @include bp(sm) {
     font-size: 16px;
@@ -156,7 +156,7 @@
   font-style: normal;
   font-weight: 400;
   line-height: 24px;
-  color: var(--color-text-tertiary);
+  color: var(--color-text-secondary);
 
   @include bp(sm) {
     font-size: 14px;
@@ -173,7 +173,7 @@
   font-style: normal;
   font-weight: 400;
   line-height: 20px;
-  color: var(--color-text-tertiary);
+  color: var(--color-text-secondary);
 
   @include bp(sm) {
     font-size: 12px;
@@ -956,6 +956,15 @@ html[data-theme='light'] {
 //________________Остальное
 // ================================
 
+.icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 44px;
+  height: 44px;
+}
+
 .d-none {
   display: none;
 }
@@ -984,12 +993,22 @@ html[data-theme='light'] {
   justify-content: center;
 }
 
+.flex-space-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .text-align-center {
   text-align: center;
 }
 
 .text-align-right {
   text-align: right;
+}
+
+.f-w-regular {
+  font-weight: 400;
 }
 
 .f-w-medium {
