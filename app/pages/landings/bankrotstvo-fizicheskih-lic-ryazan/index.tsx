@@ -291,8 +291,12 @@ export default function BankrotstvoFizicheskihLicRyazanPage() {
                         <p className="font-t-l color--primary f-w-bold sp-t-purple">Дмитрий Соколов</p>
                         <p className='font-t-m sp-t-lightblue'>Руководитель практики</p>
                       </div>
-                      <div className={`${styles.whyus__image} radius--xl`}>
-                        <img src={whyusPerson2} alt="Юридический сотрудник" />
+                      <div className={styles.whyus__person}>
+                        <div className={`${styles.whyus__image} radius--xl`}>
+                          <img src={whyusPerson2} alt="Юридический сотрудник" />
+                        </div>
+                        <p className="font-t-l color--primary f-w-bold sp-t-purple">Мария Лебедева</p>
+                        <p className='font-t-m sp-t-lightblue'>Ведущий юрист</p>
                       </div>
                     </div>
                   </div>
