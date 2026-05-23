@@ -27,3 +27,30 @@
     border-left: 3px solid var(--color-stroke-success);
   }
 }
+
+.whyus {
+  &__media {
+    display: flex;
+    gap: 20px;
+  }
+
+  &__content {
+    padding-left: 20px;
+
+    @include bp(md) {
+      padding-left: 0;
+    }
+  }
+
+  &__image {
+    flex: 1;
+    overflow: hidden;
+  }
+
+  &__image img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 450px;
+  }
+}

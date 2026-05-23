@@ -6,6 +6,8 @@ import Icon from '../../../components/ui/icon/Icon';
 import heroBg from '../../../assets/images/hero/main_cover_100526.avif';
 import promoImage from '../../../assets/images/bankrotstvo-fizicheskih-lic-ryazan/promo_sections_200526.avif';
 import promoImagePrice from '../../../assets/images/bankrotstvo-fizicheskih-lic-ryazan/promo_sections_200526_2.avif';
+import whyusPerson from '../../../assets/images/bankrotstvo-fizicheskih-lic-ryazan/whyus_image_200526.avif';
+import whyusPerson2 from '../../../assets/images/bankrotstvo-fizicheskih-lic-ryazan/whyus_image_200526_2.avif';
 
 export function meta() {
   return [
@@ -273,6 +275,48 @@ export default function BankrotstvoFizicheskihLicRyazanPage() {
           </Button>
         </div>
       </PromoSection>
+
+      <section className={`${styles.whyus} sp-t-pink`}>
+        <div className="ears">
+          <div className={styles.whyus__wrapper}>
+            <div className="container">
+              <div className="col">
+                <div className="row">
+                  <div className="col-6 col-md-6 col-sm-3">
+                    <div className={styles.whyus__media}>
+                      <div className={styles.whyus__person}>
+                        <div className={`${styles.whyus__image} radius--xl`}>
+                          <img src={whyusPerson} alt="Юридический сотрудник" />
+                        </div>
+                        <p className="font-t-l color--primary f-w-bold sp-t-purple">Дмитрий Соколов</p>
+                        <p className='font-t-m sp-t-lightblue'>Руководитель практики</p>
+                      </div>
+                      <div className={`${styles.whyus__image} radius--xl`}>
+                        <img src={whyusPerson2} alt="Юридический сотрудник" />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="col-6 col-md-6 col-sm-3">
+                    <div className={styles.whyus__content}>
+                      <h2 className="font-h2 color--primary">Почему стоит обратиться к&nbsp;юристу</h2>
+                      <p className="font-t-l sp-t-red">
+                        Наши юристы по банкротству в Рязани сопровождают клиентов на всех этапах процедуры – от консультации до полного списания долгов. Мы берём на себя все юридические вопросы и помогаем пройти процесс спокойно и без
+                        лишних рисков
+                      </p>
+                      <ul className="rt-ordered-list sp-t-red">
+                        <li className="font-t-l color--secondary">Опыт ведения дел о банкротстве физических лиц</li>
+                        <li className="font-t-l color--secondary sp-t-lightblue">Сопровождение «под ключ»</li>
+                        <li className="font-t-l color--secondary sp-t-lightblue">Прозрачные условия без скрытых платежей</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
   );
 }
