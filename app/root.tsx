@@ -1,6 +1,6 @@
 import { Links, Meta, Outlet, Scripts, ScrollRestoration } from 'react-router';
 import './styles/style.scss';
-import Navbar from './components/layout/navbar/Navbar';
+// import Navbar from './components/layout/navbar/Navbar';
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -12,7 +12,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body className="bg--base">
-        <Navbar />
+        {/* <Navbar /> */}
         {children}
         <ScrollRestoration />
         <Scripts />

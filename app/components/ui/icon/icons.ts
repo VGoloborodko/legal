@@ -8,6 +8,8 @@ import PhoneOff from './icons/PhoneOff';
 import Wallet from './icons/Wallet';
 import Move from './icons/Move';
 import Check from './icons/Check';
+import ThemeToggleMoon from './icons/ThemeToggleMoon';
+import ThemeToggleSun from './icons/ThemeToggleSun';
 
 export const icons = {
   arrowRight: ArrowRightIcon,
@@ -20,6 +22,8 @@ export const icons = {
   wallet: Wallet,
   move: Move,
   check: Check,
+  moon: ThemeToggleMoon,
+  sun: ThemeToggleSun,
 };
 
 export type IconName = keyof typeof icons;

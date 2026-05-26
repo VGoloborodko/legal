@@ -1,3 +1,4 @@
+import Navbar, { type NavbarLink } from '../../components/layout/navbar/Navbar';
 import Button from '../../components/ui/button/Button';
 import Hero from '../../components/sections/hero/Hero';
 import { useState, useCallback } from 'react';
@@ -26,8 +27,18 @@ function Stylekit() {
     return copiedClass === text ? 'Copied!' : text;
   };
 
+  const pageLinks: NavbarLink[] = [
+    { label: 'Кнопки', href: '#buttons' },
+    { label: 'Шрифты', href: '#fonts' },
+    { label: 'Цвета', href: '#colors' },
+    { label: 'Скругления', href: '#rounding' },
+    { label: 'Отступы', href: '#indents' },
+  ];
+
   return (
     <>
+      <Navbar links={pageLinks} />
+
       <Hero
         backgroundColor="var(--color-bg-surface)"
         heroTitle={
@@ -38,7 +49,7 @@ function Stylekit() {
       />
 
       {/* Кнопки */}
-      <div className={`${styles['buttons']} sp-t-pink`}>
+      <section id="buttons" className={`${styles['buttons']} sp-t-pink`}>
         <div className="ears">
           <div className={styles['buttons__wrapper']}>
             <div className="container">
@@ -302,10 +313,10 @@ function Stylekit() {
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
       {/* Шрифты */}
-      <div className={`${styles['fonts']} sp-t-pink`}>
+      <section id="fonts" className={`${styles['fonts']} sp-t-pink`}>
         <div className="container">
           <div className="col">
             <h2 className="font-h2 color--primary sp-b-purple">Шрифты</h2>
@@ -368,10 +379,10 @@ function Stylekit() {
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
       {/* Цвета */}
-      <div className={`${styles['colors']} sp-t-pink`}>
+      <section id="colors" className={`${styles['colors']} sp-t-pink`}>
         <div className="container">
           <div className="col">
             <h2 className="font-h2 color--primary sp-b-purple">Цвета</h2>
@@ -520,10 +531,10 @@ function Stylekit() {
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
       {/* Скругления */}
-      <div className={`${styles['round']} sp-t-pink`}>
+      <section id="rounding" className={`${styles['round']} sp-t-pink`}>
         <div className="container">
           <div className="col">
             <h2 className="font-h2 color--primary sp-b-purple">Скругления</h2>
@@ -588,10 +599,10 @@ function Stylekit() {
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
       {/* Отступы */}
-      <div className={`${styles['indentation-system']} sp-v-pink`}>
+      <section id="indents" className={`${styles['indentation-system']} sp-v-pink`}>
         <div className="container">
           <div className="col">
             <h2 className="font-h2 color--primary sp-b-purple">Цветные отступы</h2>
@@ -883,7 +894,7 @@ function Stylekit() {
             </div>
           </div>
         </div>
-      </div>
+      </section>
     </>
   );
 }

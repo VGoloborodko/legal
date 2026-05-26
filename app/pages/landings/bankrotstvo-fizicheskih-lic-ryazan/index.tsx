@@ -1,9 +1,10 @@
 import styles from './page.module.scss';
+import Navbar, { type NavbarLink } from '../../../components/layout/navbar/Navbar';
 import Hero from '../../../components/sections/hero/Hero';
 import PromoSection from '../../../components/sections/promoSection/PromoSection';
 import Button from '../../../components/ui/button/Button';
 import Icon from '../../../components/ui/icon/Icon';
-import heroBg from '../../../assets/images/hero/main_cover_100526.avif';
+// import heroBg from '../../../assets/images/hero/main_cover_100526.avif';
 import promoImage from '../../../assets/images/bankrotstvo-fizicheskih-lic-ryazan/promo_sections_200526.avif';
 import promoImagePrice from '../../../assets/images/bankrotstvo-fizicheskih-lic-ryazan/promo_sections_200526_2.avif';
 import whyusPerson from '../../../assets/images/bankrotstvo-fizicheskih-lic-ryazan/whyus_image_200526.avif';
@@ -35,292 +36,435 @@ export function meta() {
   ];
 }
 
+const pageLinks: NavbarLink[] = [
+  { label: 'Stylekit', href: '/stylekit' },
+  { label: 'Кому подходит', href: '#fits' },
+  { label: 'Шаги', href: '#steps' },
+  { label: 'Стоимость', href: '#price' },
+  { label: 'Кейсы', href: '#cases' },
+];
+
 export default function BankrotstvoFizicheskihLicRyazanPage() {
   return (
-    <main>
-      <Hero
-        backgroundImage={heroBg}
-        heroTag={<>Надежная защита от&nbsp;кредитов</>}
-        icon={{
-          name: 'shield',
-          stroke: 'var(--color-text-brand)',
-        }}
-        heroTitle={
-          <>
-            Банкротство <span className="color--secondary">физических лиц</span> в&nbsp;Рязани
-          </>
-        }
-        heroSubTitle={<>Поможем пройти процедуру банкротства и&nbsp;законно списать долги с&nbsp;сопровождением юриста</>}
-        actions={
-          <>
-            <Button
-              size="lg"
-              icon={{
-                name: 'arrowUpRight',
-              }}
-              fullWidthMobile
-            >
-              Получить консультацию
+    <>
+      <Navbar links={pageLinks} />
+      <main>
+        <Hero
+          // backgroundImage={heroBg}
+          heroTag={<>Надежная защита от&nbsp;кредитов</>}
+          icon={{
+            name: 'shield',
+            stroke: 'var(--color-text-brand)',
+          }}
+          heroTitle={
+            <>
+              Банкротство <span className="color--secondary">физических лиц</span> в&nbsp;Рязани
+            </>
+          }
+          heroSubTitle={<>Поможем пройти процедуру банкротства и&nbsp;законно списать долги с&nbsp;сопровождением юриста</>}
+          actions={
+            <>
+              <Button
+                size="lg"
+                icon={{
+                  name: 'arrowUpRight',
+                }}
+                fullWidthMobile
+              >
+                Получить консультацию
+              </Button>
+              <Button size="lg" fullWidthMobile variant="dark">
+                Заказать звонок
+              </Button>
+            </>
+          }
+        />
+
+        <PromoSection
+          id="fits"
+          sectionClassName="sp-t-pink"
+          // wrapperClassName="sp-v-green"
+          background="var(--color-bg-primary)"
+          image={{
+            src: promoImage,
+            alt: 'Юридическая консультация по банкротству физических лиц',
+          }}
+          bottom={
+            <>
+              <div className="row sp-t-purple">
+                <div className="col">
+                  <h3 className="font-h4 color--primary f-w-bold">Банкротство подойдёт вам, если:</h3>
+                </div>
+              </div>
+              <div className="row sp-t-mint">
+                <div className="col-6 col-md-6 col-sm-3">
+                  <div className={styles.bottomNote}>
+                    <div className="icon-wrapper bg--surface stroke--primary radius--m">
+                      <Icon name="chart" size={24} stroke="var(--color-text-error)" />
+                    </div>
+                    <div>
+                      <p className="font-t-l color--primary f-w-bold">Долги растут, а&nbsp;платить становится всё сложнее</p>
+                      <p className="font-t-l color--secondary sp-t-grey">Проценты и&nbsp;штрафы увеличивают сумму задолженности</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="col-6 col-md-6 col-sm-3">
+                  <div className={styles.bottomNote}>
+                    <div className="icon-wrapper bg--surface stroke--primary radius--m">
+                      <Icon name="info" size={24} stroke="var(--color-text-error)" fill="var(--color-text-error)" />
+                    </div>
+                    <div>
+                      <p className="font-t-l color--primary f-w-bold">Приходится брать новые кредиты, чтобы закрыть старые</p>
+                      <p className="font-t-l color--secondary sp-t-grey">Долговая нагрузка только увеличивается</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="col-6 col-md-6 col-sm-3">
+                  <div className={styles.bottomNote}>
+                    <div className="icon-wrapper bg--surface stroke--primary radius--m">
+                      <Icon name="phoneOff" size={24} stroke="var(--color-text-error)" fill="var(--color-text-error)" />
+                    </div>
+                    <div>
+                      <p className="font-t-l color--primary f-w-bold">Есть просрочки и&nbsp;давление со&nbsp;стороны банков или коллекторов</p>
+                      <p className="font-t-l color--secondary sp-t-grey">Постоянные звонки, требования и&nbsp;угрозы</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="col-6 col-md-6 col-sm-3">
+                  <div className={styles.bottomNote}>
+                    <div className="icon-wrapper bg--surface stroke--primary radius--m">
+                      <Icon name="wallet" size={24} stroke="var(--color-text-error)" />
+                    </div>
+                    <div>
+                      <p className="font-t-l color--primary f-w-bold">Дохода не&nbsp;хватает на&nbsp;обязательные платежи</p>
+                      <p className="font-t-l color--secondary sp-t-grey">Нет возможности погашать задолженность даже частично</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </>
+          }
+        >
+          <h2 className="font-h2 color--primary">
+            В&nbsp;каких случаях <span className="color--secondary f-w-regular">подходит банкротство физического лица</span>
+          </h2>
+
+          <p className="font-t-m color--secondary sp-t-mint">
+            Процедура банкротства физических лиц подходит, если вы&nbsp;не&nbsp;можете выполнять свои финансовые обязательства. Это законный способ списать долги и&nbsp;избавиться от&nbsp;давления со&nbsp;стороны кредиторов
+          </p>
+
+          <div className="sp-t-mint">
+            <Button size="lg" icon={{ name: 'arrowUpRight' }} fullWidthMobile variant="dark">
+              Проверить ситуацию
             </Button>
-            <Button size="lg" fullWidthMobile variant="dark">
-              Заказать звонок
-            </Button>
-          </>
-        }
-      />
+          </div>
+        </PromoSection>
 
-      <PromoSection
-        sectionClassName="sp-t-pink"
-        // wrapperClassName="sp-v-green"
-        background="var(--color-bg-primary)"
-        image={{
-          src: promoImage,
-          alt: 'Юридическая консультация по банкротству физических лиц',
-        }}
-        bottom={
-          <>
-            <div className="row sp-t-purple">
-              <div className="col">
-                <h3 className="font-h4 color--primary f-w-bold">Банкротство подойдёт вам, если:</h3>
-              </div>
-            </div>
-            <div className="row sp-t-mint">
-              <div className="col-6 col-md-6 col-sm-3">
-                <div className={styles.bottomNote}>
-                  <div className="icon-wrapper bg--surface stroke--primary radius--m">
-                    <Icon name="chart" size={24} stroke="var(--color-text-error)" />
-                  </div>
-                  <div>
-                    <p className="font-t-l color--primary f-w-bold">Долги растут, а платить становится всё сложнее</p>
-                    <p className="font-t-l color--secondary sp-t-grey">Проценты и штрафы увеличивают сумму задолженности</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="col-6 col-md-6 col-sm-3">
-                <div className={styles.bottomNote}>
-                  <div className="icon-wrapper bg--surface stroke--primary radius--m">
-                    <Icon name="info" size={24} stroke="var(--color-text-error)" fill="var(--color-text-error)" />
-                  </div>
-                  <div>
-                    <p className="font-t-l color--primary f-w-bold">Приходится брать новые кредиты, чтобы закрыть старые</p>
-                    <p className="font-t-l color--secondary sp-t-grey">Долговая нагрузка только увеличивается</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="col-6 col-md-6 col-sm-3">
-                <div className={styles.bottomNote}>
-                  <div className="icon-wrapper bg--surface stroke--primary radius--m">
-                    <Icon name="phoneOff" size={24} stroke="var(--color-text-error)" fill="var(--color-text-error)" />
-                  </div>
-                  <div>
-                    <p className="font-t-l color--primary f-w-bold">Есть просрочки и давление со стороны банков или коллекторов</p>
-                    <p className="font-t-l color--secondary sp-t-grey">Постоянные звонки, требования и угрозы</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="col-6 col-md-6 col-sm-3">
-                <div className={styles.bottomNote}>
-                  <div className="icon-wrapper bg--surface stroke--primary radius--m">
-                    <Icon name="wallet" size={24} stroke="var(--color-text-error)" />
-                  </div>
-                  <div>
-                    <p className="font-t-l color--primary f-w-bold">Дохода не хватает на обязательные платежи</p>
-                    <p className="font-t-l color--secondary sp-t-grey">Нет возможности погашать задолженность даже частично</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </>
-        }
-      >
-        <h2 className="font-h2 color--primary">
-          В каких случаях <span className="color--secondary f-w-regular">подходит банкротство физического лица</span>
-        </h2>
-
-        <p className="font-t-m color--secondary sp-t-mint">
-          Процедура банкротства физических лиц подходит, если вы не можете выполнять свои финансовые обязательства. Это законный способ списать долги и избавиться от давления со стороны кредиторов
-        </p>
-
-        <div className="sp-t-mint">
-          <Button size="lg" icon={{ name: 'arrowUpRight' }} fullWidthMobile variant="dark">
-            Проверить ситуацию
-          </Button>
-        </div>
-      </PromoSection>
-
-      <section className={`${styles.steps} sp-t-pink`}>
-        <div className="ears">
-          <div className={styles.steps__wrapper}>
-            <div className="container">
-              <div className="col">
-                <div className="row">
-                  <div className="col">
-                    <h2 className="font-h2 color--primary sp-b-purple">
-                      Как проходит процедура банкротства <span className="color--secondary f-w-regular">физических лиц</span>
-                    </h2>
-                  </div>
-                </div>
-                <div className={`row ${styles.steps__grid}`}>
-                  <div className="col-4 col-md-6 col-sm-3">
-                    <div className={`${styles.steps__item} bg--surface radius--xl`}>
-                      <div className="flex-space-between sp-b-purple">
-                        <p className="font-h3">Шаг 1</p>
-                        <div className="icon-wrapper stroke--primary radius--m">
-                          <Icon name="info" size={24} stroke="var(--color-text-error)" fill="var(--color-text-error)" />
-                        </div>
-                      </div>
-                      <h3 className="font-s f-w-bold color--error sp-b-lightblue">Консультация и анализ ситуации</h3>
-                      <p className="font-t-m">– Обсуждаем вашу ситуацию онлайн или в офисе</p>
-                      <p className="font-t-m">– Проверяем, подходит ли вам процедура банкротства</p>
-                      <p className="font-t-m">– Отвечаем на все вопросы</p>
+        <section id="steps" className={`${styles.steps} sp-t-pink`}>
+          <div className="ears">
+            <div className={styles.steps__wrapper}>
+              <div className="container">
+                <div className="col">
+                  <div className="row">
+                    <div className="col">
+                      <h2 className="font-h2 color--primary sp-b-purple">
+                        Как проходит процедура банкротства <span className="color--secondary f-w-regular">физических лиц</span>
+                      </h2>
                     </div>
                   </div>
-
-                  <div className="col-4 col-md-6 col-sm-3">
-                    <div className={`${styles.steps__item} bg--surface radius--xl`}>
-                      <div className="flex-space-between sp-b-purple">
-                        <p className="font-h3">Шаг 2</p>
-                        <div className="icon-wrapper stroke--primary radius--m">
-                          <Icon name="move" size={24} stroke="var(--color-text-primary)" />
+                  <div className={`row ${styles.steps__grid}`}>
+                    <div className="col-4 col-md-6 col-sm-3">
+                      <div className={`${styles.steps__item} bg--surface radius--xl`}>
+                        <div className="flex-space-between sp-b-purple">
+                          <p className="font-h3">Шаг 1</p>
+                          <div className="icon-wrapper stroke--primary radius--m">
+                            <Icon name="info" size={24} stroke="var(--color-text-error)" fill="var(--color-text-error)" />
+                          </div>
                         </div>
+                        <h3 className="font-s f-w-bold color--error sp-b-lightblue">Консультация и&nbsp;анализ ситуации</h3>
+                        <p className="font-t-m">&mdash;&nbsp;Обсуждаем вашу ситуацию онлайн или в&nbsp;офисе</p>
+                        <p className="font-t-m">&mdash;&nbsp;Проверяем, подходит&nbsp;ли вам процедура банкротства</p>
+                        <p className="font-t-m">&mdash;&nbsp;Отвечаем на&nbsp;все вопросы</p>
                       </div>
-                      <h3 className="font-s f-w-bold color--primary sp-b-lightblue">Подготовка документов и подача в суд</h3>
-                      <p className="font-t-m">– Заключаем договор</p>
-                      <p className="font-t-m">– Собираем и оформляем документы</p>
-                      <p className="font-t-m">– Подаём заявление о банкротстве</p>
                     </div>
-                  </div>
 
-                  <div className="col-4 col-md-6 col-sm-3">
-                    <div className={`${styles.steps__item} bg--surface radius--xl`}>
-                      <div className="flex-space-between sp-b-purple">
-                        <p className="font-h3">Шаг 3</p>
-                        <div className="icon-wrapper stroke--primary radius--m">
-                          <Icon name="move" size={24} stroke="var(--color-text-primary)" />
+                    <div className="col-4 col-md-6 col-sm-3">
+                      <div className={`${styles.steps__item} bg--surface radius--xl`}>
+                        <div className="flex-space-between sp-b-purple">
+                          <p className="font-h3">Шаг 2</p>
+                          <div className="icon-wrapper stroke--primary radius--m">
+                            <Icon name="move" size={24} stroke="var(--color-text-primary)" />
+                          </div>
                         </div>
+                        <h3 className="font-s f-w-bold color--primary sp-b-lightblue">Подготовка документов и&nbsp;подача в&nbsp;суд</h3>
+                        <p className="font-t-m">&mdash;&nbsp;Заключаем договор</p>
+                        <p className="font-t-m">&mdash;&nbsp;Собираем и&nbsp;оформляем документы</p>
+                        <p className="font-t-m">&mdash;&nbsp;Подаём заявление о&nbsp;банкротстве</p>
                       </div>
-                      <h3 className="font-s f-w-bold color--primary sp-b-lightblue">Рассмотрение дела в суде</h3>
-                      <p className="font-t-m">– Представляем ваши интересы в суде</p>
-                      <p className="font-t-m">– Взаимодействуем с кредиторами</p>
-                      <p className="font-t-m">– Контролируем ход дела</p>
                     </div>
-                  </div>
 
-                  <div className="col-6 col-md-6 col-sm-3">
-                    <div className={`${styles.steps__item} bg--surface radius--xl`}>
-                      <div className="flex-space-between sp-b-purple">
-                        <p className="font-h3">Шаг 4</p>
-                        <div className="icon-wrapper stroke--primary radius--m">
-                          <Icon name="move" size={24} stroke="var(--color-text-primary)" />
+                    <div className="col-4 col-md-6 col-sm-3">
+                      <div className={`${styles.steps__item} bg--surface radius--xl`}>
+                        <div className="flex-space-between sp-b-purple">
+                          <p className="font-h3">Шаг 3</p>
+                          <div className="icon-wrapper stroke--primary radius--m">
+                            <Icon name="move" size={24} stroke="var(--color-text-primary)" />
+                          </div>
                         </div>
+                        <h3 className="font-s f-w-bold color--primary sp-b-lightblue">Рассмотрение дела в&nbsp;суде</h3>
+                        <p className="font-t-m">&mdash;&nbsp;Представляем ваши интересы в&nbsp;суде</p>
+                        <p className="font-t-m">&mdash;&nbsp;Взаимодействуем с&nbsp;кредиторами</p>
+                        <p className="font-t-m">&mdash;&nbsp;Контролируем ход дела</p>
                       </div>
-                      <h3 className="font-s f-w-bold color--primary sp-b-lightblue">Признание банкротом и сопровождение</h3>
-                      <p className="font-t-m">– Суд признаёт вас банкротом</p>
-                      <p className="font-t-m">– Мы берём на себя общение с коллекторами</p>
-                      <p className="font-t-m">– Сопровождаем процедуру до завершения</p>
                     </div>
-                  </div>
 
-                  <div className="col-6 col-md-6 col-sm-3">
-                    <div className={`${styles.steps__item} bg--surface radius--xl`}>
-                      <div className="flex-space-between sp-b-purple">
-                        <p className="font-h3">Шаг 5</p>
-                        <div className="icon-wrapper bg--brand stroke--primary radius--m">
-                          <Icon name="check" size={24} stroke="var(--color-text-primary)" />
+                    <div className="col-6 col-md-6 col-sm-3">
+                      <div className={`${styles.steps__item} bg--surface radius--xl`}>
+                        <div className="flex-space-between sp-b-purple">
+                          <p className="font-h3">Шаг 4</p>
+                          <div className="icon-wrapper stroke--primary radius--m">
+                            <Icon name="move" size={24} stroke="var(--color-text-primary)" />
+                          </div>
                         </div>
+                        <h3 className="font-s f-w-bold color--primary sp-b-lightblue">Признание банкротом и&nbsp;сопровождение</h3>
+                        <p className="font-t-m">&mdash;&nbsp;Суд признаёт вас банкротом</p>
+                        <p className="font-t-m">&mdash;&nbsp;Мы&nbsp;берём на&nbsp;себя общение с&nbsp;коллекторами</p>
+                        <p className="font-t-m">&mdash;&nbsp;Сопровождаем процедуру до&nbsp;завершения</p>
                       </div>
-                      <h3 className="font-s f-w-bold color--brand sp-b-lightblue">Списание долгов и новый этап жизни</h3>
-                      <p className="font-t-m">– Суд принимает решение о списании долгов</p>
-                      <p className="font-t-m">– Вы освобождаетесь от обязательств</p>
-                      <p className="font-t-m">– Начинаете финансовую жизнь без долгов</p>
+                    </div>
+
+                    <div className="col-6 col-md-6 col-sm-3">
+                      <div className={`${styles.steps__item} bg--surface radius--xl`}>
+                        <div className="flex-space-between sp-b-purple">
+                          <p className="font-h3">Шаг 5</p>
+                          <div className="icon-wrapper bg--brand stroke--primary radius--m">
+                            <Icon name="check" size={24} stroke="var(--color-text-primary)" />
+                          </div>
+                        </div>
+                        <h3 className="font-s f-w-bold color--brand sp-b-lightblue">Списание долгов и&nbsp;новый этап жизни</h3>
+                        <p className="font-t-m">&mdash;&nbsp;Суд принимает решение о&nbsp;списании долгов</p>
+                        <p className="font-t-m">&mdash;&nbsp;Вы&nbsp;освобождаетесь от&nbsp;обязательств</p>
+                        <p className="font-t-m">&mdash;&nbsp;Начинаете финансовую жизнь без долгов</p>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <PromoSection
-        sectionClassName="sp-t-pink"
-        wrapperClassName="sp-v-green"
-        background="var(--color-bg-surface)"
-        imagePosition="right"
-        image={{
-          src: promoImagePrice,
-          alt: 'Стоимость банкротства физических лиц',
-        }}
-      >
-        <h2 className="font-h2 color--primary">
-          Сколько стоит банкротство <span className="color--secondary f-w-regular">физических лиц в Рязани</span>
-        </h2>
-        <p className="font-h2 color--brand">от 80 000 ₽</p>
+        <PromoSection
+          id="price"
+          sectionClassName="sp-t-pink"
+          wrapperClassName="sp-v-green"
+          background="var(--color-bg-surface)"
+          imagePosition="right"
+          image={{
+            src: promoImagePrice,
+            alt: 'Стоимость банкротства физических лиц',
+          }}
+        >
+          <h2 className="font-h2 color--primary">
+            Сколько стоит банкротство <span className="color--secondary f-w-regular">физических лиц в&nbsp;Рязани</span>
+          </h2>
+          <p className="font-h2 color--brand">от&nbsp;80&nbsp;000&nbsp;₽</p>
 
-        <p className="font-t-m color--secondary sp-t-mint">
-          Наши юристы по банкротству в Рязани сопровождают клиентов на всех этапах процедуры – от консультации до полного списания долгов. Мы берём на себя все юридические вопросы и помогаем пройти процесс без лишних рисков
-        </p>
+          <p className="font-t-m color--secondary sp-t-mint">
+            Наши юристы по&nbsp;банкротству в&nbsp;Рязани сопровождают клиентов на&nbsp;всех этапах процедуры&nbsp;&mdash; от&nbsp;консультации до&nbsp;полного списания долгов. Мы&nbsp;берём на&nbsp;себя все юридические вопросы
+            и&nbsp;помогаем пройти процесс без лишних рисков
+          </p>
 
-        <ul className="rt-ordered-list sp-t-mint">
-          <li className="font-t-m color--secondary">Возможна рассрочка</li>
-          <li className="font-t-m color--secondary sp-t-darkpurple">Без скрытых платежей</li>
-        </ul>
+          <ul className="rt-ordered-list sp-t-mint">
+            <li className="font-t-m color--secondary">Возможна рассрочка</li>
+            <li className="font-t-m color--secondary sp-t-darkpurple">Без скрытых платежей</li>
+          </ul>
 
-        <div className="sp-t-mint">
-          <Button size="lg" icon={{ name: 'arrowUpRight' }} fullWidthMobile variant="dark">
-            Разобрать вашу ситуацию
-          </Button>
-        </div>
-      </PromoSection>
+          <div className="sp-t-mint">
+            <Button size="lg" icon={{ name: 'arrowUpRight' }} fullWidthMobile variant="dark">
+              Разобрать вашу ситуацию
+            </Button>
+          </div>
+        </PromoSection>
 
-      <section className={`${styles.whyus} sp-t-pink`}>
-        <div className="ears">
-          <div className={styles.whyus__wrapper}>
-            <div className="container">
-              <div className="col">
-                <div className="row">
-                  <div className="col-6 col-md-6 col-sm-3">
-                    <div className={styles.whyus__media}>
-                      <div className={styles.whyus__person}>
-                        <div className={`${styles.whyus__image} radius--xl`}>
-                          <img src={whyusPerson} alt="Юридический сотрудник" />
+        <section className={`${styles.whyus} sp-t-pink`}>
+          <div className="ears">
+            <div className={styles.whyus__wrapper}>
+              <div className="container">
+                <div className="col">
+                  <div className="row md-wrap-reverce">
+                    <div className="col-6 col-md-6 col-sm-3">
+                      <div className={styles.whyus__media}>
+                        <div className={styles.whyus__person}>
+                          <div className={`${styles.whyus__image} radius--xl`}>
+                            <img src={whyusPerson} alt="Юридический сотрудник" />
+                          </div>
+                          <p className="font-t-l color--primary f-w-bold text-align-center sp-t-purple">Дмитрий Соколов</p>
+                          <p className="font-t-m text-align-center sp-t-lightblue">Руководитель практики</p>
                         </div>
-                        <p className="font-t-l color--primary f-w-bold sp-t-purple">Дмитрий Соколов</p>
-                        <p className='font-t-m sp-t-lightblue'>Руководитель практики</p>
-                      </div>
-                      <div className={styles.whyus__person}>
-                        <div className={`${styles.whyus__image} radius--xl`}>
-                          <img src={whyusPerson2} alt="Юридический сотрудник" />
+                        <div className={styles.whyus__person}>
+                          <div className={`${styles.whyus__image} radius--xl`}>
+                            <img src={whyusPerson2} alt="Юридический сотрудник" />
+                          </div>
+                          <p className="font-t-l color--primary f-w-bold text-align-center sp-t-purple">Мария Лебедева</p>
+                          <p className="font-t-m text-align-center sp-t-lightblue">Ведущий юрист</p>
                         </div>
-                        <p className="font-t-l color--primary f-w-bold sp-t-purple">Мария Лебедева</p>
-                        <p className='font-t-m sp-t-lightblue'>Ведущий юрист</p>
                       </div>
                     </div>
-                  </div>
 
-                  <div className="col-6 col-md-6 col-sm-3">
-                    <div className={styles.whyus__content}>
-                      <h2 className="font-h2 color--primary">Почему стоит обратиться к&nbsp;юристу</h2>
-                      <p className="font-t-l sp-t-red">
-                        Наши юристы по банкротству в Рязани сопровождают клиентов на всех этапах процедуры – от консультации до полного списания долгов. Мы берём на себя все юридические вопросы и помогаем пройти процесс спокойно и без
-                        лишних рисков
-                      </p>
-                      <ul className="rt-ordered-list sp-t-red">
-                        <li className="font-t-l color--secondary">Опыт ведения дел о банкротстве физических лиц</li>
-                        <li className="font-t-l color--secondary sp-t-lightblue">Сопровождение «под ключ»</li>
-                        <li className="font-t-l color--secondary sp-t-lightblue">Прозрачные условия без скрытых платежей</li>
-                      </ul>
+                    <div className="col-6 col-md-6 col-sm-3">
+                      <div className={styles.whyus__content}>
+                        <h2 className="font-h2 color--primary">Почему стоит обратиться к&nbsp;юристу</h2>
+                        <p className="font-t-l sp-t-red">
+                          Наши юристы по&nbsp;банкротству в&nbsp;Рязани сопровождают клиентов на&nbsp;всех этапах процедуры&nbsp;&mdash; от&nbsp;консультации до&nbsp;полного списания долгов. Мы&nbsp;берём на&nbsp;себя все юридические
+                          вопросы и&nbsp;помогаем пройти процесс спокойно и&nbsp;без лишних рисков
+                        </p>
+                        <ul className="rt-ordered-list sp-t-red">
+                          <li className="font-t-l color--secondary">Опыт ведения дел о&nbsp;банкротстве физических лиц</li>
+                          <li className="font-t-l color--secondary sp-t-lightblue">Сопровождение &laquo;под ключ&raquo;</li>
+                          <li className="font-t-l color--secondary sp-t-lightblue">Прозрачные условия без скрытых платежей</li>
+                        </ul>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
-    </main>
+        </section>
+
+        <section id="cases" className={`${styles.clients} sp-v-pink`}>
+          <div className="ears">
+            <div className={styles.clients__wrapper}>
+              <div className="container">
+                <div className="col">
+                  <div className={`row ${styles.clients__top} sp-b-purple`}>
+                    <div className="col-7 col-md-4 col-sm-3">
+                      <h2 className="font-h2 f-w-regular">
+                        <span className="color--primary f-w-bold">Реальные результаты</span> наших клиентов
+                      </h2>
+                    </div>
+                    <div className="col-5 col-md-2 col-sm-3">
+                      <div className={styles.clients__btn}>
+                        <Button size="lg" fullWidthMobile variant="dark">
+                          Все кейсы
+                        </Button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="row">
+                    <div className="col-4 col-md-6 col-sm-3">
+                      <div className={`${styles.clients__item} bg--main radius--xl stroke--secondary`}>
+                        <div>
+                          <div className="flex-space-between">
+                            <div className="icon-wrapper bg--surface stroke--primary radius--m">
+                              <Icon name="wallet" size={24} stroke="var(--color-text-primary)" />
+                            </div>
+                            <p className="font-h3 color--tertiary">01</p>
+                          </div>
+
+                          <div className="sp-t-purple">
+                            <p className="font-s color--primary f-w-bold">Списали долг 1,2 млн ₽ за 8 месяцев</p>
+                            <p className="font-t-m sp-t-lightblue">Клиент не справлялся с кредитной нагрузкой – помогли пройти процедуру банкротства и полностью списали долги</p>
+                          </div>
+                        </div>
+
+                        <div className="sp-t-lightblue">
+                          <div className="stroke--tertiary" style={{ borderTop: 0 }}></div>
+                          <div className="flex-space-between sp-t-mint">
+                            <p className="font-t-m">Изучить дело</p>
+                            <Button
+                              variant="brand"
+                              size="lg"
+                              shape="round"
+                              ariaLabel="Перейти к следующему блоку"
+                              icon={{
+                                name: 'arrowUpRight',
+                              }}
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="col-4 col-md-6 col-sm-3">
+                      <div className={`${styles.clients__item} bg--main radius--xl stroke--secondary`}>
+                        <div>
+                          <div className="flex-space-between">
+                            <div className="icon-wrapper bg--surface stroke--primary radius--m">
+                              <Icon name="wallet" size={24} stroke="var(--color-text-primary)" />
+                            </div>
+                            <p className="font-h3 color--tertiary">02</p>
+                          </div>
+
+                          <div className="sp-t-purple">
+                            <p className="font-s color--primary f-w-bold">Списали 780 000 ₽ по микрозаймам за 7 месяцев</p>
+                            <p className="font-t-m sp-t-lightblue">Клиент столкнулся с давлением коллекторов – остановили взыскания и довели дело до полного списания долгов</p>
+                          </div>
+                        </div>
+
+                        <div className="sp-t-lightblue">
+                          <div className="stroke--tertiary" style={{ borderTop: 0 }}></div>
+                          <div className="flex-space-between sp-t-mint">
+                            <p className="font-t-m">Изучить дело</p>
+                            <Button
+                              variant="brand"
+                              size="lg"
+                              shape="round"
+                              ariaLabel="Перейти к следующему блоку"
+                              icon={{
+                                name: 'arrowUpRight',
+                              }}
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="col-4 col-md-6 col-sm-3">
+                      <div className={`${styles.clients__item} bg--main radius--xl stroke--secondary`}>
+                        <div>
+                          <div className="flex-space-between">
+                            <div className="icon-wrapper bg--surface stroke--primary radius--m">
+                              <Icon name="wallet" size={24} stroke="var(--color-text-primary)" />
+                            </div>
+                            <p className="font-h3 color--tertiary">03</p>
+                          </div>
+
+                          <div className="sp-t-purple">
+                            <p className="font-s color--primary f-w-bold">Списали долг 1 млн ₽ за 9 месяцев</p>
+                            <p className="font-t-m sp-t-lightblue">Было открыто исполнительное производство – прекратили взыскания и полностью освободили клиента от долгов</p>
+                          </div>
+                        </div>
+
+                        <div className="sp-t-lightblue">
+                          <div className="stroke--tertiary" style={{ borderTop: 0 }}></div>
+                          <div className="flex-space-between sp-t-mint">
+                            <p className="font-t-m">Изучить дело</p>
+                            <Button
+                              variant="brand"
+                              size="lg"
+                              shape="round"
+                              ariaLabel="Перейти к следующему блоку"
+                              icon={{
+                                name: 'arrowUpRight',
+                              }}
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </>
   );
 }

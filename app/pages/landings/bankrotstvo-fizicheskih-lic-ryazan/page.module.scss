@@ -57,3 +57,38 @@
     max-height: 450px;
   }
 }
+
+.clients {
+  &__top {
+    align-items: flex-end;
+  }
+
+  &__btn {
+    display: flex;
+    justify-content: end;
+
+    @include bp(sm) {
+      padding-top: 20px;
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 470px;
+    padding: 20px;
+
+    @include bp(md) {
+      min-height: auto;
+    }
+
+    @include bp(md) {
+      padding: 16px 20px;
+    }
+
+    @include bp(sm) {
+      padding: 12px;
+    }
+  }
+}

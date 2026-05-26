@@ -1025,3 +1025,15 @@ html[data-theme='light'] {
     list-style: disc;
   }
 }
+
+.md-wrap-reverce {
+  @include bp(md) {
+    flex-wrap: wrap-reverse;
+  }
+}
+
+.sm-wrap-reverce {
+  @include bp(sm) {
+    flex-wrap: wrap-reverse;
+  }
+}

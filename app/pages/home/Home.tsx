@@ -1,3 +1,4 @@
+import Navbar, { type NavbarLink } from '../../components/layout/navbar/Navbar';
 import Hero from '../../components/sections/hero/Hero';
 import Button from '../../components/ui/button/Button';
 import heroBg from '../../assets/images/hero/main_cover_050526.avif';
@@ -37,11 +38,17 @@ const schemaOrg = {
   },
 };
 
+const pageLinks: NavbarLink[] = [
+  { label: 'Stylekit', href: '/stylekit' },
+  { label: 'Банкротство', href: '/bankrotstvo-fizicheskih-lic-ryazan' },
+];
+
 export default function Home() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaOrg) }} />
 
+      <Navbar links={pageLinks} />
       <main>
         <Hero
           backgroundImage={heroBg}

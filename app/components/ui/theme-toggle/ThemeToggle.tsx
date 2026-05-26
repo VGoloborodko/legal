@@ -1,12 +1,16 @@
 import { useEffect, useState } from 'react';
 import styles from './ThemeToggle.module.scss';
+import Icon from '../icon/Icon';
 
 export default function ThemeToggle() {
   const [theme, setTheme] = useState<'light' | 'dark'>('dark');
 
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme') as 'light' | 'dark' | null;
-    const currentTheme = savedTheme || (document.documentElement.getAttribute('data-theme') as 'light' | 'dark') || 'dark';
+    const currentTheme =
+      savedTheme ||
+      (document.documentElement.getAttribute('data-theme') as 'light' | 'dark') ||
+      'dark';
 
     setTheme(currentTheme);
     document.documentElement.setAttribute('data-theme', currentTheme);
@@ -22,8 +26,19 @@ export default function ThemeToggle() {
   };
 
   return (
-    <button type="button" onClick={toggleTheme} className={styles['theme-toggle']} aria-label="Переключить тему">
-      <span className={styles['theme-toggle__icon']}>{theme === 'dark' ? '🌞' : '🌙'}</span>
+    <button
+      type="button"
+      onClick={toggleTheme}
+      className={styles.themeToggle}
+      aria-label={theme === 'dark' ? 'Включить светлую тему' : 'Включить тёмную тему'}
+      aria-pressed={theme === 'light'}
+    >
+      <span className={styles.themeToggle__thumb}>
+        <Icon
+          name={theme === 'dark' ? 'moon' : 'sun'}
+          size={12}
+        />
+      </span>
     </button>
   );
 }
