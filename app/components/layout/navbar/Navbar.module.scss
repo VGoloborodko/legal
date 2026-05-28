@@ -18,6 +18,11 @@
       padding-left: 30px;
       padding-right: 30px;
     }
+
+    @include bp(sm) {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
   }
 
   &__wrapper {
