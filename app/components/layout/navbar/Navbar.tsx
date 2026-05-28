@@ -142,7 +142,7 @@ export default function Navbar({ links }: NavbarProps) {
 
               <button
                 type="button"
-                className={`${styles.navbar__closeButton}`}
+                className={styles.navbar__closeButton}
                 aria-label="Закрыть меню"
                 onClick={closeDrawer}
               >
@@ -189,15 +189,25 @@ export default function Navbar({ links }: NavbarProps) {
             </div>
 
             <div className={styles.navbar__drawerBottom}>
-              <a href="/privacy-policy" className={styles.navbar__drawerMetaLink} onClick={closeDrawer}>
+              <a
+                href="/privacy-policy"
+                className={styles.navbar__drawerMetaLink}
+                onClick={closeDrawer}
+              >
                 Политика конфиденциальности
               </a>
 
-              <a href="/cookies" className={styles.navbar__drawerMetaLink} onClick={closeDrawer}>
+              <a
+                href="/cookies"
+                className={styles.navbar__drawerMetaLink}
+                onClick={closeDrawer}
+              >
                 Правила cookies
               </a>
 
-              <ThemeToggle />
+              <div className={styles.navbar__drawerTheme}>
+                <ThemeToggle />
+              </div>
             </div>
           </div>
         </aside>

@@ -18,11 +18,6 @@
       padding-left: 30px;
       padding-right: 30px;
     }
-
-    @include bp(md) {
-      padding-left: 10px;
-      padding-right: 10px;
-    }
   }
 
   &__wrapper {
@@ -132,28 +127,35 @@
   }
 
   &__drawer {
-    width: min(98vw, 420px);
-    height: 100dvh;
-    background: var(--color-bg-base);
-    border-top-right-radius: var(--radius-xxl);
-    border-bottom-right-radius: var(--radius-xxl);
-    transform: translateX(-100%);
-    transition: transform 0.32s ease;
-    overflow: hidden;
-    box-shadow: 24px 0 60px rgba(0, 0, 0, 0.28);
+  width: min(98vw, 420px);
+  height: 100dvh;
+  background-color: var(--color-bg-base);
+  border-top-right-radius: var(--radius-xxl);
+  border-bottom-right-radius: var(--radius-xxl);
+  transform: translateX(-100%);
+  transition: transform 0.32s ease;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  box-shadow: 24px 0 60px rgba(0, 0, 0, 0.28);
 
-    &--open {
-      transform: translateX(0);
-    }
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    width: 0;
+    height: 0;
   }
+
+  &--open {
+    transform: translateX(0);
+  }
+}
 
   &__drawerInner {
     display: flex;
     flex-direction: column;
-    min-height: 100dvh;
     padding: 24px 20px 20px;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
   }
 
   &__drawerTop {
@@ -222,7 +224,6 @@
   }
 
   &__drawerContacts {
-    margin-top: auto;
     padding-top: 24px;
     border-top: 1px solid var(--color-stroke-secondary);
   }
@@ -245,10 +246,15 @@
     padding-top: 24px;
     margin-top: 20px;
     border-top: 1px solid var(--color-stroke-secondary);
+    padding-bottom: 20px;
   }
 
   &__drawerMetaLink {
     color: var(--color-text-secondary);
     text-decoration: none;
+  }
+
+  &__drawerTheme {
+    padding-top: 8px;
   }
 }
