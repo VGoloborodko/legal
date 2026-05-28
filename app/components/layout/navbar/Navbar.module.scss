@@ -134,15 +134,16 @@
   &__drawer {
   width: min(98vw, 420px);
   height: 100dvh;
-  background-color: var(--color-bg-base);
-  border-top-right-radius: var(--radius-xxl);
-  border-bottom-right-radius: var(--radius-xxl);
+  background-color: var(--color-bg-main);
+  border-top-right-radius: var(--radius-l);
+  border-bottom-right-radius: var(--radius-l);
   transform: translateX(-100%);
   transition: transform 0.32s ease;
   overflow-y: auto;
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
-  box-shadow: 24px 0 60px rgba(0, 0, 0, 0.28);
+  border: 1px solid var(--color-stroke-primary);
+  // box-shadow: 24px 0 60px rgba(0, 0, 0, 0.28);
 
   scrollbar-width: none;
   -ms-overflow-style: none;
@@ -168,15 +169,14 @@
     align-items: center;
     justify-content: space-between;
     gap: 16px;
-    margin-bottom: 32px;
   }
 
   &__closeButton {
     position: relative;
-    width: 40px;
-    height: 40px;
+    width: 32px;
+    height: 32px;
     padding: 0;
-    border: 1px solid var(--color-stroke-primary);
+    border: 1px solid var(--color-text-secondary);
     border-radius: 50%;
     background: transparent;
     cursor: pointer;
@@ -187,9 +187,9 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 16px;
-    height: 1.5px;
-    background: var(--color-text-primary);
+    width: 12px;
+    height: 1px;
+    background: var(--color-text-secondary);
     border-radius: 999px;
 
     &:first-child {
@@ -208,7 +208,7 @@
   &__drawerList {
     display: flex;
     flex-direction: column;
-    row-gap: 28px;
+    row-gap: 18px;
   }
 
   &__drawerItem {
@@ -221,29 +221,6 @@
     text-decoration: none;
   }
 
-  &__drawerActions {
-    display: flex;
-    flex-direction: column;
-    row-gap: 12px;
-    margin-bottom: 28px;
-  }
-
-  &__drawerContacts {
-    padding-top: 24px;
-    border-top: 1px solid var(--color-stroke-secondary);
-  }
-
-  &__drawerContactsTitle {
-    margin-bottom: 16px;
-    font-weight: 700;
-    color: var(--color-text-primary);
-  }
-
-  &__drawerContact {
-    margin-bottom: 12px;
-    color: var(--color-text-secondary);
-  }
-
   &__drawerBottom {
     display: flex;
     flex-direction: column;
@@ -252,14 +229,5 @@
     margin-top: 20px;
     border-top: 1px solid var(--color-stroke-secondary);
     padding-bottom: 20px;
-  }
-
-  &__drawerMetaLink {
-    color: var(--color-text-secondary);
-    text-decoration: none;
-  }
-
-  &__drawerTheme {
-    padding-top: 8px;
   }
 }
