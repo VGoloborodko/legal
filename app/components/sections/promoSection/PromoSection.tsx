@@ -8,6 +8,7 @@ type PromoSectionProps = {
   background?: string;
   sectionClassName?: string;
   wrapperClassName?: string;
+  rowClassName?: string;
   image?: {
     src: string;
     alt: string;
@@ -17,7 +18,7 @@ type PromoSectionProps = {
   bottom?: ReactNode;
 };
 
-export default function PromoSection({ id, background, sectionClassName, wrapperClassName, image, imagePosition = 'left', children, bottom }: PromoSectionProps) {
+export default function PromoSection({ id, background, sectionClassName, wrapperClassName, rowClassName, image, imagePosition = 'left', children, bottom }: PromoSectionProps) {
   const imageRef = useRef<HTMLDivElement | null>(null);
   const contentRef = useRef<HTMLDivElement | null>(null);
 
@@ -52,7 +53,7 @@ export default function PromoSection({ id, background, sectionClassName, wrapper
         <div className={`${styles.promoSection__wrapper} radius--xxl ${wrapperClassName ?? ''}`} style={background ? { background } : undefined}>
           <div className="container">
             <div className="col">
-              <div className="row">
+              <div className={`row ${rowClassName ?? ''}`}>
                 {imagePosition === 'left' ? (
                   <>
                     {imageBlock}

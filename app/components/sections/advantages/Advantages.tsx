@@ -12,7 +12,7 @@ export default function Advantages() {
                 <div className="col-6 col-md-6 col-sm-3">
                   <p className="font-t-l color--secondary">Мы в цифрах</p>
                   <h2 className="font-h2 color--primary sp-t-lightblue">
-                    Результаты, <br className="d-none-md" />
+                    Результаты, <br className="md-d-none" />
                     <span className="color--secondary">а не пустые обещания</span>
                   </h2>
                   <div className="sp-t-purple">

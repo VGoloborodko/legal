@@ -4,7 +4,7 @@ import Hero from '../../../components/sections/hero/Hero';
 import PromoSection from '../../../components/sections/promoSection/PromoSection';
 import Button from '../../../components/ui/button/Button';
 import Icon from '../../../components/ui/icon/Icon';
-// import heroBg from '../../../assets/images/hero/main_cover_100526.avif';
+import heroBg from '../../../assets/images/hero/main_cover_100526.avif';
 import promoImage from '../../../assets/images/bankrotstvo-fizicheskih-lic-ryazan/promo_sections_200526.avif';
 import promoImagePrice from '../../../assets/images/bankrotstvo-fizicheskih-lic-ryazan/promo_sections_200526_2.avif';
 import whyusPerson from '../../../assets/images/bankrotstvo-fizicheskih-lic-ryazan/whyus_image_200526.avif';
@@ -50,7 +50,7 @@ export default function BankrotstvoFizicheskihLicRyazanPage() {
       <Navbar links={pageLinks} />
       <main>
         <Hero
-          // backgroundImage={heroBg}
+          backgroundImage={heroBg}
           heroTag={<>Надежная защита от&nbsp;кредитов</>}
           icon={{
             name: 'shield',
@@ -84,6 +84,7 @@ export default function BankrotstvoFizicheskihLicRyazanPage() {
           id="fits"
           sectionClassName="sp-t-pink"
           // wrapperClassName="sp-v-green"
+          rowClassName="md-wrap-reverce"
           background="var(--color-bg-primary)"
           image={{
             src: promoImage,
@@ -241,7 +242,7 @@ export default function BankrotstvoFizicheskihLicRyazanPage() {
                         <div className="flex-space-between sp-b-purple">
                           <p className="font-h3">Шаг 5</p>
                           <div className="icon-wrapper bg--brand stroke--primary radius--m">
-                            <Icon name="check" size={24} stroke="var(--color-text-primary)" />
+                            <Icon name="check" size={24} stroke="var(--color-text-white)" />
                           </div>
                         </div>
                         <h3 className="font-s f-w-bold color--brand sp-b-lightblue">Списание долгов и&nbsp;новый этап жизни</h3>
