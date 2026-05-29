@@ -84,32 +84,15 @@
   }
 
   &__menuButton {
-    display: none;
-    position: relative;
-    width: 48px;
-    height: 48px;
-    padding: 0;
-    border: 1px solid var(--color-stroke-primary);
-    border-radius: var(--radius-m);
-    background: var(--color-bg-surface);
+    display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
-    row-gap: 4px;
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--color-stroke-primary);
+    border-radius: var(--radius-l);
+    background: var(--color-bg-surface);
     cursor: pointer;
-    flex-shrink: 0;
-
-    @include bp(md) {
-      display: inline-flex;
-    }
-  }
-
-  &__menuLine {
-    display: block;
-    width: 18px;
-    height: 2px;
-    border-radius: 999px;
-    background: var(--color-text-primary);
   }
 
   &__overlay {
@@ -203,6 +186,12 @@
 
   &__drawerNav {
     margin-bottom: 32px;
+  }
+
+  &__buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
   }
 
   &__drawerList {

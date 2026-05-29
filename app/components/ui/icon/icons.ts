@@ -10,6 +10,7 @@ import Move from './icons/Move';
 import Check from './icons/Check';
 import ThemeToggleMoon from './icons/ThemeToggleMoon';
 import ThemeToggleSun from './icons/ThemeToggleSun';
+import Dash from './icons/Dash';
 
 export const icons = {
   arrowRight: ArrowRightIcon,
@@ -24,6 +25,7 @@ export const icons = {
   check: Check,
   moon: ThemeToggleMoon,
   sun: ThemeToggleSun,
+  dash: Dash,
 };
 
 export type IconName = keyof typeof icons;

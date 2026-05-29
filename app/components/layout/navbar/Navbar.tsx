@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import styles from './Navbar.module.scss';
 import Button from '../../ui/button/Button';
 import ThemeToggle from '../../ui/theme-toggle/ThemeToggle';
+import Icon from '../../ui/icon/Icon';
 
 export type NavbarLink = {
   label: string;
@@ -80,9 +81,7 @@ export default function Navbar({ links }: NavbarProps) {
                     </div>
 
                     <button type="button" className={styles.navbar__menuButton} aria-label={isDrawerOpen ? 'Закрыть меню' : 'Открыть меню'} aria-expanded={isDrawerOpen} aria-controls="navbar-drawer" onClick={openDrawer}>
-                      <span className={styles.navbar__menuLine} />
-                      <span className={styles.navbar__menuLine} />
-                      <span className={styles.navbar__menuLine} />
+                      <Icon name="dash" size={16} stroke="var(--color-text-primary)" />
                     </button>
                   </div>
                 </div>
@@ -120,6 +119,32 @@ export default function Navbar({ links }: NavbarProps) {
               </ul>
             </nav>
 
+            <div className={`${styles.navbar__buttons} sp-t-burgundy`}>
+              <Button
+                variant="brand"
+                size="md"
+                shape="default"
+                fullWidthMobile
+                icon={{
+                  name: 'arrowUpRight',
+                }}
+                iconPosition="right"
+                onClick={() => console.log('click')}
+              >
+                Оставить заявку
+              </Button>
+
+              <Button
+                variant="dark"
+                size="md"
+                shape="default"
+                fullWidthMobile
+                iconPosition="right"
+                onClick={() => console.log('click')}
+              >
+                Консультация
+              </Button>
+            </div>
             {/* <div className={styles.navbar__drawerBottom}>
               <a href="/privacy-policy" onClick={closeDrawer}>
                 Политика конфиденциальности
