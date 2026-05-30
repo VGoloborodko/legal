@@ -9,9 +9,12 @@
 }
 
 .navbar {
-  position: absolute;
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
-  z-index: 20;
+  z-index: 50;
+  transform: translateY(0);
 
   :global(.container) {
     @include bp(lg) {
@@ -84,7 +87,7 @@
   }
 
   &__menuButton {
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
     width: 40px;
@@ -93,6 +96,10 @@
     border-radius: var(--radius-l);
     background: var(--color-bg-surface);
     cursor: pointer;
+
+    @include bp(md) {
+      display: flex;
+    }
   }
 
   &__overlay {
@@ -115,31 +122,31 @@
   }
 
   &__drawer {
-  width: min(98vw, 420px);
-  height: 100dvh;
-  background-color: var(--color-bg-main);
-  border-top-right-radius: var(--radius-l);
-  border-bottom-right-radius: var(--radius-l);
-  transform: translateX(-100%);
-  transition: transform 0.32s ease;
-  overflow-y: auto;
-  overflow-x: hidden;
-  -webkit-overflow-scrolling: touch;
-  border: 1px solid var(--color-stroke-primary);
-  // box-shadow: 24px 0 60px rgba(0, 0, 0, 0.28);
+    width: min(98vw, 420px);
+    height: 100dvh;
+    background-color: var(--color-bg-main);
+    border-top-right-radius: var(--radius-l);
+    border-bottom-right-radius: var(--radius-l);
+    transform: translateX(-100%);
+    transition: transform 0.32s ease;
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    border: 1px solid var(--color-stroke-primary);
+    // box-shadow: 24px 0 60px rgba(0, 0, 0, 0.28);
 
-  scrollbar-width: none;
-  -ms-overflow-style: none;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 
-  &::-webkit-scrollbar {
-    width: 0;
-    height: 0;
+    &::-webkit-scrollbar {
+      width: 0;
+      height: 0;
+    }
+
+    &--open {
+      transform: translateX(0);
+    }
   }
-
-  &--open {
-    transform: translateX(0);
-  }
-}
 
   &__drawerInner {
     display: flex;
@@ -192,6 +199,17 @@
     display: flex;
     flex-direction: column;
     gap: 8px;
+  }
+
+  &__contact {
+    border-top: 1px solid var(--color-stroke-primary);
+    border-bottom: 1px solid var(--color-stroke-primary);
+  }
+
+  &__contactItem {
+    display: flex;
+    align-items: center;
+    gap: 4px;
   }
 
   &__drawerList {

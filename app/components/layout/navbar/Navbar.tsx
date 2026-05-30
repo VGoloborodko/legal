@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import gsap from 'gsap';
 import styles from './Navbar.module.scss';
 import Button from '../../ui/button/Button';
 import ThemeToggle from '../../ui/theme-toggle/ThemeToggle';
@@ -15,6 +16,7 @@ type NavbarProps = {
 
 export default function Navbar({ links }: NavbarProps) {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const headerRef = useRef<HTMLElement | null>(null);
 
   const openDrawer = () => {
     setIsDrawerOpen(true);
@@ -45,9 +47,66 @@ export default function Navbar({ links }: NavbarProps) {
     };
   }, [isDrawerOpen]);
 
+  useEffect(() => {
+    const header = headerRef.current;
+    if (!header) return;
+
+    let lastScrollY = window.scrollY;
+
+    const showHeader = () => {
+      gsap.to(header, {
+        yPercent: 0,
+        duration: 1,
+        ease: 'power3.out',
+        overwrite: 'auto',
+      });
+    };
+
+    const hideHeader = () => {
+      gsap.to(header, {
+        yPercent: -120,
+        duration: 1,
+        ease: 'power2.out',
+        overwrite: 'auto',
+      });
+    };
+
+    const handleScroll = () => {
+      if (!headerRef.current) return;
+
+      if (isDrawerOpen) {
+        showHeader();
+        lastScrollY = window.scrollY;
+        return;
+      }
+
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY <= 10) {
+        showHeader();
+        lastScrollY = currentScrollY;
+        return;
+      }
+
+      if (currentScrollY > lastScrollY) {
+        hideHeader();
+      } else if (currentScrollY < lastScrollY) {
+        showHeader();
+      }
+
+      lastScrollY = currentScrollY;
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [isDrawerOpen]);
+
   return (
     <>
-      <header className={`${styles.navbar} sp-t-mint`}>
+      <header ref={headerRef} className={`${styles.navbar} sp-t-mint`}>
         <div className="ears">
           <div className={`${styles.navbar__wrapper} bg--surface radius--xl`}>
             <div className="container">
@@ -129,22 +188,40 @@ export default function Navbar({ links }: NavbarProps) {
                   name: 'arrowUpRight',
                 }}
                 iconPosition="right"
-                onClick={() => console.log('click')}
               >
                 Оставить заявку
               </Button>
 
-              <Button
-                variant="dark"
-                size="md"
-                shape="default"
-                fullWidthMobile
-                iconPosition="right"
-                onClick={() => console.log('click')}
-              >
+              <Button variant="dark" size="md" shape="default" fullWidthMobile iconPosition="right">
                 Консультация
               </Button>
             </div>
+
+            <div className="sp-t-burgundy">
+              <div className={`${styles.navbar__contact} sp-v-blue`}>
+                <p className="font-t-l f-w-bold color--primary">Контакты:</p>
+
+                <div className={`${styles.navbar__contactItem} sp-t-darkpurple`}>
+                  <Icon name="phone" stroke="var(--color-text-brand)" />
+                  <a className="font-t-l" href="tel:+79990000000">
+                    +7 (999) 000-00-00
+                  </a>
+                </div>
+
+                <div className={`${styles.navbar__contactItem} sp-t-darkpurple`}>
+                  <Icon name="globe" stroke="var(--color-text-brand)" />
+                  <a className="font-t-l" href="mailto:info@bankrotstvo-ryazan.ru">
+                    info@bankrotstvo-ryazan.ru
+                  </a>
+                </div>
+
+                <div className={`${styles.navbar__contactItem} sp-t-darkpurple`}>
+                  <Icon name="mapPin" stroke="var(--color-text-brand)" />
+                  <p className="font-t-l">г. Рязань, ул. Ленина, д. 10</p>
+                </div>
+              </div>
+            </div>
+
             {/* <div className={styles.navbar__drawerBottom}>
               <a href="/privacy-policy" onClick={closeDrawer}>
                 Политика конфиденциальности

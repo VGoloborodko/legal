@@ -11,6 +11,9 @@ import Check from './icons/Check';
 import ThemeToggleMoon from './icons/ThemeToggleMoon';
 import ThemeToggleSun from './icons/ThemeToggleSun';
 import Dash from './icons/Dash';
+import Phone from './icons/Phone';
+import Globe from './icons/Globe';
+import MapPin from './icons/MapPin';
 
 export const icons = {
   arrowRight: ArrowRightIcon,
@@ -26,6 +29,9 @@ export const icons = {
   moon: ThemeToggleMoon,
   sun: ThemeToggleSun,
   dash: Dash,
+  phone: Phone,
+  globe: Globe,
+  mapPin: MapPin,
 };
 
 export type IconName = keyof typeof icons;
