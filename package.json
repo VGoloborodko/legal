@@ -11,7 +11,6 @@
   },
   "dependencies": {
     "@react-router/node": "^7.14.2",
-    "@vercel/react-router": "^1.2.6",
     "gsap": "^3.15.0",
     "isbot": "^5",
     "react": "^19.2.4",
