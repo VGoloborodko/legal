@@ -1,3 +1,5 @@
+import type { VercelRequest, VercelResponse } from '@vercel/node';
+
 type LeadFormPayload = {
   name: string;
   phone: string;
@@ -94,7 +96,8 @@ function isValidPayload(payload: unknown): payload is LeadFormPayload {
   );
 }
 
-export default async function handler(req: any, res: any) {
+// export default async function handler(req: any, res: any) {
+export default async function handler(req: VercelRequest, res: VercelResponse) {
   // Разрешаем CORS
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
