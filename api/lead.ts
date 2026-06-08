@@ -18,7 +18,10 @@ type LeadFormPayload = {
 };
 
 function escapeHtml(value: string) {
-  return value.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;');
+  return value
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;');
 }
 
 function buildTelegramMessage(payload: LeadFormPayload) {
@@ -71,7 +74,8 @@ async function sendTelegramMessage(text: string) {
   });
 
   if (!response.ok) {
-    throw new Error('Telegram request failed');
+    const errorText = await response.text();
+    throw new Error(`Telegram request failed: ${errorText}`);
   }
 }
 
@@ -114,6 +118,7 @@ export default async function handler(req: any, res: any) {
 
     return res.status(200).json({ ok: true });
   } catch (error) {
+    console.error(error);
     return res.status(500).json({ ok: false, message: 'Server error' });
   }
 }
