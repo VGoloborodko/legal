@@ -18,10 +18,7 @@ type LeadFormPayload = {
 };
 
 function escapeHtml(value: string) {
-  return value
-    .replaceAll('&', '&amp;')
-    .replaceAll('<', '&lt;')
-    .replaceAll('>', '&gt;');
+  return value.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;');
 }
 
 function buildTelegramMessage(payload: LeadFormPayload) {
@@ -98,6 +95,16 @@ function isValidPayload(payload: unknown): payload is LeadFormPayload {
 }
 
 export default async function handler(req: any, res: any) {
+  // Разрешаем CORS
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+
+  // Отвечаем на preflight и выходим
+  if (req.method === 'OPTIONS') {
+    return res.status(200).end();
+  }
+
   if (req.method !== 'POST') {
     return res.status(405).json({ ok: false, message: 'Method not allowed' });
   }
