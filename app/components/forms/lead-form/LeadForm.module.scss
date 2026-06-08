@@ -1,0 +1,53 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form__title {
+  margin: 0;
+}
+
+.form__description {
+  margin: 0;
+}
+
+.form__field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form__label {
+  display: inline-block;
+}
+
+.form__input,
+.form__textarea {
+  width: 100%;
+}
+
+.form__checkbox {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form__checkboxLabel {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+.form__error {
+  color: #c62828;
+  margin: 0;
+}
+
+.form__success {
+  margin: 0;
+}
+
+.form__submit {
+  width: 100%;
+}
