@@ -2,7 +2,7 @@ import styles from './page.module.scss';
 import Navbar, { type NavbarLink } from '../../../components/layout/navbar/Navbar';
 import Hero from '../../../components/sections/hero/Hero';
 import PromoSection from '../../../components/sections/promoSection/PromoSection';
-import LeadForm from '../../../components/forms/lead-form/LeadForm';
+// import LeadForm from '../../../components/forms/lead-form/LeadForm';
 import Button from '../../../components/ui/button/Button';
 import Icon from '../../../components/ui/icon/Icon';
 import heroBg from '../../../assets/images/hero/main_cover_100526.avif';
@@ -467,7 +467,7 @@ export default function BankrotstvoFizicheskihLicRyazanPage() {
           </div>
         </section>
 
-        <LeadForm service="bankrotstvo-fizicheskih-lic" formId="lead-form" blockId="hero" title="Разобрать вашу ситуацию" submitLabel="Оставить заявку" />
+        {/* <LeadForm service="bankrotstvo-fizicheskih-lic" formId="lead-form" blockId="hero" title="Разобрать вашу ситуацию" submitLabel="Оставить заявку" /> */}
       </main>
     </>
   );
