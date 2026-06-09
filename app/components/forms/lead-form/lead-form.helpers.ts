@@ -38,20 +38,37 @@ export function normalizeOptionalValue(value: string): string | null {
   return trimmed ? trimmed : null;
 }
 
+export function normalizePhoneForSubmit(value: string): string {
+  const digits = value.replace(/\D/g, '');
+
+  if (!digits) return '';
+
+  if (digits.length === 11 && digits.startsWith('8')) {
+    return `+7${digits.slice(1)}`;
+  }
+
+  if (digits.length === 11 && digits.startsWith('7')) {
+    return `+${digits}`;
+  }
+
+  if (digits.length === 10) {
+    return `+7${digits}`;
+  }
+
+  return `+${digits}`;
+}
+
 type BuildLeadFormPayloadParams = {
   values: LeadFormValues;
   props: Pick<LeadFormProps, 'service' | 'formId' | 'blockId' | 'showEmail' | 'showComment'>;
 };
 
-export function buildLeadFormPayload({
-  values,
-  props,
-}: BuildLeadFormPayloadParams): LeadFormPayload {
+export function buildLeadFormPayload({ values, props }: BuildLeadFormPayloadParams): LeadFormPayload {
   const meta = getLeadFormMeta();
 
   return {
     name: values.name.trim(),
-    phone: values.phone.trim(),
+    phone: normalizePhoneForSubmit(values.phone),
     email: props.showEmail ? normalizeOptionalValue(values.email) : null,
     comment: props.showComment ? normalizeOptionalValue(values.comment) : null,
     consent: values.consent,
