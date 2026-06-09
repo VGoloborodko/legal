@@ -1,6 +1,5 @@
 import type { LeadFormErrors, LeadFormValues } from './lead-form.types';
 
-const PHONE_REGEX = /^\+?[\d\s\-()]{10,20}$/;
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 type ValidateLeadFormParams = {
@@ -15,9 +14,11 @@ export function validateLeadForm({ values, showEmail = false }: ValidateLeadForm
     errors.name = 'Укажите имя.';
   }
 
-  if (!values.phone.trim()) {
+  const phoneDigits = values.phone.replace(/\D/g, '');
+
+  if (!phoneDigits) {
     errors.phone = 'Укажите телефон.';
-  } else if (!PHONE_REGEX.test(values.phone.trim())) {
+  } else if (phoneDigits.length !== 11 || !phoneDigits.startsWith('7')) {
     errors.phone = 'Укажите корректный телефон.';
   }
 

@@ -17,8 +17,41 @@ export default function LeadForm({ service, formId, blockId, title, description,
   const isSuccess = state === 'success';
   const formClassName = [styles.form, className].filter(Boolean).join(' ');
 
+  function formatPhoneInput(value: string): string {
+    const digits = value.replace(/\D/g, '');
+
+    if (!digits) return '';
+
+    let normalized = digits;
+
+    if (normalized.startsWith('8')) {
+      normalized = `7${normalized.slice(1)}`;
+    } else if (!normalized.startsWith('7')) {
+      normalized = `7${normalized}`;
+    }
+
+    normalized = normalized.slice(0, 11);
+
+    const country = normalized[0];
+    const part1 = normalized.slice(1, 4);
+    const part2 = normalized.slice(4, 7);
+    const part3 = normalized.slice(7, 9);
+    const part4 = normalized.slice(9, 11);
+
+    let result = `+${country}`;
+
+    if (part1) result += ` (${part1}`;
+    if (part1.length === 3) result += ')';
+    if (part2) result += ` ${part2}`;
+    if (part3) result += `-${part3}`;
+    if (part4) result += `-${part4}`;
+
+    return result;
+  }
+
   function handleChange<K extends keyof LeadFormValues>(field: K, value: LeadFormValues[K]) {
     setValues((prev) => ({ ...prev, [field]: value }));
+
     setErrors((prev) => {
       if (!prev[field]) return prev;
       const next = { ...prev };
@@ -126,8 +159,11 @@ export default function LeadForm({ service, formId, blockId, title, description,
           id={`${formId}-${blockId}-phone`}
           name="phone"
           type="tel"
+          inputMode="tel"
+          autoComplete="tel"
+          placeholder="+7 (999) 123-45-67"
           value={values.phone}
-          onChange={(event) => handleChange('phone', event.target.value)}
+          onChange={(event) => handleChange('phone', formatPhoneInput(event.target.value))}
           className={styles.form__input}
           aria-invalid={Boolean(errors.phone)}
           aria-describedby={errors.phone ? `${formId}-${blockId}-phone-error` : undefined}
