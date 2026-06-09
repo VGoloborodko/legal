@@ -11,6 +11,7 @@ export default function LeadForm({ service, formId, blockId, title, description,
   const [values, setValues] = useState<LeadFormValues>(INITIAL_FORM_VALUES);
   const [errors, setErrors] = useState<LeadFormErrors>({});
   const [state, setState] = useState<LeadFormState>('idle');
+  const [submitError, setSubmitError] = useState<string>('');
 
   const isSubmitting = state === 'submitting';
   const isSuccess = state === 'success';
@@ -40,10 +41,12 @@ export default function LeadForm({ service, formId, blockId, title, description,
 
     if (hasLeadFormErrors(nextErrors)) {
       setErrors(nextErrors);
+      setState('idle');
       return;
     }
 
     setErrors({});
+    setSubmitError('');
     setState('submitting');
 
     try {
@@ -60,8 +63,10 @@ export default function LeadForm({ service, formId, blockId, title, description,
 
       await submitLeadForm(payload);
       setValues(INITIAL_FORM_VALUES);
+      setErrors({});
       setState('success');
-    } catch {
+    } catch (error) {
+      setSubmitError(error instanceof Error ? error.message : ERROR_MESSAGE);
       setState('error');
     }
   }
@@ -71,6 +76,18 @@ export default function LeadForm({ service, formId, blockId, title, description,
       <div className={formClassName}>
         {title && <h3 className={styles.form__title}>{title}</h3>}
         <p className={styles.form__success}>{SUCCESS_MESSAGE}</p>
+        <button
+          type="button"
+          className={styles.form__submit}
+          onClick={() => {
+            setValues(INITIAL_FORM_VALUES);
+            setErrors({});
+            setSubmitError('');
+            setState('idle');
+          }}
+        >
+          Отправить ещё одну заявку
+        </button>
       </div>
     );
   }
@@ -162,7 +179,7 @@ export default function LeadForm({ service, formId, blockId, title, description,
         {errors.consent && <p className={styles.form__error}>{errors.consent}</p>}
       </div>
 
-      {state === 'error' && <p className={styles.form__error}>{ERROR_MESSAGE}</p>}
+      {state === 'error' && <p className={styles.form__error}>{submitError || ERROR_MESSAGE}</p>}
 
       <button type="submit" className={styles.form__submit} disabled={isSubmitting}>
         {isSubmitting ? 'Отправляем...' : submitLabel}

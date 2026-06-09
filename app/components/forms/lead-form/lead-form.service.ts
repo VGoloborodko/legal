@@ -1,6 +1,13 @@
 import type { LeadFormPayload } from './lead-form.types';
 
-export async function submitLeadForm(payload: LeadFormPayload): Promise<void> {
+type SubmitLeadFormResponse = {
+  ok: boolean;
+  message?: string;
+};
+
+export async function submitLeadForm(
+  payload: LeadFormPayload,
+): Promise<SubmitLeadFormResponse> {
   const response = await fetch('/api/lead', {
     method: 'POST',
     headers: {
@@ -9,7 +16,17 @@ export async function submitLeadForm(payload: LeadFormPayload): Promise<void> {
     body: JSON.stringify(payload),
   });
 
-  if (!response.ok) {
-    throw new Error('Lead form request failed');
+  let data: SubmitLeadFormResponse | null = null;
+
+  try {
+    data = await response.json();
+  } catch {
+    data = null;
   }
+
+  if (!response.ok) {
+    throw new Error(data?.message || 'Не удалось отправить форму.');
+  }
+
+  return data ?? { ok: true };
 }
