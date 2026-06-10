@@ -108,9 +108,9 @@ export default function LeadForm({ service, formId, blockId, title, description,
   if (isSuccess) {
     return (
       <div className={formClassName}>
-        {title && <h3 className={styles.form__title}>{title}</h3>}
-        <p className={styles.form__success}>{SUCCESS_MESSAGE}</p>
-        <button
+        {title && <h3 className={`${styles.form__title} font-h3 color--primary f-w-bold`}>{title}</h3>}
+        <p className={`${styles.form__success} font-t-l color--primary`}>{SUCCESS_MESSAGE}</p>
+        {/* <button
           type="button"
           className={styles.form__submit}
           onClick={() => {
@@ -121,7 +121,22 @@ export default function LeadForm({ service, formId, blockId, title, description,
           }}
         >
           Отправить ещё одну заявку
-        </button>
+        </button> */}
+        <Button
+          type="button"
+          size="lg"
+          variant="brand"
+          fullWidth
+          className={styles.form__submit}
+          onClick={() => {
+            setValues(INITIAL_FORM_VALUES);
+            setErrors({});
+            setSubmitError('');
+            setState('idle');
+          }}
+        >
+          Отправить ещё одну заявку
+        </Button>
       </div>
     );
   }
@@ -129,7 +144,8 @@ export default function LeadForm({ service, formId, blockId, title, description,
   return (
     <form className={formClassName} onSubmit={handleSubmit} noValidate>
       {title && <h3 className={`${styles.form__title} font-h3 color--primary f-w-bold`}>{title}</h3>}
-      {description && <p className={styles.form__description}>{description}</p>}
+      {description && <p className={`${styles.form__description} font-t-l color--primary`}>{description}</p>}
+
 
       <div className={styles.form__field}>
         <label htmlFor={`${formId}-${blockId}-name`} className={`${styles.form__label} font-t-s f-w-bold color--tertiary`}>
