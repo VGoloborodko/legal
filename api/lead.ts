@@ -78,6 +78,27 @@ async function sendTelegramMessage(text: string) {
   }
 }
 
+async function sendLeadToGoogleSheets(payload: LeadFormPayload) {
+  const url = process.env.GOOGLE_SHEETS_WEBHOOK_URL;
+
+  if (!url) {
+    throw new Error('Google Sheets env variable is missing');
+  }
+
+  const response = await fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'text/plain;charset=utf-8',
+    },
+    body: JSON.stringify(payload),
+  });
+
+  if (!response.ok) {
+    const errorText = await response.text();
+    throw new Error(`Google Sheets request failed: ${errorText}`);
+  }
+}
+
 function isValidPayload(payload: unknown): payload is LeadFormPayload {
   if (!payload || typeof payload !== 'object') return false;
 
@@ -96,14 +117,11 @@ function isValidPayload(payload: unknown): payload is LeadFormPayload {
   );
 }
 
-// export default async function handler(req: any, res: any) {
 export default async function handler(req: VercelRequest, res: VercelResponse) {
-  // Разрешаем CORS
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
-  // Отвечаем на preflight и выходим
   if (req.method === 'OPTIONS') {
     return res.status(200).end();
   }
@@ -124,7 +142,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
   try {
     const telegramMessage = buildTelegramMessage(payload);
+
     await sendTelegramMessage(telegramMessage);
+    await sendLeadToGoogleSheets(payload);
 
     return res.status(200).json({ ok: true });
   } catch (error) {
