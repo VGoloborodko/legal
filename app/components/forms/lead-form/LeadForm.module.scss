@@ -35,26 +35,39 @@
   background: var(--color-bg-surface);
   border: 1px solid var(--color-stroke-primary);
   border-radius: var(--radius-m);
+
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus {
+    -webkit-text-fill-color: var(--color-text-primary);
+    -webkit-box-shadow: 0 0 0 1000px var(--color-bg-surface) inset;
+    box-shadow: 0 0 0 1000px var(--color-bg-surface) inset;
+    transition: background-color 9999s ease-in-out 0s;
+    caret-color: var(--color-text-primary);
+  }
 }
 
-.form__checkbox {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
+// .form__checkbox {
+//   display: flex;
+//   flex-direction: column;
+//   gap: 8px;
+// }
 
 .form__checkboxLabel {
   display: flex;
-  gap: 8px;
+  gap: 12px;
   align-items: flex-start;
 }
 
-.form__error {
-  color: #c62828;
-  margin: 0;
+.form__checkbox input {
+  width: 100%;
+  max-width: 20px;
+  height: 20px;
 }
 
-.form__success {}
+.form__error {
+  color: var(--color-text-error);
+}
 
 .form__submit {
   width: 100%;

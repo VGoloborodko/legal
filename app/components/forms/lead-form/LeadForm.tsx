@@ -157,7 +157,7 @@ export default function LeadForm({ service, formId, blockId, title, description,
           type="text"
           value={values.name}
           onChange={(event) => handleChange('name', event.target.value)}
-          className={styles.form__input}
+          className={`${styles.form__input} font-t-m color--primary`}
           aria-invalid={Boolean(errors.name)}
           aria-describedby={errors.name ? `${formId}-${blockId}-name-error` : undefined}
         />
@@ -181,7 +181,7 @@ export default function LeadForm({ service, formId, blockId, title, description,
           placeholder="+7 (999) 123-45-67"
           value={values.phone}
           onChange={(event) => handleChange('phone', formatPhoneInput(event.target.value))}
-          className={styles.form__input}
+          className={`${styles.form__input} font-t-m color--primary`}
           aria-invalid={Boolean(errors.phone)}
           aria-describedby={errors.phone ? `${formId}-${blockId}-phone-error` : undefined}
         />
@@ -203,7 +203,7 @@ export default function LeadForm({ service, formId, blockId, title, description,
             type="email"
             value={values.email}
             onChange={(event) => handleChange('email', event.target.value)}
-            className={styles.form__input}
+            className={`${styles.form__input} font-t-m color--primary`}
             aria-invalid={Boolean(errors.email)}
             aria-describedby={errors.email ? `${formId}-${blockId}-email-error` : undefined}
           />
