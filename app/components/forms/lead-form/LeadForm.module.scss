@@ -1,15 +1,21 @@
+@use '../../../styles/grid/_init.scss' as *;
+
 .form {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-}
+  gap: 40px;
+  padding: 48px;
+  background: var(--color-bg-main);
+  border: 1px solid var(--color-stroke-primary);
+  border-radius: var(--radius-xxl);
 
-.form__title {
-  margin: 0;
-}
+  @include bp(md) {
+    padding: 40px 48px;
+  }
 
-.form__description {
-  margin: 0;
+  @include bp(sm) {
+    padding: 32px 12px;
+  }
 }
 
 .form__field {
@@ -25,6 +31,10 @@
 .form__input,
 .form__textarea {
   width: 100%;
+  padding: 10px 32px;
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-stroke-primary);
+  border-radius: var(--radius-m);
 }
 
 .form__checkbox {

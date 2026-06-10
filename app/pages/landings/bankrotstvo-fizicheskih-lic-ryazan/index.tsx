@@ -338,7 +338,7 @@ export default function BankrotstvoFizicheskihLicRyazanPage() {
           </div>
         </section>
 
-        <section id="cases" className={`${styles.clients} sp-v-pink`}>
+        <section id="cases" className={`${styles.clients} sp-t-pink`}>
           <div className="ears">
             <div className={styles.clients__wrapper}>
               <div className="container">
@@ -467,7 +467,20 @@ export default function BankrotstvoFizicheskihLicRyazanPage() {
           </div>
         </section>
 
-        <LeadForm service="bankrotstvo-fizicheskih-lic" formId="lead-form" blockId="hero" title="Разобрать вашу ситуацию" submitLabel="Оставить заявку" />
+        <footer className='sp-v-pink'>
+          <div className="ears">
+            <div className="container">
+              <div className="col">
+                <div className="row">
+                  <div className="col-6 col-md-6 col-sm-3"></div>
+                  <div className="col-6 col-md-6 col-sm-3">
+                    <LeadForm service="bankrotstvo-fizicheskih-lic" formId="lead-form" blockId="hero" title="Разобрать вашу ситуацию" submitLabel="Оставить заявку" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </footer>
       </main>
     </>
   );

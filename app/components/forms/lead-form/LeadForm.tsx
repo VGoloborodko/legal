@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import styles from './LeadForm.module.scss';
+import Button from '../../ui/button/Button';
 
 import { DEFAULT_SUBMIT_LABEL, ERROR_MESSAGE, INITIAL_FORM_VALUES, SUCCESS_MESSAGE } from './lead-form.constants';
 import { buildLeadFormPayload } from './lead-form.helpers';
@@ -127,11 +128,11 @@ export default function LeadForm({ service, formId, blockId, title, description,
 
   return (
     <form className={formClassName} onSubmit={handleSubmit} noValidate>
-      {title && <h3 className={styles.form__title}>{title}</h3>}
+      {title && <h3 className={`${styles.form__title} font-h3 color--primary f-w-bold`}>{title}</h3>}
       {description && <p className={styles.form__description}>{description}</p>}
 
       <div className={styles.form__field}>
-        <label htmlFor={`${formId}-${blockId}-name`} className={styles.form__label}>
+        <label htmlFor={`${formId}-${blockId}-name`} className={`${styles.form__label} font-t-s f-w-bold color--tertiary`}>
           Ваше имя
         </label>
         <input
@@ -152,7 +153,7 @@ export default function LeadForm({ service, formId, blockId, title, description,
       </div>
 
       <div className={styles.form__field}>
-        <label htmlFor={`${formId}-${blockId}-phone`} className={styles.form__label}>
+        <label htmlFor={`${formId}-${blockId}-phone`} className={`${styles.form__label} font-t-s f-w-bold color--tertiary`}>
           Ваш телефон
         </label>
         <input
@@ -177,7 +178,7 @@ export default function LeadForm({ service, formId, blockId, title, description,
 
       {showEmail && (
         <div className={styles.form__field}>
-          <label htmlFor={`${formId}-${blockId}-email`} className={styles.form__label}>
+          <label htmlFor={`${formId}-${blockId}-email`} className={`${styles.form__label} font-t-s f-w-bold color--tertiary`}>
             Email
           </label>
           <input
@@ -200,7 +201,7 @@ export default function LeadForm({ service, formId, blockId, title, description,
 
       {showComment && (
         <div className={styles.form__field}>
-          <label htmlFor={`${formId}-${blockId}-comment`} className={styles.form__label}>
+          <label htmlFor={`${formId}-${blockId}-comment`} className={`${styles.form__label} font-t-s f-w-bold color--tertiary`}>
             Комментарий
           </label>
           <textarea id={`${formId}-${blockId}-comment`} name="comment" value={values.comment} onChange={(event) => handleChange('comment', event.target.value)} className={styles.form__textarea} rows={4} />
@@ -210,16 +211,29 @@ export default function LeadForm({ service, formId, blockId, title, description,
       <div className={styles.form__checkbox}>
         <label className={styles.form__checkboxLabel}>
           <input type="checkbox" checked={values.consent} onChange={(event) => handleChange('consent', event.target.checked)} />
-          <span>Нажимая кнопку, вы соглашаетесь с Политикой конфиденциальности и даёте согласие на обработку персональных данных.</span>
+          <span className="font-t-m">Нажимая кнопку, вы соглашаетесь с Политикой конфиденциальности и даёте согласие на обработку персональных данных.</span>
         </label>
         {errors.consent && <p className={styles.form__error}>{errors.consent}</p>}
       </div>
 
       {state === 'error' && <p className={styles.form__error}>{submitError || ERROR_MESSAGE}</p>}
 
-      <button type="submit" className={styles.form__submit} disabled={isSubmitting}>
+      {/* <button type="submit" className={styles.form__submit} disabled={isSubmitting}>
         {isSubmitting ? 'Отправляем...' : submitLabel}
-      </button>
+      </button> */}
+      <Button
+        type="submit"
+        size="lg"
+        icon={{
+          name: 'arrowUpRight',
+        }}
+        variant="brand"
+        disabled={isSubmitting}
+        fullWidth
+        className={styles.form__submit}
+      >
+        {isSubmitting ? 'Отправляем...' : submitLabel}
+      </Button>
     </form>
   );
 }
