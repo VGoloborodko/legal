@@ -2,7 +2,7 @@ import { useState } from 'react';
 import styles from './LeadForm.module.scss';
 import Button from '../../ui/button/Button';
 
-import { DEFAULT_SUBMIT_LABEL, ERROR_MESSAGE, INITIAL_FORM_VALUES, SUCCESS_MESSAGE } from './lead-form.constants';
+import { DEFAULT_SUBMIT_LABEL, ERROR_MESSAGE, INITIAL_FORM_VALUES, SUCCESS_MESSAGE_TITLE, SUCCESS_MESSAGE_DESC } from './lead-form.constants';
 import { buildLeadFormPayload } from './lead-form.helpers';
 import { submitLeadForm } from './lead-form.service';
 import type { LeadFormErrors, LeadFormProps, LeadFormState, LeadFormValues } from './lead-form.types';
@@ -108,8 +108,9 @@ export default function LeadForm({ service, formId, blockId, title, description,
   if (isSuccess) {
     return (
       <div className={formClassName}>
-        {title && <h3 className={`${styles.form__title} font-h3 color--primary f-w-bold`}>{title}</h3>}
-        <p className={`${styles.form__success} font-t-l color--primary`}>{SUCCESS_MESSAGE}</p>
+        {/* {title && <h3 className={`${styles.form__title} font-h3 color--primary f-w-bold`}>{title}</h3>} */}
+        <p className={`${styles.form__success} font-h3 color--primary`}>{SUCCESS_MESSAGE_TITLE}</p>
+        <p className={`${styles.form__success} font-t-l color--primary`}>{SUCCESS_MESSAGE_DESC}</p>
         {/* <button
           type="button"
           className={styles.form__submit}
@@ -145,7 +146,6 @@ export default function LeadForm({ service, formId, blockId, title, description,
     <form className={formClassName} onSubmit={handleSubmit} noValidate>
       {title && <h3 className={`${styles.form__title} font-h3 color--primary f-w-bold`}>{title}</h3>}
       {description && <p className={`${styles.form__description} font-t-l color--primary`}>{description}</p>}
-
 
       <div className={styles.form__field}>
         <label htmlFor={`${formId}-${blockId}-name`} className={`${styles.form__label} font-t-s f-w-bold color--tertiary`}>
@@ -240,9 +240,9 @@ export default function LeadForm({ service, formId, blockId, title, description,
       <Button
         type="submit"
         size="lg"
-        icon={{
-          name: 'arrowUpRight',
-        }}
+        // icon={{
+        //   name: 'arrowUpRight',
+        // }}
         variant="brand"
         disabled={isSubmitting}
         fullWidth

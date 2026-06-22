@@ -2,7 +2,8 @@ import type { LeadFormState, LeadFormValues } from './lead-form.types';
 
 export const DEFAULT_SUBMIT_LABEL = 'Оставить заявку';
 
-export const SUCCESS_MESSAGE = 'Заявка отправлена. Мы свяжемся с вами в ближайшее время.';
+export const SUCCESS_MESSAGE_TITLE = 'Заявка отправлена';
+export const SUCCESS_MESSAGE_DESC = 'Мы свяжемся с вами в ближайшее время';
 
 export const ERROR_MESSAGE = 'Ошибка отправки. Попробуйте позже.';
 
