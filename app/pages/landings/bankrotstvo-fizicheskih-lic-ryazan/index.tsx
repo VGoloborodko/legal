@@ -1,10 +1,12 @@
 import styles from './page.module.scss';
 import Navbar, { type NavbarLink } from '../../../components/layout/navbar/Navbar';
+import Footer from '../../../components/layout/footer/Footer';
 import Hero from '../../../components/sections/hero/Hero';
 import PromoSection from '../../../components/sections/promoSection/PromoSection';
-import LeadForm from '../../../components/forms/lead-form/LeadForm';
+// import LeadForm from '../../../components/forms/lead-form/LeadForm';
 import Button from '../../../components/ui/button/Button';
 import Icon from '../../../components/ui/icon/Icon';
+
 import heroBg from '../../../assets/images/hero/main_cover_100526.avif';
 import promoImage from '../../../assets/images/bankrotstvo-fizicheskih-lic-ryazan/promo_sections_200526.avif';
 import promoImagePrice from '../../../assets/images/bankrotstvo-fizicheskih-lic-ryazan/promo_sections_200526_2.avif';
@@ -467,20 +469,7 @@ export default function BankrotstvoFizicheskihLicRyazanPage() {
           </div>
         </section>
 
-        <footer className='sp-v-pink'>
-          <div className="ears">
-            <div className="container">
-              <div className="col">
-                <div className="row">
-                  <div className="col-6 col-md-6 col-sm-3"></div>
-                  <div className="col-6 col-md-6 col-sm-3">
-                    <LeadForm service="bankrotstvo-fizicheskih-lic" formId="lead-form" blockId="hero" title="Разобрать вашу ситуацию" submitLabel="Оставить заявку" />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </footer>
+        <Footer />
       </main>
     </>
   );

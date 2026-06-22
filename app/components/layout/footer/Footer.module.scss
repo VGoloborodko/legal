@@ -1,0 +1,33 @@
+@use '../../../styles/grid/init' as *;
+
+.footer {
+
+  &__inner {
+    @include bp(md) {
+      gap: 48px;
+    }
+
+    @include bp(sm) {
+      gap: 40px;
+    }
+  }
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+
+    @include bp(sm) {
+      gap: 28px;
+    }
+  }
+
+  &__contact {
+    border-top: 1px solid var(--color-stroke-primary);
+  }
+
+  &__contactItem {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+}

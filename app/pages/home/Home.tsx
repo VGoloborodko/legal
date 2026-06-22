@@ -1,4 +1,5 @@
 import Navbar, { type NavbarLink } from '../../components/layout/navbar/Navbar';
+import Footer from '../../components/layout/footer/Footer';
 import Hero from '../../components/sections/hero/Hero';
 import Button from '../../components/ui/button/Button';
 import heroBg from '../../assets/images/hero/main_cover_050526.avif';
@@ -81,6 +82,8 @@ export default function Home() {
           }
         />
         <Advantages />
+
+        <Footer />
       </main>
     </>
   );

@@ -108,21 +108,8 @@ export default function LeadForm({ service, formId, blockId, title, description,
   if (isSuccess) {
     return (
       <div className={formClassName}>
-        {/* {title && <h3 className={`${styles.form__title} font-h3 color--primary f-w-bold`}>{title}</h3>} */}
-        <p className={`${styles.form__success} font-h3 color--primary`}>{SUCCESS_MESSAGE_TITLE}</p>
+        <p className={`${styles.form__success} font-h3 color--primary f-w-bold`}>{SUCCESS_MESSAGE_TITLE}</p>
         <p className={`${styles.form__success} font-t-l color--primary`}>{SUCCESS_MESSAGE_DESC}</p>
-        {/* <button
-          type="button"
-          className={styles.form__submit}
-          onClick={() => {
-            setValues(INITIAL_FORM_VALUES);
-            setErrors({});
-            setSubmitError('');
-            setState('idle');
-          }}
-        >
-          Отправить ещё одну заявку
-        </button> */}
         <Button
           type="button"
           size="lg"
@@ -233,22 +220,15 @@ export default function LeadForm({ service, formId, blockId, title, description,
       </div>
 
       {state === 'error' && <p className={styles.form__error}>{submitError || ERROR_MESSAGE}</p>}
-
-      {/* <button type="submit" className={styles.form__submit} disabled={isSubmitting}>
-        {isSubmitting ? 'Отправляем...' : submitLabel}
-      </button> */}
       <Button
         type="submit"
         size="lg"
-        // icon={{
-        //   name: 'arrowUpRight',
-        // }}
         variant="brand"
         disabled={isSubmitting}
         fullWidth
         className={styles.form__submit}
       >
-        {isSubmitting ? 'Отправляем...' : submitLabel}
+        {isSubmitting ? 'Отправка' : submitLabel}
       </Button>
     </form>
   );
