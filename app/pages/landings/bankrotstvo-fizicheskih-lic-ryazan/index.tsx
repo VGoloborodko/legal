@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import styles from './page.module.scss';
 import Navbar, { type NavbarLink } from '../../../components/layout/navbar/Navbar';
 import Footer from '../../../components/layout/footer/Footer';
@@ -48,6 +49,12 @@ const pageLinks: NavbarLink[] = [
 ];
 
 export default function BankrotstvoFizicheskihLicRyazanPage() {
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
+
+  const handleToggle = (index: number) => {
+    setOpenIndex((prev) => (prev === index ? null : index));
+  };
+
   return (
     <>
       <Navbar links={pageLinks} />
@@ -167,7 +174,7 @@ export default function BankrotstvoFizicheskihLicRyazanPage() {
           </div>
         </PromoSection>
 
-        <section id="steps" className={`${styles.steps} sp-t-pink`}>
+        <section id="steps" className={`${styles.steps} sp-t-wine`}>
           <div className="ears">
             <div className={styles.steps__wrapper}>
               <div className="container">
@@ -294,7 +301,7 @@ export default function BankrotstvoFizicheskihLicRyazanPage() {
           </div>
         </PromoSection>
 
-        <section className={`${styles.whyus} sp-t-pink`}>
+        <section className={`${styles.whyus} sp-t-wine`}>
           <div className="ears">
             <div className={styles.whyus__wrapper}>
               <div className="container">
@@ -340,7 +347,7 @@ export default function BankrotstvoFizicheskihLicRyazanPage() {
           </div>
         </section>
 
-        <section id="cases" className={`${styles.clients} sp-t-pink`}>
+        <section id="cases" className={`${styles.clients} sp-t-wine`}>
           <div className="ears">
             <div className={styles.clients__wrapper}>
               <div className="container">
@@ -459,6 +466,150 @@ export default function BankrotstvoFizicheskihLicRyazanPage() {
                               }}
                             />
                           </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="faq" className={`${styles.faq} sp-t-wine`}>
+          <div className="ears">
+            <div className={styles.faq__wrapper}>
+              <div className="container">
+                <div className="col">
+                  <div className={`row ${styles.faq__inner}`}>
+                    <div className="col-6 col-lg-12 col-md-6 col-sm-3">
+                      <div className={styles.faq__list}>
+                        <div className={`${styles.faq__item} ${openIndex === 0 ? styles['faq__item--active'] : ''}`}>
+                          <button type="button" className={styles.faq__head} onClick={() => handleToggle(0)} aria-expanded={openIndex === 0} aria-controls="faq-answer-0">
+                            <span className={`${styles.faq__question} font-h4 color--primary`}>Сколько длится процедура банкротства физического лица?</span>
+
+                            <span className={styles.faq__icon}>{openIndex === 0 ? '−' : '+'}</span>
+                          </button>
+
+                          <div id="faq-answer-0" className={styles.faq__body}>
+                            <div className={styles.faq__bodyInner}>
+                              <p className={`${styles.faq__answer} font-t-m`}>В среднем процедура банкротства физического лица занимает от 6 до 12 месяцев. Срок зависит от сложности дела, количества кредиторов и наличия имущества.</p>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div className={`${styles.faq__item} ${openIndex === 1 ? styles['faq__item--active'] : ''}`}>
+                          <button type="button" className={styles.faq__head} onClick={() => handleToggle(1)} aria-expanded={openIndex === 1} aria-controls="faq-answer-1">
+                            <span className={`${styles.faq__question} font-h4 color--primary`}>Можно ли&nbsp;списать все долги через банкротство?</span>
+
+                            <span className={styles.faq__icon}>{openIndex === 1 ? '−' : '+'}</span>
+                          </button>
+
+                          <div id="faq-answer-1" className={styles.faq__body}>
+                            <div className={styles.faq__bodyInner}>
+                              <p className={`${styles.faq__answer} font-t-m`}>В большинстве случаев возможно полное списание долгов по&nbsp;кредитам, займам и&nbsp;другим обязательствам, если процедура банкротства проведена корректно.</p>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div className={`${styles.faq__item} ${openIndex === 2 ? styles['faq__item--active'] : ''}`}>
+                          <button type="button" className={styles.faq__head} onClick={() => handleToggle(2)} aria-expanded={openIndex === 2} aria-controls="faq-answer-2">
+                            <span className={`${styles.faq__question} font-h4 color--primary`}>Какие последствия банкротства физического лица?</span>
+
+                            <span className={styles.faq__icon}>{openIndex === 2 ? '−' : '+'}</span>
+                          </button>
+
+                          <div id="faq-answer-1" className={styles.faq__body}>
+                            <div className={styles.faq__bodyInner}>
+                              <p className={`${styles.faq__answer} font-t-m`}>После процедуры вводятся определённые ограничения (например, при получении новых кредитов), но вы&nbsp;полностью освобождаетесь от&nbsp;долговых обязательств.</p>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div className={`${styles.faq__item} ${openIndex === 3 ? styles['faq__item--active'] : ''}`}>
+                          <button type="button" className={styles.faq__head} onClick={() => handleToggle(3)} aria-expanded={openIndex === 3} aria-controls="faq-answer-3">
+                            <span className={`${styles.faq__question} font-h4 color--primary`}>Нужен ли юрист по&nbsp;банкротству в&nbsp;Рязани?</span>
+
+                            <span className={styles.faq__icon}>{openIndex === 3 ? '−' : '+'}</span>
+                          </button>
+
+                          <div id="faq-answer-1" className={styles.faq__body}>
+                            <div className={styles.faq__bodyInner}>
+                              <p className={`${styles.faq__answer} font-t-m`}>Юрист по&nbsp;банкротству помогает правильно оформить документы, избежать ошибок и&nbsp;пройти процедуру быстрее и безопаснее.</p>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div className={`${styles.faq__item} ${openIndex === 4 ? styles['faq__item--active'] : ''}`}>
+                          <button type="button" className={styles.faq__head} onClick={() => handleToggle(4)} aria-expanded={openIndex === 4} aria-controls="faq-answer-4">
+                            <span className={`${styles.faq__question} font-h4 color--primary`}>Можно ли&nbspl;сохранить имущество при банкротстве?</span>
+
+                            <span className={styles.faq__icon}>{openIndex === 4 ? '−' : '+'}</span>
+                          </button>
+
+                          <div id="faq-answer-1" className={styles.faq__body}>
+                            <div className={styles.faq__bodyInner}>
+                              <p className={`${styles.faq__answer} font-t-m`}>В ряде случаев возможно сохранить часть имущества. Всё зависит от&nbspl;конкретной ситуации – на&nbspl;консультации мы&nbspl;оцениваем риски и&nbspl;варианты.</p>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div className={`${styles.faq__item} ${openIndex === 5 ? styles['faq__item--active'] : ''}`}>
+                          <button type="button" className={styles.faq__head} onClick={() => handleToggle(5)} aria-expanded={openIndex === 5} aria-controls="faq-answer-5">
+                            <span className={`${styles.faq__question} font-h4 color--primary`}>Когда прекращаются звонки коллекторов?</span>
+
+                            <span className={styles.faq__icon}>{openIndex === 5 ? '−' : '+'}</span>
+                          </button>
+
+                          <div id="faq-answer-1" className={styles.faq__body}>
+                            <div className={styles.faq__bodyInner}>
+                              <p className={`${styles.faq__answer} font-t-m`}>После начала процедуры банкротства взаимодействие с&nbsp;кредиторами ограничивается, и&nbsp;давление со&nbsp;стороны коллекторов прекращается.</p>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div className={`${styles.faq__item} ${openIndex === 6 ? styles['faq__item--active'] : ''}`}>
+                          <button type="button" className={styles.faq__head} onClick={() => handleToggle(6)} aria-expanded={openIndex === 6} aria-controls="faq-answer-6">
+                            <span className={`${styles.faq__question} font-h4 color--primary`}>Сколько стоит банкротство физического лица в&nbsp;Рязани?</span>
+
+                            <span className={styles.faq__icon}>{openIndex === 6 ? '−' : '+'}</span>
+                          </button>
+
+                          <div id="faq-answer-1" className={styles.faq__body}>
+                            <div className={styles.faq__bodyInner}>
+                              <p className={`${styles.faq__answer} font-t-m`}>Стоимость зависит от&nbsp;сложности дела, количества кредиторов и&nbsp;наличия имущества. В среднем цена начинается от&nbsp;XX ₽, возможна рассрочка.</p>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div className={`${styles.faq__item} ${openIndex === 7 ? styles['faq__item--active'] : ''}`}>
+                          <button type="button" className={styles.faq__head} onClick={() => handleToggle(7)} aria-expanded={openIndex === 7} aria-controls="faq-answer-7">
+                            <span className={`${styles.faq__question} font-h4 color--primary`}>Какая сумма долга нужна для банкротства физического лица?</span>
+
+                            <span className={styles.faq__icon}>{openIndex === 7 ? '−' : '+'}</span>
+                          </button>
+
+                          <div id="faq-answer-1" className={styles.faq__body}>
+                            <div className={styles.faq__bodyInner}>
+                              <p className={`${styles.faq__answer} font-t-m`}>
+                                Подать на&nbsp;банкротство можно при наличии задолженности и&nbsp;невозможности её&nbsp;погашения. Точные условия определяются индивидуально – на&nbsp;консультации мы&nbsp;оцениваем вашу ситуацию.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="col-6 col-lg-12 col-md-6 col-sm-3">
+                      <div className={styles.faq__fixed}>
+                        <p className="font-t-l color--secondary">FAQ</p>
+                        <h2 className="font-h2 sp-t-lightblue">
+                          <span className="color--primary">Часто задаваемые вопросы</span> о&nbsp;банкротстве физических лиц
+                        </h2>
+                        <div className="sp-t-purple">
+                          <Button variant="dark" size="lg" shape="default" iconPosition="left" onClick={() => console.log('click')}>
+                            Задать вопрос
+                          </Button>
                         </div>
                       </div>
                     </div>
