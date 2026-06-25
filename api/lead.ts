@@ -130,7 +130,8 @@ async function sendLeadToGoogleSheets(payload: LeadFormPayload) {
 }
 
 function buildYougileTask(payload: LeadFormPayload) {
-  const title = `${payload.name} — ${payload.service}`;
+  // const title = `${payload.name} — ${payload.service}`;
+  const title = `Новая заявка — ${payload.service}`;
 
   const description = [
     `Имя: ${payload.name}`,
