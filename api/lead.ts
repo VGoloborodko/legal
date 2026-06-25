@@ -26,6 +26,33 @@ function escapeHtml(value: string) {
     .replaceAll('>', '&gt;');
 }
 
+function formatDateTime(value: string) {
+  const date = new Date(value);
+
+  if (Number.isNaN(date.getTime())) {
+    return value;
+  }
+
+  const formatter = new Intl.DateTimeFormat('sv-SE', {
+    timeZone: 'Europe/Moscow',
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+  });
+
+  return formatter.format(date).replace(',', '');
+}
+
+function normalizePayload(payload: LeadFormPayload): LeadFormPayload {
+  return {
+    ...payload,
+    createdAt: formatDateTime(payload.createdAt),
+  };
+}
+
 function buildTelegramMessage(payload: LeadFormPayload) {
   const lines = [
     'Новая заявка с сайта',
@@ -192,15 +219,17 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(405).json({ ok: false, message: 'Method not allowed' });
   }
 
-  const payload = req.body;
+  const rawPayload = req.body;
 
-  if (!isValidPayload(payload)) {
+  if (!isValidPayload(rawPayload)) {
     return res.status(400).json({ ok: false, message: 'Invalid payload' });
   }
 
-  if (!payload.name.trim() || !payload.phone.trim() || !payload.consent) {
+  if (!rawPayload.name.trim() || !rawPayload.phone.trim() || !rawPayload.consent) {
     return res.status(400).json({ ok: false, message: 'Validation failed' });
   }
+
+  const payload = normalizePayload(rawPayload);
 
   try {
     const telegramMessage = buildTelegramMessage(payload);

@@ -51,7 +51,7 @@ export default function Footer() {
                   </div>
                 </div>
                 <div className="col-6 col-md-6 col-sm-3">
-                  <LeadForm service="Банкротство физ лиц" formId="lead-form" blockId="footer" submitLabel="Оставить заявку" />
+                  <LeadForm service="Банкротство физических лиц" formId="lead-form" blockId="footer" submitLabel="Оставить заявку" />
                 </div>
               </div>
             </div>
