@@ -542,14 +542,14 @@ export default function BankrotstvoFizicheskihLicRyazanPage() {
 
                         <div className={`${styles.faq__item} ${openIndex === 4 ? styles['faq__item--active'] : ''}`}>
                           <button type="button" className={styles.faq__head} onClick={() => handleToggle(4)} aria-expanded={openIndex === 4} aria-controls="faq-answer-4">
-                            <span className={`${styles.faq__question} font-h4 color--primary`}>Можно ли&nbspl;сохранить имущество при банкротстве?</span>
+                            <span className={`${styles.faq__question} font-h4 color--primary`}>Можно ли&nbsp;сохранить имущество при банкротстве?</span>
 
                             <span className={styles.faq__icon}>{openIndex === 4 ? '−' : '+'}</span>
                           </button>
 
                           <div id="faq-answer-1" className={styles.faq__body}>
                             <div className={styles.faq__bodyInner}>
-                              <p className={`${styles.faq__answer} font-t-m`}>В ряде случаев возможно сохранить часть имущества. Всё зависит от&nbspl;конкретной ситуации – на&nbspl;консультации мы&nbspl;оцениваем риски и&nbspl;варианты.</p>
+                              <p className={`${styles.faq__answer} font-t-m`}>В ряде случаев возможно сохранить часть имущества. Всё зависит от&nbsp;конкретной ситуации – на&nbsp;консультации мы&nbsp;оцениваем риски и&nbsp;варианты.</p>
                             </div>
                           </div>
                         </div>
@@ -625,3 +625,31 @@ export default function BankrotstvoFizicheskihLicRyazanPage() {
     </>
   );
 }
+
+// Отправить заявку
+// curl -X POST "https://yougile.com/api-v2/tasks" \
+//   -H "Content-Type: application/json" \
+//   -H "Accept: application/json" \
+//   -H "Authorization: Bearer ТВОЙ_API_KEY" \
+//   -d '{
+//     "title": "Тестовая заявка с сайта",
+//     "columnId": "20f4ab39-186e-4200-9724-290f13756c20",
+//     "description": "Имя: Тест\nТелефон: +7 999 123-45-67\nКомментарий: Проверка интеграции"
+//   }'
+
+
+// Получить список колонок
+// curl -X GET "https://yougile.com/api-v2/columns" \
+//   -H "Accept: application/json" \
+//   -H "Authorization: Bearer ТВОЙ_API_KEY"
+
+
+// Создай новый API key
+// curl -X POST "https://yougile.com/api-v2/auth/keys" \
+//   -H "Content-Type: application/json" \
+//   -H "Accept: application/json" \
+//   -d '{
+//     "login": "ТВОЙ_ЛОГИН",
+//     "password": "ТВОЙ_ПАРОЛЬ",
+//     "companyId": "ТВОЙ_COMPANY_ID"
+//   }'
