@@ -220,14 +220,7 @@ export default function LeadForm({ service, formId, blockId, title, description,
       </div>
 
       {state === 'error' && <p className={styles.form__error}>{submitError || ERROR_MESSAGE}</p>}
-      <Button
-        type="submit"
-        size="lg"
-        variant="brand"
-        disabled={isSubmitting}
-        fullWidth
-        className={styles.form__submit}
-      >
+      <Button type="submit" size="lg" variant="brand" disabled={isSubmitting} fullWidth className={styles.form__submit}>
         {isSubmitting ? 'Отправка' : submitLabel}
       </Button>
     </form>

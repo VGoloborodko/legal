@@ -643,7 +643,7 @@ export default function BankrotstvoFizicheskihLicRyazanPage() {
             </p>
           </div>
           <div className="col-6 col-md-6 col-sm-3">
-            <LeadForm title='Результат' service="Банкротство физических лиц" formId="lead-form" blockId="modal" submitLabel="Разобрать вашу ситуацию" />
+            <LeadForm title="Результат" service="Банкротство физических лиц" formId="lead-form" blockId="modal" submitLabel="Разобрать вашу ситуацию" />
           </div>
         </Modal>
       </main>

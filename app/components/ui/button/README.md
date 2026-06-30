@@ -21,17 +21,13 @@
 Обычная кнопка:
 
 ```tsx
-<Button onClick={() => console.log('click')}>
-  Оставить заявку
-</Button>
+<Button onClick={() => console.log('click')}>Оставить заявку</Button>
 ```
 
 Ссылка:
 
 ```tsx
-<Button href="/services">
-  Наши услуги
-</Button>
+<Button href="/services">Наши услуги</Button>
 ```
 
 Внешняя ссылка:
@@ -45,11 +41,7 @@
 Круглая кнопка:
 
 ```tsx
-<Button
-  shape="round"
-  icon
-  ariaLabel="Перейти к следующему блоку"
-/>
+<Button shape="round" icon ariaLabel="Перейти к следующему блоку" />
 ```
 
 ## Важно

@@ -7,10 +7,7 @@ export default function ThemeToggle() {
 
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme') as 'light' | 'dark' | null;
-    const currentTheme =
-      savedTheme ||
-      (document.documentElement.getAttribute('data-theme') as 'light' | 'dark') ||
-      'dark';
+    const currentTheme = savedTheme || (document.documentElement.getAttribute('data-theme') as 'light' | 'dark') || 'dark';
 
     setTheme(currentTheme);
     document.documentElement.setAttribute('data-theme', currentTheme);
@@ -26,18 +23,9 @@ export default function ThemeToggle() {
   };
 
   return (
-    <button
-      type="button"
-      onClick={toggleTheme}
-      className={styles.themeToggle}
-      aria-label={theme === 'dark' ? 'Включить светлую тему' : 'Включить тёмную тему'}
-      aria-pressed={theme === 'light'}
-    >
+    <button type="button" onClick={toggleTheme} className={styles.themeToggle} aria-label={theme === 'dark' ? 'Включить светлую тему' : 'Включить тёмную тему'} aria-pressed={theme === 'light'}>
       <span className={styles.themeToggle__thumb}>
-        <Icon
-          name={theme === 'dark' ? 'moon' : 'sun'}
-          size={12}
-        />
+        <Icon name={theme === 'dark' ? 'moon' : 'sun'} size={12} />
       </span>
     </button>
   );

@@ -5,9 +5,7 @@ type SubmitLeadFormResponse = {
   message?: string;
 };
 
-export async function submitLeadForm(
-  payload: LeadFormPayload,
-): Promise<SubmitLeadFormResponse> {
+export async function submitLeadForm(payload: LeadFormPayload): Promise<SubmitLeadFormResponse> {
   const response = await fetch('/api/lead', {
     method: 'POST',
     headers: {

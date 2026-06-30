@@ -1,94 +1,158 @@
 # Modal
 
-Универсальная модалка для страницы, где может быть несколько окон одновременно по логике, но открыто только одно за раз.
+Универсальная модалка с portal-рендером, overlay, внутренним скроллом и блокировкой скролла страницы на планшете и мобиле.
 
-## Что умеет
+## Путь
 
-- Открытие по уникальному имени модалки
-- Закрытие по крестику
-- Закрытие по клику на overlay
-- Закрытие по клавише Escape
-- Blur и затемнение заднего фона
-- Блокировка скролла body при открытии
-- Рендер через portal в document.body
-
-## Важно для SEO
-
-Контент модалки будет лучше читаться роботами, если он:
-
-- рендерится сразу в DOM страницы;
-- не подгружается только после клика через fetch/lazy import;
-- является частью JSX страницы при первом рендере.
-
-Если контент важен для SEO, лучше:
-
-1. либо держать его прямо на странице;
-2. либо рендерить его внутри Modal сразу, а модалкой только скрывать/показывать.
-
-Если контент второстепенный (форма, политика, вспомогательный блок), можно не переживать.
-
-## Где использовать
-
-Сам компонент лежит в:
-`components/ui/modal/`
-
-А содержимое каждой модалки лучше писать там, где оно реально используется:
-
-- в page.tsx
-- в конкретной section
-- в компоненте страницы
-
-То есть Modal — это оболочка, а внутренний контент — локальный.
-
-## Базовое использование
-
-```tsx
-'use client';
-
-import { useState } from 'react';
-import Modal from '@/components/ui/modal/Modal';
-
-export default function ExamplePage() {
-  const [activeModal, setActiveModal] = useState<string | null>(null);
-
-  const openModal = (name: string) => setActiveModal(name);
-  const closeModal = () => setActiveModal(null);
-
-  return (
-    <>
-      <button onClick={() => openModal('service-modal')}>Открыть модалку</button>
-
-      <Modal name="service-modal" activeModal={activeModal} onClose={closeModal}>
-        <div>Здесь любая ручная верстка модалки</div>
-      </Modal>
-    </>
-  );
-}
+```text
+components/ui/modal/
 ```
 
-## Несколько модалок на странице
+## Состав файлов
 
-```tsx
-<>
-  <button onClick={() => openModal('first-modal')}>Первая</button>
-  <button onClick={() => openModal('second-modal')}>Вторая</button>
+- `Modal.tsx` — логика компонента
+- `Modal.module.scss` — стили модалки
+- `README.md` — документация
 
-  <Modal name="first-modal" activeModal={activeModal} onClose={closeModal}>
-    <div>Контент первой модалки</div>
-  </Modal>
+## Props
 
-  <Modal name="second-modal" activeModal={activeModal} onClose={closeModal}>
-    <div>Контент второй модалки</div>
-  </Modal>
-</>
+```ts
+type ModalProps = {
+  name: string;
+  activeModal: string | null;
+  onClose: () => void;
+  children: React.ReactNode;
+  className?: string;
+};
 ```
 
-## Правило именования
+### `name`
 
-Для каждой модалки используй уникальное имя:
+Уникальное имя модалки.
 
-- `service-modal`
-- `review-modal`
-- `policy-modal`
+### `activeModal`
 
-Не используй одинаковые имена на одной странице.
+Текущее активное окно на странице.  
+Модалка открыта, если `activeModal === name`.
+
+### `onClose`
+
+Колбэк закрытия модалки.  
+Вызывается:
+
+- по клику на overlay;
+- по клику на кнопку закрытия;
+- по нажатию `Escape`.
+
+### `children`
+
+Контент модального окна.
+
+### `className`
+
+Дополнительный класс для `modal__dialog`.
+
+## Поведение
+
+- рендер через `createPortal(..., document.body)`;
+- если модалка закрыта, компонент возвращает `null`;
+- закрытие по overlay;
+- закрытие по `Escape`;
+- закрытие по кнопке;
+- на `window.innerWidth <= 1024` блокируется скролл `body`;
+- после закрытия восстанавливается позиция страницы;
+- у модального окна включён внутренний скролл;
+- scrollbar скрыт, скролл остаётся рабочим.
+
+## Открытие
+
+```ts
+const isOpen = activeModal === name;
+```
+
+## Использование
+
+```tsx
+const [activeModal, setActiveModal] = useState<string | null>(null);
+
+const openModal = (name: string) => setActiveModal(name);
+const closeModal = () => setActiveModal(null);
+
+<Modal name="service-modal" activeModal={activeModal} onClose={closeModal}>
+  <div>Контент модалки</div>
+</Modal>;
+```
+
+## Несколько модалок
+
+Допускается несколько экземпляров `Modal` на странице.  
+Одновременно отображается только та модалка, у которой `name === activeModal`.
+
+## Структура разметки
+
+```tsx
+<div className={styles.modal} onClick={onClose}>
+  <div className={styles.modal__viewport}>
+    <div
+      className={`${styles.modal__dialog} ${className}`}
+      role="dialog"
+      aria-modal="true"
+      onClick={(event) => event.stopPropagation()}
+    >
+      <div className="ears">
+        <div className={styles.modal__wrapper}>
+          <div className="container">
+            <div className="col">
+              <div className={`row ${styles.faq__inner}`}>{children}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button ... />
+    </div>
+  </div>
+</div>
+```
+
+## Доступность
+
+На контейнер окна выставлены:
+
+```tsx
+role="dialog"
+aria-modal="true"
+```
+
+## Основные CSS-сущности
+
+- `.modal` — корневой слой
+- `.modal::before` — overlay с blur
+- `.modal__viewport` — контейнер позиционирования
+- `.modal__dialog` — окно модалки
+- `.modal__wrapper` — внутренний фон и отступы
+- `.modal__close` — кнопка закрытия
+
+## Особенности текущей реализации
+
+- scroll lock включается только на планшете и мобиле;
+- для scroll lock используется `body.style.position = 'fixed'` с сохранением `scrollY`;
+- после закрытия выполняется `window.scrollTo(...)`;
+- у `.modal` и `.modal__dialog` используется `overscroll-behavior: contain`;
+- у `.modal__dialog` скрыт scrollbar через:
+  - `scrollbar-width: none;`
+  - `-ms-overflow-style: none;`
+  - `::-webkit-scrollbar { display: none; }`
+
+## Ограничения
+
+- `name` должен быть уникальным в пределах страницы;
+- содержимое модалки не описывается внутри `Modal.tsx`;
+- бизнес-разметка передаётся только через `children`;
+- текущая реализация использует `styles.faq__inner` внутри модалки, это зависимость от конкретного style namespace.
+
+## Рекомендуемое использование
+
+- `Modal.tsx` — только оболочка;
+- контент модалки — в странице / секции / локальном компоненте;
+- стили содержимого — вне `Modal.module.scss`, если они относятся к конкретной модалке.

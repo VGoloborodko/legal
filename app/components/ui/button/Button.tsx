@@ -39,20 +39,7 @@ type NativeButtonProps = CommonProps & {
 type ButtonProps = LinkButtonProps | NativeButtonProps;
 
 export default function Button(props: ButtonProps) {
-  const {
-    children,
-    icon,
-    iconPosition = 'right',
-    size = 'md',
-    shape = 'default',
-    variant = 'brand',
-    fullWidth = false,
-    fullWidthMobile = false,
-    ariaLabel,
-    disabled = false,
-    className = '',
-    onClick,
-  } = props;
+  const { children, icon, iconPosition = 'right', size = 'md', shape = 'default', variant = 'brand', fullWidth = false, fullWidthMobile = false, ariaLabel, disabled = false, className = '', onClick } = props;
 
   const isRound = shape === 'round';
   const isLink = 'href' in props && Boolean(props.href);
@@ -62,9 +49,7 @@ export default function Button(props: ButtonProps) {
   const defaultIconSize = 24;
   const iconSize = icon?.size ?? defaultIconSize;
 
-  const iconProps: BaseSvgIconProps = icon
-    ? (({ name: _iconName, ...rest }) => rest)(icon)
-    : {};
+  const iconProps: BaseSvgIconProps = icon ? (({ name: _iconName, ...rest }) => rest)(icon) : {};
 
   if (import.meta.env.DEV && isRound && children) {
     console.warn('Button: shape="round" should be used without text.');
@@ -82,26 +67,14 @@ export default function Button(props: ButtonProps) {
     console.warn('Button: shape="round" requires ariaLabel for accessibility.');
   }
 
-  const variantClass =
-    variant === 'dark' ? styles['button--dark'] : styles['button--brand'];
+  const variantClass = variant === 'dark' ? styles['button--dark'] : styles['button--brand'];
 
   const fullWidthClass = fullWidth ? styles['button--full'] : '';
   const fullWidthMobileClass = fullWidthMobile ? styles['button--full-mobile'] : '';
   const sizeClass = size === 'lg' ? styles['button--lg'] : styles['button--md'];
   const shapeClass = isRound ? styles['button--round'] : '';
 
-  const buttonClassName = [
-    styles.button,
-    sizeClass,
-    shapeClass,
-    variantClass,
-    fullWidthClass,
-    fullWidthMobileClass,
-    'font-t-m',
-    className,
-  ]
-    .filter(Boolean)
-    .join(' ');
+  const buttonClassName = [styles.button, sizeClass, shapeClass, variantClass, fullWidthClass, fullWidthMobileClass, 'font-t-m', className].filter(Boolean).join(' ');
 
   const content = (
     <>
@@ -111,9 +84,7 @@ export default function Button(props: ButtonProps) {
         </span>
       )}
 
-      {!isRound && children && (
-        <span className={styles.button__text}>{children}</span>
-      )}
+      {!isRound && children && <span className={styles.button__text}>{children}</span>}
 
       {hasIcon && Icon && iconPosition === 'right' && (
         <span className={styles.button__icon} aria-hidden="true">
@@ -145,13 +116,7 @@ export default function Button(props: ButtonProps) {
   const { type = 'button' } = props;
 
   return (
-    <button
-      className={buttonClassName}
-      type={type}
-      disabled={disabled}
-      onClick={onClick}
-      aria-label={isRound ? ariaLabel : undefined}
-    >
+    <button className={buttonClassName} type={type} disabled={disabled} onClick={onClick} aria-label={isRound ? ariaLabel : undefined}>
       {content}
     </button>
   );

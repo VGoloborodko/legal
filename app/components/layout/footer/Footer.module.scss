@@ -1,7 +1,6 @@
 @use '../../../styles/grid/init' as *;
 
 .footer {
-
   &__inner {
     @include bp(md) {
       gap: 48px;

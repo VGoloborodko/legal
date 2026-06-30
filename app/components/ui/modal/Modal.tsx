@@ -67,7 +67,7 @@ export default function Modal({ name, activeModal, onClose, children, className 
             <div className={styles.modal__wrapper}>
               <div className="container">
                 <div className="col">
-                  <div className={`row ${styles.faq__inner}`}>{children}</div>
+                  <div className={`row ${styles.modal__inner}`}>{children}</div>
                 </div>
               </div>
             </div>
