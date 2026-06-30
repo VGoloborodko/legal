@@ -1,8 +1,10 @@
 @use '../../../styles/grid/init' as *;
+
 .modal {
   position: fixed;
   inset: 0;
   z-index: 1000;
+  overscroll-behavior: contain;
 
   &::before {
     content: '';
@@ -20,6 +22,16 @@
     height: 100%;
     display: grid;
     place-items: center;
+    padding: 24px;
+
+    @include bp(md) {
+      padding: 16px;
+      align-items: end;
+    }
+
+    @include bp(sm) {
+      padding: 12px;
+    }
   }
 
   &__dialog {
@@ -28,6 +40,7 @@
     max-height: calc(100dvh - 48px);
     animation: modal-enter 0.24s ease;
     overflow: auto;
+    overscroll-behavior: contain;
     -ms-overflow-style: none;
     scrollbar-width: none;
 
@@ -35,6 +48,14 @@
       display: none;
       width: 0;
       height: 0;
+    }
+
+    @include bp(md) {
+      max-height: calc(100dvh - 32px);
+    }
+
+    @include bp(sm) {
+      max-height: calc(100dvh - 24px);
     }
   }
 
@@ -84,7 +105,6 @@
       position: absolute;
       width: 16px;
       height: 1.5px;
-      // border-radius: var(--radius-xxl);
       background: var(--color-text-secondary);
 
       &:first-child {
