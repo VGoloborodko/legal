@@ -1,0 +1,111 @@
+@use '../../../styles/grid/init' as *;
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(8, 10, 14, 0.46);
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+  }
+
+  &__viewport {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+  }
+
+  &__dialog {
+    position: relative;
+    width: 100%;
+    max-height: calc(100dvh - 48px);
+    animation: modal-enter 0.24s ease;
+    overflow: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+      width: 0;
+      height: 0;
+    }
+  }
+
+  &__wrapper {
+    padding: 64px 0;
+    background: var(--color-bg-surface);
+    border-radius: var(--radius-xxl);
+
+    @include bp(md) {
+      padding: 30px 0;
+    }
+  }
+
+  &__close {
+    position: absolute;
+    top: 32px;
+    right: 50px;
+    z-index: 2;
+    width: 32px;
+    height: 32px;
+    background: unset;
+    border-radius: var(--radius-xxl);
+    border: 1px solid var(--color-stroke-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition:
+      background 0.2s ease,
+      transform 0.2s ease;
+
+    @include bp(md) {
+      top: 22px;
+      right: 32px;
+    }
+
+    @include bp(sm) {
+      top: 12px;
+      right: 12px;
+    }
+
+    &:active {
+      transform: scale(0.96);
+    }
+
+    span {
+      position: absolute;
+      width: 16px;
+      height: 1.5px;
+      // border-radius: var(--radius-xxl);
+      background: var(--color-text-secondary);
+
+      &:first-child {
+        transform: rotate(45deg);
+      }
+
+      &:last-child {
+        transform: rotate(-45deg);
+      }
+    }
+  }
+}
+
+@keyframes modal-enter {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.985);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}

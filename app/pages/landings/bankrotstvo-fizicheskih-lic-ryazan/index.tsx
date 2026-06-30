@@ -1,10 +1,12 @@
+'use client';
 import { useState } from 'react';
 import styles from './page.module.scss';
 import Navbar, { type NavbarLink } from '../../../components/layout/navbar/Navbar';
 import Footer from '../../../components/layout/footer/Footer';
 import Hero from '../../../components/sections/hero/Hero';
 import PromoSection from '../../../components/sections/promoSection/PromoSection';
-// import LeadForm from '../../../components/forms/lead-form/LeadForm';
+import Modal from '../../../components/ui/modal/Modal';
+import LeadForm from '../../../components/forms/lead-form/LeadForm';
 import Button from '../../../components/ui/button/Button';
 import Icon from '../../../components/ui/icon/Icon';
 
@@ -50,6 +52,15 @@ const pageLinks: NavbarLink[] = [
 
 export default function BankrotstvoFizicheskihLicRyazanPage() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const [activeModal, setActiveModal] = useState<string | null>(null);
+
+  const openModal = (name: string) => {
+    setActiveModal(name);
+  };
+
+  const closeModal = () => {
+    setActiveModal(null);
+  };
 
   const handleToggle = (index: number) => {
     setOpenIndex((prev) => (prev === index ? null : index));
@@ -80,10 +91,11 @@ export default function BankrotstvoFizicheskihLicRyazanPage() {
                   name: 'arrowUpRight',
                 }}
                 fullWidthMobile
+                href="#footer"
               >
                 Получить консультацию
               </Button>
-              <Button size="lg" fullWidthMobile variant="dark">
+              <Button size="lg" fullWidthMobile variant="dark" href="#footer">
                 Заказать звонок
               </Button>
             </>
@@ -379,8 +391,8 @@ export default function BankrotstvoFizicheskihLicRyazanPage() {
                           </div>
 
                           <div className="sp-t-purple">
-                            <p className="font-s color--primary f-w-bold">Списали долг 1,2 млн ₽ за 8 месяцев</p>
-                            <p className="font-t-m sp-t-lightblue">Клиент не справлялся с кредитной нагрузкой – помогли пройти процедуру банкротства и полностью списали долги</p>
+                            <p className="font-s color--primary f-w-bold">Списали долг 1,2 млн&nbsp;₽ за&nbsp;8 месяцев</p>
+                            <p className="font-t-m sp-t-lightblue">Клиент не&nbsp;справлялся с&nbsp;кредитной нагрузкой – помогли пройти процедуру банкротства и&nbsp;полностью списали долги</p>
                           </div>
                         </div>
 
@@ -396,6 +408,7 @@ export default function BankrotstvoFizicheskihLicRyazanPage() {
                               icon={{
                                 name: 'arrowUpRight',
                               }}
+                              onClick={() => openModal('modal_cases_1')}
                             />
                           </div>
                         </div>
@@ -621,6 +634,18 @@ export default function BankrotstvoFizicheskihLicRyazanPage() {
         </section>
 
         <Footer />
+
+        <Modal name="modal_cases_1" activeModal={activeModal} onClose={closeModal}>
+          <div className="col-6 col-md-6 col-sm-3">
+            <h2 className="font-h2 color--primary">Списали долг 1,2 млн ₽&nbsp;за&nbsp;8&nbsp;месяцев</h2>
+            <p className="font-t-l color--secondary sp-t-mint">
+              Клиент имел несколько кредитов в&nbsp;разных банках и&nbsp;не&nbsp;справлялся с&nbsp;ежемесячными платежами. Просрочки росли, начислялись штрафы и&nbsp;пени, долговая нагрузка увеличивалась.
+            </p>
+          </div>
+          <div className="col-6 col-md-6 col-sm-3">
+            <LeadForm title='Результат' service="Банкротство физических лиц" formId="lead-form" blockId="modal" submitLabel="Разобрать вашу ситуацию" />
+          </div>
+        </Modal>
       </main>
     </>
   );
@@ -637,12 +662,10 @@ export default function BankrotstvoFizicheskihLicRyazanPage() {
 //     "description": "Имя: Тест\nТелефон: +7 999 123-45-67\nКомментарий: Проверка интеграции"
 //   }'
 
-
 // Получить список колонок
 // curl -X GET "https://yougile.com/api-v2/columns" \
 //   -H "Accept: application/json" \
 //   -H "Authorization: Bearer ТВОЙ_API_KEY"
-
 
 // Создай новый API key
 // curl -X POST "https://yougile.com/api-v2/auth/keys" \

@@ -134,7 +134,7 @@ export default function Navbar({ links }: NavbarProps) {
                     <ThemeToggle />
 
                     <div className="md-d-none">
-                      <Button size="lg" icon={{ name: 'arrowUpRight' }}>
+                      <Button size="lg" icon={{ name: 'arrowUpRight' }} href="#footer">
                         Консультация
                       </Button>
                     </div>

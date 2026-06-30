@@ -4,7 +4,7 @@ import Icon from '../../ui/icon/Icon';
 
 export default function Footer() {
   return (
-    <footer className={`${styles.footer} sp-t-wine sp-b-green`}>
+    <footer id="footer" className={`${styles.footer} sp-t-wine sp-b-green`}>
       <div className="ears">
         <div className={`${styles.footer__wrapper} sp-v-green bg--surface radius--xxl`}>
           <div className="container">
