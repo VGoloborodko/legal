@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import styles from './Navbar.module.scss';
+import Modal from '../../../components/ui/modal/Modal';
+import LeadForm from '../../../components/forms/lead-form/LeadForm';
 import Button from '../../ui/button/Button';
 import ThemeToggle from '../../ui/theme-toggle/ThemeToggle';
 import Icon from '../../ui/icon/Icon';
@@ -17,6 +19,15 @@ type NavbarProps = {
 export default function Navbar({ links }: NavbarProps) {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const headerRef = useRef<HTMLElement | null>(null);
+  const [activeModal, setActiveModal] = useState<string | null>(null);
+
+  const openModal = (name: string) => {
+    setActiveModal(name);
+  };
+
+  const closeModal = () => {
+    setActiveModal(null);
+  };
 
   const openDrawer = () => {
     setIsDrawerOpen(true);
@@ -134,7 +145,7 @@ export default function Navbar({ links }: NavbarProps) {
                     <ThemeToggle />
 
                     <div className="md-d-none">
-                      <Button size="lg" icon={{ name: 'arrowUpRight' }} href="#footer">
+                      <Button size="lg" icon={{ name: 'arrowUpRight' }} onClick={() => openModal('modal_default')}>
                         Консультация
                       </Button>
                     </div>
@@ -234,6 +245,12 @@ export default function Navbar({ links }: NavbarProps) {
           </div>
         </aside>
       </div>
+
+      <Modal name="modal_default" activeModal={activeModal} onClose={closeModal}>
+        <div className="d-flex-center">
+          <LeadForm title="" service="Navbar" formId="lead-form" blockId="modal" submitLabel="Отправить" />
+        </div>
+      </Modal>
     </>
   );
 }

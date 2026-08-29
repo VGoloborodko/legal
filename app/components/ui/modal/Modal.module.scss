@@ -6,6 +6,18 @@
   z-index: 1000;
   overscroll-behavior: contain;
 
+  :global(.row) {
+    row-gap: 32px;
+
+    @include bp(sm) {
+      row-gap: 28px;
+    }
+  }
+
+  &__inner {
+    justify-content: center;
+  }
+
   &::before {
     content: '';
     position: absolute;
@@ -36,7 +48,7 @@
 
   &__dialog {
     position: relative;
-    width: 100%;
+    width: fit-content;
     max-height: calc(100dvh - 48px);
     animation: modal-enter 0.24s ease;
     overflow: auto;

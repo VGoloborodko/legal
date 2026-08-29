@@ -95,7 +95,7 @@ export default function BankrotstvoFizicheskihLicRyazanPage() {
               >
                 Получить консультацию
               </Button>
-              <Button size="lg" fullWidthMobile variant="dark" href="#footer">
+              <Button size="lg" fullWidthMobile variant="dark" onClick={() => openModal('modal_landing_default')}>
                 Заказать звонок
               </Button>
             </>
@@ -637,13 +637,21 @@ export default function BankrotstvoFizicheskihLicRyazanPage() {
 
         <Modal name="modal_cases_1" activeModal={activeModal} onClose={closeModal}>
           <div className="col-6 col-md-6 col-sm-3">
-            <h2 className="font-h2 color--primary">Списали долг 1,2 млн ₽&nbsp;за&nbsp;8&nbsp;месяцев</h2>
+            <h2 className="font-h2 color--primary">Списали долг 1,2&nbsp;млн&nbsp;₽ за&nbsp;8&nbsp;месяцев</h2>
             <p className="font-t-l color--secondary sp-t-mint">
               Клиент имел несколько кредитов в&nbsp;разных банках и&nbsp;не&nbsp;справлялся с&nbsp;ежемесячными платежами. Просрочки росли, начислялись штрафы и&nbsp;пени, долговая нагрузка увеличивалась.
             </p>
           </div>
           <div className="col-6 col-md-6 col-sm-3">
-            <LeadForm title="Результат" service="Банкротство физических лиц" formId="lead-form" blockId="modal" submitLabel="Разобрать вашу ситуацию" />
+            <div className="d-flex-center">
+              <LeadForm title="Результат" service="Банкротство физических лиц" formId="lead-form" blockId="modal" submitLabel="Разобрать вашу ситуацию" />
+            </div>
+          </div>
+        </Modal>
+
+        <Modal name="modal_landing_default" activeModal={activeModal} onClose={closeModal}>
+          <div className="d-flex-center">
+            <LeadForm title="" service="Navbar" formId="lead-form" blockId="modal" submitLabel="Отправить" />
           </div>
         </Modal>
       </main>

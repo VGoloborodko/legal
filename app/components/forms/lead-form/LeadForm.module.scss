@@ -1,6 +1,8 @@
 @use '../../../styles/grid/_init.scss' as *;
 
 .form {
+  width: 100%;
+  max-width: 800px;
   display: flex;
   flex-direction: column;
   gap: 40px;
